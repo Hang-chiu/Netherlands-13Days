@@ -95,7 +95,7 @@ body {
 
 /* ============== ROUTE OVERVIEW ============== */
 .route-overview { background: #FFF; border: 1px solid #DCE5E8; border-radius: 8px; padding: 0; box-shadow: 0 14px 34px rgba(16,45,67,0.12); overflow: hidden; }
-.route-map-layout { position: relative; display: block; padding: 28px; background: #FFF; }
+.route-map-layout { position: relative; display: grid; gap: 18px; padding: 28px; background: #FFF; }
 .route-map-board { position: relative; min-height: 650px; border: 1px solid #DCE5E8; border-radius: 6px; background: linear-gradient(135deg, #EEF6F8 0%, #E8F2EA 48%, #DFEEF3 100%); overflow: hidden; }
 .route-map-board::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(255,255,255,0.52) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.52) 1px, transparent 1px); background-size: 58px 58px; opacity: 0.48; pointer-events: none; }
 .route-map-board::after { content: '行程地圖  Map'; position: absolute; left: 58px; top: 52px; z-index: 3; padding-bottom: 12px; min-width: 170px; border-bottom: 1px solid rgba(16,45,67,0.2); color: var(--winter-blue-deep); font-family: 'Playfair Display', serif; font-size: 1.55rem; letter-spacing: 1px; }
@@ -119,9 +119,9 @@ body {
 .route-map-legend .legend-return { height: 0; border-top: 3px dashed var(--winter-blue); }
 .route-map-legend .legend-circle { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--warm-red); justify-self: center; }
 .route-scroll-hint { display: none; }
-.route-list-panel { position: absolute; left: 70px; top: 150px; z-index: 5; width: min(330px, calc(100% - 140px)); max-height: 470px; overflow: auto; border: 0; border-radius: 6px; background: rgba(255,255,255,0.92); box-shadow: 0 12px 24px rgba(16,45,67,0.14); backdrop-filter: blur(8px); }
+.route-list-panel { position: static; width: 100%; overflow: visible; border: 1px solid #DCE5E8; border-radius: 6px; background: #FFF; box-shadow: 0 8px 18px rgba(16,45,67,0.08); }
 .route-list-panel h3 { background: transparent; color: var(--winter-blue-deep); font-family: 'Playfair Display', serif; font-size: 1.08rem; padding: 16px 18px 8px; letter-spacing: 1px; border-bottom: 1px solid #DDD8CA; }
-.route-days-list { list-style: none; padding: 6px 18px 14px; }
+.route-days-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0 18px; padding: 6px 18px 14px; }
 .route-days-list li { display: grid; grid-template-columns: 42px 1fr; gap: 10px; align-items: start; padding: 7px 0; border-bottom: 1px solid rgba(16,45,67,0.12); font-size: 0.82rem; line-height: 1.32; }
 .route-days-list li:last-child { border-bottom: none; }
 .route-days-list .d { color: var(--warm-red-deep); font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.02rem; }
