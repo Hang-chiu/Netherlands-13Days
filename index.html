@@ -104,6 +104,8 @@ body {
 .route-label.zh { font-size: 13px; fill: var(--warm-red-deep); }
 .route-label.small { font-size: 11px; font-weight: 600; fill: var(--ink-soft); }
 .route-region { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; fill: rgba(53,106,92,0.28); letter-spacing: 10px; }
+.country-border { fill: none; stroke: #6F9B83; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 8 8; opacity: 0.72; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.85)); }
+.country-border-label { font-family: 'Lora', serif; font-size: 10px; font-weight: 700; fill: rgba(47,74,56,0.74); letter-spacing: 1px; }
 .route-line-main { fill: none; stroke: var(--warm-red); stroke-width: 5.5; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.9)); }
 .route-line-branch { fill: none; stroke: var(--warm-red); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 5 8; opacity: 0.9; }
 .route-line-return { fill: none; stroke: var(--winter-blue); stroke-width: 4.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 11 10; opacity: 0.95; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.9)); }
@@ -117,6 +119,7 @@ body {
 .route-map-legend .legend-line { height: 4px; background: var(--warm-red); border-radius: 3px; }
 .route-map-legend .legend-dotline { height: 0; border-top: 4px dotted var(--warm-red); }
 .route-map-legend .legend-return { height: 0; border-top: 3px dashed var(--winter-blue); }
+.route-map-legend .legend-border { height: 0; border-top: 2px dashed #6F9B83; }
 .route-map-legend .legend-circle { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--warm-red); justify-self: center; }
 .route-scroll-hint { display: none; }
 .route-list-panel { position: static; width: 100%; overflow: visible; border: 1px solid #DCE5E8; border-radius: 6px; background: #FFF; box-shadow: 0 8px 18px rgba(16,45,67,0.08); }
@@ -581,6 +584,7 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
           <div class="route-map-legend">
             <div class="legend-row"><span class="legend-line"></span><span>依 Day 順序</span></div>
             <div class="legend-row"><span class="legend-return"></span><span>回程 / 再訪弧線</span></div>
+            <div class="legend-row"><span class="legend-border"></span><span>荷比示意國界</span></div>
             <div class="legend-row"><span class="legend-circle"></span><span>每日主要城市</span></div>
             <div class="legend-row"><span>🏨</span><span>住宿基地</span></div>
             <div class="legend-row"><span>🚉</span><span>轉車 / 短停</span></div>
@@ -598,6 +602,8 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
             <rect x="0" y="0" width="900" height="640" fill="transparent"></rect>
             <path d="M0,0 L188,0 C165,78 182,130 148,205 C112,286 119,356 88,428 C61,490 47,565 13,640 L0,640 Z" fill="#B9DDE6" opacity="0.85"></path>
             <path d="M182,30 C285,2 406,26 520,17 C654,8 766,38 868,83 C827,169 842,245 791,318 C744,384 762,470 705,546 C634,633 514,615 406,631 C286,649 191,616 112,545 C68,506 83,419 118,356 C151,293 137,229 169,172 C198,121 151,76 182,30 Z" fill="#E7F2E8" stroke="#9EBFB4" stroke-width="2" opacity="0.95"></path>
+            <path d="M105 492 C178 455, 265 472, 344 492 C420 512, 494 500, 566 468 C648 431, 732 446, 810 472" class="country-border"></path>
+            <text x="118" y="508" class="country-border-label">荷蘭 / 比利時</text>
             <path d="M220 112 C240 168, 284 194, 336 214 C354 188, 374 166, 392 148 C430 190, 472 268, 506 334 C592 298, 640 260, 682 232 C658 284, 620 338, 590 376 C490 392, 354 420, 260 456 C270 520, 308 554, 354 572 C390 590, 432 596, 470 590 C585 628, 705 600, 646 536" class="route-line-main" marker-end="url(#routeArrow)"></path>
             <path d="M646 536 C820 390, 805 175, 650 155 C570 150, 520 185, 480 224 C395 130, 305 72, 250 54" class="route-line-return" marker-end="url(#returnArrow)"></path>
 
