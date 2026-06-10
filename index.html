@@ -173,6 +173,9 @@ body {
 .day-title { text-align: right; }
 .day-title .city { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
 .day-title .theme { font-family: 'Caveat', cursive; font-size: 1.2rem; opacity: 0.85; margin-top: 2px; }
+.day-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; padding: 14px 32px; background: linear-gradient(180deg, #F8FBFC 0%, #FFFDF5 100%); border-bottom: 1px solid var(--paper-dark); }
+.day-pill { display: flex; align-items: center; gap: 7px; min-height: 38px; padding: 8px 10px; border: 1px solid rgba(31,91,118,0.16); border-radius: 999px; background: #FFF; color: var(--ink-soft); font-size: 0.84rem; line-height: 1.35; }
+.day-pill b { color: var(--winter-blue-deep); font-weight: 800; white-space: nowrap; }
 .day-body { padding: 28px 32px; }
 .day-winter-tag { background: var(--frost); color: var(--winter-blue-deep); padding: 8px 14px; font-family: 'Caveat', cursive; font-size: 1.05rem; font-weight: 700; display: inline-block; margin-bottom: 20px; border-radius: 2px; letter-spacing: 1px; }
 .day-winter-tag::before { content: '🍂 '; }
@@ -256,6 +259,8 @@ body {
 .hotel-card .nights { position: absolute; top: -12px; left: 20px; background: var(--warm-red-deep); color: #FFF; padding: 4px 14px; font-family: 'Lora', 'Noto Serif TC', serif; font-weight: 700; font-size: 0.78rem; border-radius: 999px; }
 .hotel-card h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--winter-blue-deep); margin: 12px 0 6px; }
 .hotel-card .area { font-family: 'Caveat', cursive; color: var(--warm-red-deep); font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 1px; }
+.hotel-decision-bar { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.hotel-decision { display: inline-flex; align-items: center; min-height: 26px; padding: 4px 9px; border: 1px solid rgba(122,78,145,0.22); border-radius: 999px; background: #F6F0F8; color: var(--plum); font-size: 0.74rem; font-weight: 800; line-height: 1.25; }
 .hotel-card .features { list-style: none; font-size: 0.92rem; color: var(--ink-soft); }
 .hotel-card .features li { padding: 4px 0; padding-left: 18px; position: relative; }
 .hotel-card .features li::before { content: '✦'; position: absolute; left: 0; color: var(--warm-red); font-size: 0.85rem; }
@@ -266,6 +271,7 @@ body {
 .hotel-option { display: block; padding: 10px 12px; border: 1px solid rgba(31,91,118,0.18); border-radius: 6px; background: #F8FBFC; color: var(--ink-soft); text-decoration: none; line-height: 1.5; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
 .hotel-option strong { display: block; color: var(--winter-blue-deep); font-size: 0.92rem; margin-bottom: 2px; }
 .hotel-option span { display: block; font-size: 0.82rem; }
+.hotel-option::after { content: 'Booking.com 查房價 ↗'; display: inline-flex; margin-top: 7px; color: var(--warm-red-deep); font-size: 0.74rem; font-weight: 800; letter-spacing: 0; }
 .hotel-option:hover { background: #FFFDF5; border-color: var(--warm-red); transform: translateY(-1px); }
 .room-note { font-size: 0.86rem; color: var(--ink-soft); margin-top: 12px; line-height: 1.55; }
 
@@ -337,6 +343,8 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   box-shadow: 4px 4px 0 rgba(15, 26, 32, 0.13);
   backdrop-filter: blur(8px);
 }
+.day-jump-toggle { display: none; }
+.day-jump-menu { display: flex; flex-direction: column; gap: 5px; }
 .day-jump-link {
   width: 46px;
   height: 34px;
@@ -402,34 +410,78 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 }
 
 @media (max-width: 1219px) {
-  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
   .day-jump-nav {
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
     top: auto;
     transform: none;
-    flex-direction: row;
-    gap: 8px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 9px max(12px, env(safe-area-inset-left)) calc(9px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-right));
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
+    display: block;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
   }
+  .day-jump-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 420px);
+    min-height: 52px;
+    margin: 0 auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(16,45,67,0.2);
+    border-radius: 999px;
+    background: rgba(255,253,245,0.96);
+    color: var(--winter-blue-deep);
+    box-shadow: 0 10px 26px rgba(16,45,67,0.18);
+    font-family: 'Lora', 'Noto Serif TC', serif;
+    cursor: pointer;
+  }
+  .day-jump-toggle::after {
+    content: '⌄';
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--frost);
+    color: var(--winter-blue-deep);
+    font-weight: 900;
+    transition: transform 0.2s;
+  }
+  .day-jump-nav.open .day-jump-toggle::after { transform: rotate(180deg); }
+  .day-jump-current { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 34px; border-radius: 999px; background: var(--warm-red-deep); color: #FFF8EA; font-family: 'Playfair Display', serif; font-weight: 900; }
+  .day-jump-label { flex: 1; padding: 0 10px; text-align: left; font-size: 0.9rem; font-weight: 800; }
+  .day-jump-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 62px;
+    display: none;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+    max-width: 420px;
+    max-height: min(58vh, 430px);
+    margin: 0 auto;
+    overflow-y: auto;
+    padding: 12px;
+    border: 1px solid rgba(16,45,67,0.18);
+    border-radius: 14px;
+    background: rgba(255,253,245,0.98);
+    box-shadow: 0 14px 36px rgba(16,45,67,0.22);
+  }
+  .day-jump-nav.open .day-jump-menu { display: grid; }
   .day-jump-link {
-    flex: 0 0 auto;
-    width: 46px;
-    height: 40px;
+    width: 100%;
+    height: 42px;
     font-size: 0.9rem;
-    scroll-snap-align: center;
   }
   .day-jump-section {
-    width: 56px;
+    width: 100%;
     font-size: 0.82rem;
   }
   .day-jump-link:hover,
@@ -482,6 +534,8 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   .packing-grid { grid-template-columns: 1fr; }
   .day-card { margin-bottom: 28px; box-shadow: 4px 4px 0 var(--shadow); }
   .day-header { padding: 20px 18px; }
+  .day-summary { grid-template-columns: 1fr; padding: 12px 16px; gap: 7px; }
+  .day-pill { border-radius: 8px; font-size: 0.83rem; align-items: flex-start; }
   .day-num { font-size: 2.45rem; }
   .day-title .city { font-size: 1.28rem; line-height: 1.35; }
   .day-title .theme { font-size: 1.02rem; line-height: 1.35; }
@@ -520,21 +574,27 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 </div>
 
 <nav class="day-jump-nav" aria-label="每日行程快速導覽">
-  <a class="day-jump-link day-jump-section" href="#toc" aria-label="旅程目錄快速跳轉">目錄</a>
-  <a class="day-jump-link" href="#day-1" data-day-jump="1" aria-label="Day 1 抵達哈倫">D1</a>
-  <a class="day-jump-link" href="#day-2" data-day-jump="2" aria-label="Day 2 阿姆斯特丹國家博物館">D2</a>
-  <a class="day-jump-link" href="#day-3" data-day-jump="3" aria-label="Day 3 梵谷博物館">D3</a>
-  <a class="day-jump-link" href="#day-4" data-day-jump="4" aria-label="Day 4 烏特勒支">D4</a>
-  <a class="day-jump-link" href="#day-5" data-day-jump="5" aria-label="Day 5 羊角村與茲沃勒">D5</a>
-  <a class="day-jump-link" href="#day-6" data-day-jump="6" aria-label="Day 6 庫勒穆勒美術館">D6</a>
-  <a class="day-jump-link" href="#day-7" data-day-jump="7" aria-label="Day 7 台夫特與鹿特丹">D7</a>
-  <a class="day-jump-link" href="#day-8" data-day-jump="8" aria-label="Day 8 安特衛普與布魯日">D8</a>
-  <a class="day-jump-link" href="#day-9" data-day-jump="9" aria-label="Day 9 布魯日與根特">D9</a>
-  <a class="day-jump-link" href="#day-10" data-day-jump="10" aria-label="Day 10 回荷蘭最後基地">D10</a>
-  <a class="day-jump-link" href="#day-11" data-day-jump="11" aria-label="Day 11 贊斯堡或採買">D11</a>
-  <a class="day-jump-link" href="#day-12" data-day-jump="12" aria-label="Day 12 阿姆斯特丹隨意漫遊">D12</a>
-  <a class="day-jump-link" href="#day-13" data-day-jump="13" aria-label="Day 13 史基浦回程">D13</a>
-  <a class="day-jump-link day-jump-section" href="#hotels" aria-label="住宿安排快速跳轉">住宿</a>
+  <button class="day-jump-toggle" type="button" aria-expanded="false" aria-controls="day-jump-menu">
+    <span class="day-jump-current">D1</span>
+    <span class="day-jump-label">快速跳轉</span>
+  </button>
+  <div class="day-jump-menu" id="day-jump-menu">
+    <a class="day-jump-link day-jump-section" href="#toc" aria-label="旅程目錄快速跳轉">目錄</a>
+    <a class="day-jump-link" href="#day-1" data-day-jump="1" aria-label="Day 1 抵達哈倫">D1</a>
+    <a class="day-jump-link" href="#day-2" data-day-jump="2" aria-label="Day 2 阿姆斯特丹國家博物館">D2</a>
+    <a class="day-jump-link" href="#day-3" data-day-jump="3" aria-label="Day 3 梵谷博物館">D3</a>
+    <a class="day-jump-link" href="#day-4" data-day-jump="4" aria-label="Day 4 烏特勒支">D4</a>
+    <a class="day-jump-link" href="#day-5" data-day-jump="5" aria-label="Day 5 羊角村與茲沃勒">D5</a>
+    <a class="day-jump-link" href="#day-6" data-day-jump="6" aria-label="Day 6 庫勒穆勒美術館">D6</a>
+    <a class="day-jump-link" href="#day-7" data-day-jump="7" aria-label="Day 7 台夫特與鹿特丹">D7</a>
+    <a class="day-jump-link" href="#day-8" data-day-jump="8" aria-label="Day 8 安特衛普與布魯日">D8</a>
+    <a class="day-jump-link" href="#day-9" data-day-jump="9" aria-label="Day 9 布魯日與根特">D9</a>
+    <a class="day-jump-link" href="#day-10" data-day-jump="10" aria-label="Day 10 回荷蘭最後基地">D10</a>
+    <a class="day-jump-link" href="#day-11" data-day-jump="11" aria-label="Day 11 贊斯堡或採買">D11</a>
+    <a class="day-jump-link" href="#day-12" data-day-jump="12" aria-label="Day 12 阿姆斯特丹隨意漫遊">D12</a>
+    <a class="day-jump-link" href="#day-13" data-day-jump="13" aria-label="Day 13 史基浦回程">D13</a>
+    <a class="day-jump-link day-jump-section" href="#hotels" aria-label="住宿安排快速跳轉">住宿</a>
+  </div>
 </nav>
 
 <!-- ============ COVER ============ -->
@@ -800,6 +860,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
     </div>
 <article class="day-card" data-day="1" id="day-1">
   <div class="day-header"><div class="day-num"><small>DAY ONE</small>01</div><div class="day-title"><div class="city">10/25（日） · 抵達阿姆斯特丹 · 火車到哈倫</div><div class="theme">~ 史基浦（Schiphol） arrival · rail to 哈倫（Haarlem） ~</div></div></div>
+  <div class="day-summary" aria-label="Day 1 快速摘要">
+    <span class="day-pill"><b>住宿</b>哈倫 / 阿姆斯特丹基地</span>
+    <span class="day-pill"><b>行李</b>抵達寄放，晚餐後 Check-in</span>
+    <span class="day-pill"><b>交通</b>史基浦 → 哈倫火車</span>
+    <span class="day-pill"><b>壓力點</b>長途飛行後早點收尾</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">從機場搭火車到哈倫，先把行李寄放在哈倫車站，五個人就能輕裝開始第一天行程。</div>
     <div class="schedule">
@@ -830,6 +896,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="2" id="day-2">
   <div class="day-header"><div class="day-num"><small>DAY TWO</small>02</div><div class="day-title"><div class="city">10/26（一） · 阿姆斯特丹 · 國家博物館半日</div><div class="theme">~ 荷蘭國家博物館（Rijksmuseum） slow museum day ~</div></div></div>
+  <div class="day-summary" aria-label="Day 2 快速摘要">
+    <span class="day-pill"><b>住宿</b>續住原基地</span>
+    <span class="day-pill"><b>行李</b>不搬行李，輕裝進城</span>
+    <span class="day-pill"><b>交通</b>基地 ↔ 博物館廣場</span>
+    <span class="day-pill"><b>重點</b>國家博物館半日慢看</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">保留哈倫續住是為了少搬一次五人行李，用約 15–20 分鐘火車短來回換取更穩的節奏。</div>
     <div class="schedule">
@@ -857,6 +929,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="3" id="day-3">
   <div class="day-header"><div class="day-num"><small>DAY THREE</small>03</div><div class="day-title"><div class="city">10/27（二） · 梵谷博物館半日 · 阿姆斯特丹輕行程</div><div class="theme">~ 梵谷博物館（Van Gogh Museum） slow visit · no luggage move ~</div></div></div>
+  <div class="day-summary" aria-label="Day 3 快速摘要">
+    <span class="day-pill"><b>住宿</b>續住原基地</span>
+    <span class="day-pill"><b>行李</b>不搬行李</span>
+    <span class="day-pill"><b>交通</b>基地 ↔ 阿姆斯特丹</span>
+    <span class="day-pill"><b>重點</b>梵谷博物館半日</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">把阿姆斯特丹博物館廣場雙館拆成相鄰兩天：Day 2 荷蘭國家博物館，Day 3 梵谷博物館。今天續住哈倫 / 阿姆斯特丹基地，不退房、不寄放大行李，讓五人用輕裝把博物館區玩完整。</div>
     <div class="schedule">
@@ -885,6 +963,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="4" id="day-4">
   <div class="day-header"><div class="day-num"><small>DAY FOUR</small>04</div><div class="day-title"><div class="city">10/28（三） · 搬遷 1：烏特勒支基地 · 老城慢遊</div><div class="theme">~ luggage move to 烏特勒支（Utrecht） · canal city base ~</div></div></div>
+  <div class="day-summary" aria-label="Day 4 快速摘要">
+    <span class="day-pill"><b>住宿</b>烏特勒支基地</span>
+    <span class="day-pill"><b>行李</b>正式搬遷 1</span>
+    <span class="day-pill"><b>交通</b>原基地 → 烏特勒支</span>
+    <span class="day-pill"><b>策略</b>先 Check-in 再慢遊</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">正式搬遷第 1 次。今天不排遠郊景點，重點是從哈倫 / 阿姆斯特丹順順移到烏特勒支（Utrecht），先把住宿與行李安頓好，再用半天感受運河老城。之後 Day 5–7 都以烏特勒支作荷蘭中段基地。</div>
     <div class="schedule">
@@ -914,6 +998,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="5" id="day-5">
   <div class="day-header"><div class="day-num"><small>DAY FIVE</small>05</div><div class="day-title"><div class="city">10/29（四） · 羊角村 · 茲沃勒輕停 · 回烏特勒支</div><div class="theme">~ 羊角村（Giethoorn） + 茲沃勒（Zwolle） easy stop · luggage stays in 烏特勒支（Utrecht） ~</div></div></div>
+  <div class="day-summary" aria-label="Day 5 快速摘要">
+    <span class="day-pill"><b>住宿</b>烏特勒支基地</span>
+    <span class="day-pill"><b>行李</b>留住宿，不拖去羊角村</span>
+    <span class="day-pill"><b>交通</b>烏特勒支 ↔ 羊角村 / 茲沃勒</span>
+    <span class="day-pill"><b>壓力點</b>全程交通最重的一天</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">今天從烏特勒支（Utrecht）輕裝往返羊角村（Giethoorn），下午順路到茲沃勒（Zwolle）老城短停，行李全部留在住宿。這是全程最高交通成本日；但不多換一晚住宿，對五人旅行的行李疲勞更可控。</div>
     <div class="schedule">
@@ -945,6 +1035,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="6" id="day-6">
   <div class="day-header"><div class="day-num"><small>DAY SIX</small>06</div><div class="day-title"><div class="city">10/30（五） · 庫勒穆勒美術館 · 高費呂沃</div><div class="theme">~ 庫勒穆勒美術館（Kröller-Müller Museum） half day · return to 烏特勒支（Utrecht） ~</div></div></div>
+  <div class="day-summary" aria-label="Day 6 快速摘要">
+    <span class="day-pill"><b>住宿</b>烏特勒支基地</span>
+    <span class="day-pill"><b>行李</b>不搬行李</span>
+    <span class="day-pill"><b>交通</b>火車 + 公車 / 短程計程車</span>
+    <span class="day-pill"><b>重點</b>庫勒穆勒美術館半日</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">庫勒穆勒美術館至少半天，今天同樣不搬住宿。從烏特勒支（Utrecht）出發，視班次搭火車到埃德-瓦赫寧恩（Ede-Wageningen）或阿珀爾多倫（Apeldoorn）再轉公車/短程計程車進高費呂沃（Hoge Veluwe）。</div>
     <div class="schedule">
@@ -973,6 +1069,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="7" id="day-7">
   <div class="day-header"><div class="day-num"><small>DAY SEVEN</small>07</div><div class="day-title"><div class="city">10/31（六） · 台夫特 · 鹿特丹 · 小孩堤防</div><div class="theme">~ 台夫特（Delft） morning + 鹿特丹（Rotterdam） afternoon · return to 烏特勒支（Utrecht） ~</div></div></div>
+  <div class="day-summary" aria-label="Day 7 快速摘要">
+    <span class="day-pill"><b>住宿</b>烏特勒支基地</span>
+    <span class="day-pill"><b>行李</b>不搬行李</span>
+    <span class="day-pill"><b>交通</b>烏特勒支 → 台夫特 → 鹿特丹</span>
+    <span class="day-pill"><b>彈性</b>小孩堤防看天色加碼</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">今天從烏特勒支（Utrecht）日遊西南荷蘭，行李留住宿。依你的想法改成上午先去台夫特（Delft），下午再到鹿特丹（Rotterdam）；小孩堤防（Kinderdijk）放在午後鹿特丹軸線上，視船班、天色與體力決定是否完整執行。</div>
     <div class="schedule">
@@ -1005,6 +1107,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="8" id="day-8">
   <div class="day-header"><div class="day-num"><small>DAY EIGHT</small>08</div><div class="day-title"><div class="city">11/1（日） · 搬遷 2：安特衛普短停 · 布魯日入住</div><div class="theme">~ 烏特勒支（Utrecht） to 安特衛普（Antwerp） to 布魯日（Bruges） ~</div></div></div>
+  <div class="day-summary" aria-label="Day 8 快速摘要">
+    <span class="day-pill"><b>住宿</b>布魯日基地</span>
+    <span class="day-pill"><b>行李</b>正式搬遷 2</span>
+    <span class="day-pill"><b>交通</b>烏特勒支 → 安特衛普 → 布魯日</span>
+    <span class="day-pill"><b>策略</b>安特衛普短停，不過夜</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">正式搬遷第 2 次，也是進入比利時的日子。為了把搬遷壓在三次內，今天不住安特衛普（Antwerp），改成安特衛普短停後直接到布魯日（Bruges）住兩晚。</div>
     <div class="schedule">
@@ -1034,6 +1142,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="9" id="day-9">
   <div class="day-header"><div class="day-num"><small>DAY NINE</small>09</div><div class="day-title"><div class="city">11/2（一） · 布魯日上午 · 根特下午</div><div class="theme">~ 布魯日（Bruges） morning · 根特（Ghent） afternoon · second night in Bruges ~</div></div></div>
+  <div class="day-summary" aria-label="Day 9 快速摘要">
+    <span class="day-pill"><b>住宿</b>續住布魯日</span>
+    <span class="day-pill"><b>行李</b>留住宿，不拖去根特</span>
+    <span class="day-pill"><b>交通</b>布魯日 ↔ 根特</span>
+    <span class="day-pill"><b>重點</b>早上先享受布魯日</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">今天布魯日（Bruges）續住，不搬行李。既然已經住在布魯日，早上先用清晨人少的老城、玫瑰碼頭與聖母教堂本體；中午吃完再去根特（Ghent）看精華，這樣比較順也比較像有享受到布魯日住宿的價值。</div>
     <div class="schedule">
@@ -1065,6 +1179,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="10" id="day-10">
   <div class="day-header"><div class="day-num"><small>DAY TEN</small>10</div><div class="day-title"><div class="city">11/3（二） · 布魯日退房 · 直接回荷蘭最後基地</div><div class="theme">~ 布魯日（Bruges） to final base · 布魯塞爾南站（Brussels Midi） transfer only ~</div></div></div>
+  <div class="day-summary" aria-label="Day 10 快速摘要">
+    <span class="day-pill"><b>住宿</b>最後基地</span>
+    <span class="day-pill"><b>行李</b>正式搬遷 3</span>
+    <span class="day-pill"><b>交通</b>布魯日 → 布魯塞爾南站 → 荷蘭</span>
+    <span class="day-pill"><b>策略</b>不進布魯塞爾市區</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">正式搬遷第 3 次，也是最後一次換住宿。這天主方案改成不進布魯塞爾市區：從布魯日（Bruges）退房後，到布魯塞爾南站（Brussels Midi）只做轉車，下午抵達最後住宿基地 Check-in、休息、洗衣與整理行李。路線稽核後建議優先考慮史基浦（Schiphol）或阿姆斯特丹斯洛特戴克（Amsterdam Sloterdijk），萊頓（Leiden）只保留為住宿備選。</div>
     <div class="schedule">
@@ -1094,6 +1214,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="11" id="day-11">
   <div class="day-header"><div class="day-num"><small>DAY ELEVEN</small>11</div><div class="day-title"><div class="city">11/4（三） · 贊斯堡風車村備案 · 阿姆斯特丹採買</div><div class="theme">~ 贊斯堡風車村（Zaanse Schans） flexible morning · 阿姆斯特丹（Amsterdam） shopping ~</div></div></div>
+  <div class="day-summary" aria-label="Day 11 快速摘要">
+    <span class="day-pill"><b>住宿</b>續住最後基地</span>
+    <span class="day-pill"><b>行李</b>不搬行李</span>
+    <span class="day-pill"><b>交通</b>贊斯堡或阿姆斯特丹市區</span>
+    <span class="day-pill"><b>彈性</b>天氣差就採買咖啡</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">萊頓（Leiden）正式日遊取消，避免尾聲又多跑一個城市。把原 Day 12 的贊斯堡風車村（Zaanse Schans）/ 採買日提前到今天：天氣好就補風車村，天氣差或大家想輕鬆就直接進阿姆斯特丹（Amsterdam）採買與咖啡。</div>
     <div class="schedule">
@@ -1121,6 +1247,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="12" id="day-12">
   <div class="day-header"><div class="day-num"><small>DAY TWELVE</small>12</div><div class="day-title"><div class="city">11/5（四） · 阿姆斯特丹隨意漫遊 · 收行李</div><div class="theme">~ 阿姆斯特丹（Amsterdam） free roam · slow final day ~</div></div></div>
+  <div class="day-summary" aria-label="Day 12 快速摘要">
+    <span class="day-pill"><b>住宿</b>續住最後基地</span>
+    <span class="day-pill"><b>行李</b>晚上整理托運與退稅</span>
+    <span class="day-pill"><b>交通</b>阿姆斯特丹自由移動</span>
+    <span class="day-pill"><b>節奏</b>不排大館或長距離支線</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">最後完整日不安排新的大館或長距離支線。今天只留阿姆斯特丹（Amsterdam）隨意漫遊、咖啡、補買與收行李；想去哪個街區就看當天心情決定。</div>
     <div class="schedule">
@@ -1149,6 +1281,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
 
 <article class="day-card" data-day="13" id="day-13">
   <div class="day-header"><div class="day-num"><small>DAY THIRTEEN</small>13</div><div class="day-title"><div class="city">11/6（五） · 機場移動 · 回程</div><div class="theme">~ Train or taxi to 史基浦（Schiphol） · Tot ziens ~</div></div></div>
+  <div class="day-summary" aria-label="Day 13 快速摘要">
+    <span class="day-pill"><b>住宿</b>退房回程</span>
+    <span class="day-pill"><b>行李</b>確認重量與退稅文件</span>
+    <span class="day-pill"><b>交通</b>最後基地 → 史基浦機場</span>
+    <span class="day-pill"><b>壓力點</b>預留退稅與安檢時間</span>
+  </div>
   <div class="day-body">
     <div class="day-winter-tag">最後一天維持單純交通，從住宿搭火車或五人分攤計程車到史基浦。若最後三晚住史基浦（Schiphol）或阿姆斯特丹斯洛特戴克（Amsterdam Sloterdijk），這天壓力最低。</div>
     <div class="schedule">
@@ -1189,6 +1327,11 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <span class="nights">第 1-3 晚</span>
         <h4>哈倫 / 阿姆斯特丹基地（Haarlem / Amsterdam Base）</h4>
         <p class="area">📍 優先哈倫車站（Haarlem Station）周邊 Airbnb 或飯店；若想減少進出火車，也可改阿姆斯特丹西側 / 中央車站周邊</p>
+        <div class="hotel-decision-bar">
+          <span class="hotel-decision">主推：哈倫車站旁</span>
+          <span class="hotel-decision">省力：少搬一次行李</span>
+          <span class="hotel-decision">備案：阿姆斯特丹中央站</span>
+        </div>
         <ul class="features">
           <li>連住 3 晚，Day 2–3 輕裝進阿姆斯特丹博物館區</li>
           <li>Day 3 不再搬去茲沃勒，晚上回同一住宿</li>
@@ -1217,6 +1360,11 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <span class="nights">第 4-7 晚</span>
         <h4>烏特勒支基地（Utrecht Base）</h4>
         <p class="area">📍 烏特勒支中央車站（Utrecht Centraal）步行、電車或短程計程車可到的位置</p>
+        <div class="hotel-decision-bar">
+          <span class="hotel-decision">全程關鍵基地</span>
+          <span class="hotel-decision">主推：中央車站周邊</span>
+          <span class="hotel-decision">五人連住 4 晚</span>
+        </div>
         <ul class="features">
           <li>連住 4 晚，作為羊角村、高費呂沃、鹿特丹 / 小孩堤防日遊基地</li>
           <li>Day 4 抵達後先寄放行李 / Check-in，再開始老城慢遊</li>
@@ -1241,6 +1389,11 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <span class="nights">第 8-9 晚</span>
         <h4>布魯日基地（Bruges Base）</h4>
         <p class="area">📍 布魯日車站（Bruges Station）/ 老城邊緣，避免拖行李走太多石板路</p>
+        <div class="hotel-decision-bar">
+          <span class="hotel-decision">主推：車站旁</span>
+          <span class="hotel-decision">老城邊緣最省力</span>
+          <span class="hotel-decision">連住 2 晚</span>
+        </div>
         <ul class="features">
           <li>Day 8 安特衛普短停後直接入住布魯日</li>
           <li>Day 9 上午先玩布魯日，下午根特半日；大件行李留布魯日住宿</li>
@@ -1262,6 +1415,11 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <span class="nights">布魯塞爾備案</span>
         <h4>布魯塞爾一晚備選（Brussels Optional Stay）</h4>
         <p class="area">📍 僅在 Day 10 改成布魯塞爾市區住宿時啟用；主方案仍是轉車回荷蘭最後基地</p>
+        <div class="hotel-decision-bar">
+          <span class="hotel-decision">備案才啟用</span>
+          <span class="hotel-decision">會增加搬遷疲勞</span>
+          <span class="hotel-decision">市中心質感款</span>
+        </div>
         <ul class="features">
           <li>適合 Day 10 不想立刻回荷蘭、想慢慢看布魯塞爾大廣場與拱廊時使用</li>
           <li>五人要優先確認 2–3 房、可寄放行李、電梯與隔天回荷蘭火車時間</li>
@@ -1280,6 +1438,11 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <span class="nights">第 10-12 晚</span>
         <h4>史基浦（Schiphol） / 阿姆斯特丹斯洛特戴克（Amsterdam Sloterdijk）基地（Final West Base）</h4>
         <p class="area">📍 優先史基浦機場外圍（Schiphol）或阿姆斯特丹斯洛特戴克（Amsterdam Sloterdijk）；若想住得更安靜，萊頓中央車站（Leiden Centraal）周邊只作備選</p>
+        <div class="hotel-decision-bar">
+          <span class="hotel-decision">回程最省力</span>
+          <span class="hotel-decision">主推：機場軸線</span>
+          <span class="hotel-decision">最後整理行李</span>
+        </div>
         <ul class="features">
           <li>Day 10 從布魯日經布魯塞爾南站轉車回荷蘭後 Check-in</li>
           <li>Day 11 可輕裝去贊斯堡風車村（Zaanse Schans）或阿姆斯特丹採買</li>
@@ -2473,14 +2636,27 @@ window.addEventListener('scroll', initVisibleMaps, { passive: true });
 window.addEventListener('load', () => setTimeout(initAllMaps, 250));
 setTimeout(initAllMaps, 250);
 
+const dayJumpNav = document.querySelector('.day-jump-nav');
+const dayJumpToggle = document.querySelector('.day-jump-toggle');
+const dayJumpCurrent = document.querySelector('.day-jump-current');
+const dayJumpLinksAll = document.querySelectorAll('.day-jump-link');
 const dayJumpLinks = document.querySelectorAll('.day-jump-link[data-day-jump]');
+const closeDayJumpNav = () => {
+  if (!dayJumpNav || !dayJumpToggle) return;
+  dayJumpNav.classList.remove('open');
+  dayJumpToggle.setAttribute('aria-expanded', 'false');
+};
+if (dayJumpToggle && dayJumpNav) {
+  dayJumpToggle.addEventListener('click', () => {
+    const isOpen = dayJumpNav.classList.toggle('open');
+    dayJumpToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+}
 const setActiveDayJump = (day) => {
   dayJumpLinks.forEach(link => {
     const active = link.dataset.dayJump === String(day);
     link.classList.toggle('active', active);
-    if (active && window.matchMedia('(max-width: 1219px)').matches) {
-      link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+    if (active && dayJumpCurrent) dayJumpCurrent.textContent = 'D' + day;
   });
 };
 
@@ -2495,8 +2671,23 @@ dayJumpLinks.forEach(link => {
       window.history.replaceState(null, '', '#day-' + day);
     }
     setActiveDayJump(day);
+    closeDayJumpNav();
     setTimeout(() => initMap(parseInt(day, 10)), 300);
   });
+});
+
+dayJumpLinksAll.forEach(link => {
+  if (link.dataset.dayJump) return;
+  link.addEventListener('click', closeDayJumpNav);
+});
+
+document.addEventListener('click', (event) => {
+  if (!dayJumpNav || !dayJumpNav.classList.contains('open')) return;
+  if (!dayJumpNav.contains(event.target)) closeDayJumpNav();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeDayJumpNav();
 });
 
 const getCurrentDayFromViewport = () => {
