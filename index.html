@@ -123,6 +123,11 @@ body {
 .route-map-legend .legend-border { height: 0; border-top: 2px dashed #6F9B83; }
 .route-map-legend .legend-circle { width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--warm-red); justify-self: center; }
 .route-scroll-hint { display: none; }
+.route-mobile-guide { display: none; }
+.route-phase-card { background: #FFF; border: 1px solid #DCE5E8; border-radius: 8px; padding: 14px 16px; box-shadow: 0 6px 14px rgba(16,45,67,0.08); }
+.route-phase-card .phase-days { display: inline-flex; align-items: center; min-height: 26px; padding: 3px 9px; border-radius: 999px; background: var(--warm-red-deep); color: #FFF8EA; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 0.82rem; margin-bottom: 8px; }
+.route-phase-card strong { display: block; color: var(--winter-blue-deep); font-family: 'Lora', 'Noto Serif TC', serif; font-size: 0.98rem; line-height: 1.35; margin-bottom: 5px; }
+.route-phase-card span:not(.phase-days) { display: block; color: var(--ink-soft); font-size: 0.84rem; line-height: 1.55; }
 .route-list-panel { position: static; width: 100%; overflow: visible; border: 1px solid #DCE5E8; border-radius: 6px; background: #FFF; box-shadow: 0 8px 18px rgba(16,45,67,0.08); }
 .route-list-panel h3 { background: transparent; color: var(--winter-blue-deep); font-family: 'Playfair Display', serif; font-size: 1.08rem; padding: 16px 18px 8px; letter-spacing: 1px; border-bottom: 1px solid #DDD8CA; }
 .route-days-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0 18px; padding: 6px 18px 14px; }
@@ -385,13 +390,15 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   .cover-stamp .big { font-size: 16px; }
   .season-icon { display: none; }
   .cover-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .route-map-layout { padding: 14px; }
-  .route-map-board { min-height: 520px; overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+  .route-map-layout { padding: 12px; gap: 12px; }
+  .route-mobile-guide { display: grid; grid-template-columns: 1fr; gap: 10px; order: 1; }
+  .route-list-panel { order: 2; }
+  .route-map-board { order: 3; min-height: 430px; overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
   .route-map-board::after { display: none; }
-  .route-scroll-hint { display: flex; align-items: center; gap: 8px; width: max-content; margin: 12px; padding: 7px 10px; background: rgba(255,255,255,0.92); border: 1px solid #DCE5E8; border-radius: 999px; color: var(--winter-blue-deep); font-size: 0.78rem; font-weight: 700; }
+  .route-scroll-hint { display: flex; align-items: center; gap: 8px; width: fit-content; max-width: calc(100% - 24px); margin: 12px; padding: 7px 10px; background: rgba(255,255,255,0.92); border: 1px solid #DCE5E8; border-radius: 999px; color: var(--winter-blue-deep); font-size: 0.78rem; font-weight: 700; }
   .route-scroll-hint::before { content: '↔'; color: var(--warm-red-deep); font-weight: 900; }
-  .route-map-svg { width: 760px; min-height: 520px; }
-  .route-map-legend { position: static; width: auto; margin: 12px; }
+  .route-map-svg { width: 720px; min-height: 480px; }
+  .route-map-legend { display: none; }
   .route-list-panel { position: static; width: auto; max-height: none; margin-top: 12px; box-shadow: 0 4px 14px rgba(15,26,32,0.1); }
   .route-days-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; }
   .schedule { grid-template-columns: 70px 1fr; }
@@ -513,8 +520,8 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   .route-overview,
   .winter-alert,
   .booking-list { box-shadow: 4px 4px 0 var(--shadow); }
-  .route-map-board { min-height: 460px; }
-  .route-map-svg { width: 720px; min-height: 500px; }
+  .route-map-board { min-height: 420px; }
+  .route-map-svg { width: 690px; min-height: 470px; }
   .route-map-note { grid-template-columns: 1fr; }
   .route-map-note span { border-right: 0; border-bottom: 1px solid #DDD8CA; }
   .route-map-note span:last-child { border-bottom: 0; }
@@ -643,6 +650,28 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
     </div>
     <div class="route-overview">
       <div class="route-map-layout">
+        <div class="route-mobile-guide" aria-label="手機版路線四段摘要">
+          <div class="route-phase-card">
+            <span class="phase-days">D1-D3</span>
+            <strong>北荷蘭先安頓：哈倫 / 阿姆斯特丹</strong>
+            <span>抵達後先寄放行李，前兩個博物館日都輕裝進阿姆斯特丹，不急著換住宿。</span>
+          </div>
+          <div class="route-phase-card">
+            <span class="phase-days">D4-D7</span>
+            <strong>烏特勒支四晚基地：荷蘭日遊主軸</strong>
+            <span>正式搬遷第 1 次後，羊角村、茲沃勒、高費呂沃、台夫特與鹿特丹都從同一基地出發。</span>
+          </div>
+          <div class="route-phase-card">
+            <span class="phase-days">D8-D9</span>
+            <strong>比利時慢段：安特衛普、布魯日、根特</strong>
+            <span>正式搬遷第 2 次到布魯日，隔天早上先玩布魯日，下午再輕裝去根特。</span>
+          </div>
+          <div class="route-phase-card">
+            <span class="phase-days">D10-D13</span>
+            <strong>回荷蘭收尾：最後基地、採買、回機場</strong>
+            <span>正式搬遷第 3 次回到史基浦 / 阿姆斯特丹軸線，尾聲以採買、整理行李與回程壓力最低為主。</span>
+          </div>
+        </div>
         <div class="route-map-board" aria-label="荷蘭比利時 13 天地圖式路線示意">
           <div class="route-scroll-hint">左右滑動查看完整路線圖</div>
           <div class="route-map-legend">
@@ -856,7 +885,7 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
     <div class="section-header">
       <span class="kicker">Daily Route</span>
       <h2>13 天荷蘭 + 比利時五人交通行程</h2>
-      <p class="desc">2026/10/25（日）– 2026/11/6（五） · 荷蘭段火車/公車/電車 · 比利時段鐵路主方案 · 博物館半日慢遊 · 目標人均 NT$ 100,000</p>
+      <p class="desc">2026/10/25（日）– 2026/11/6（五） · 荷蘭段火車/公車/電車 · 比利時段鐵路主方案 · 博物館半日慢遊 · 機票已訂後目標人均 NT$ 107,250</p>
     </div>
 <article class="day-card" data-day="1" id="day-1">
   <div class="day-header"><div class="day-num"><small>DAY ONE</small>01</div><div class="day-title"><div class="city">10/25（日） · 抵達阿姆斯特丹 · 火車到哈倫</div><div class="theme">~ 史基浦（Schiphol） arrival · rail to 哈倫（Haarlem） ~</div></div></div>
@@ -1489,7 +1518,7 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
       <div class="food-card"><div class="emoji">🍟</div><h4>比利時薯條（Belgian Fries）</h4><div class="dish">比利時薯條</div><p>安特衛普、布魯日都容易找到好吃薯條，醬料多試幾種。</p><span class="price-tag">€4-7</span></div>
       <div class="food-card"><div class="emoji">🧇</div><h4>比利時鬆餅（Belgian Waffle）</h4><div class="dish">布魯塞爾 / 列日鬆餅</div><p>若 Day 10 啟用布魯塞爾市區備案，大廣場周邊可當短停甜點；主方案則留在車站或布魯日補買。</p><span class="price-tag">€4-8</span></div>
       <div class="food-card"><div class="emoji">🍺</div><h4>比利時啤酒（Belgian Beer）</h4><div class="dish">比利時啤酒</div><p>安排在 安特衛普（Antwerp） 或 布魯日（Bruges） 入住後步行晚餐，五人可以輕鬆分頭點不同風味。</p><span class="price-tag">€5-9</span></div>
-      <div class="food-card"><div class="emoji">🍛</div><h4>印尼米桌（Rijsttafel）</h4><div class="dish">荷蘭殖民料理</div><p>荷蘭很值得吃的一餐，阿姆斯特丹或鹿特丹都可安排；十萬版建議只吃一次。</p><span class="price-tag">€25-40</span></div>
+      <div class="food-card"><div class="emoji">🍛</div><h4>印尼米桌（Rijsttafel）</h4><div class="dish">荷蘭殖民料理</div><p>荷蘭很值得吃的一餐，阿姆斯特丹或鹿特丹都可安排；控預算版建議只吃一次。</p><span class="price-tag">€25-40</span></div>
     </div>
     <div class="divider-ornament">✦ ✦ ✦</div>
   </div>
@@ -1500,13 +1529,13 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   <div class="container">
     <div class="section-header">
       <span class="kicker">Begroting</span>
-      <h2>五人同行十萬目標預算</h2>
-      <p class="desc">以「每人 NT$ 100,000 內、五人合計 NT$ 500,000」為目標：全程以大眾交通為主，比利時段改用鐵路串城，住宿與交通都優先控制在車站友善範圍內</p>
+      <h2>五人同行機票已訂版預算</h2>
+      <p class="desc">機票已確定為每人 NT$ 37,250；若其他項目暫照原控管額，更新後目標為每人 NT$ 107,250、五人合計 NT$ 536,250。後續壓預算的重點會集中在住宿、餐飲、交通票與伴手禮。</p>
     </div>
     <table class="budget-table">
       <thead><tr><th>項目</th><th>單人費用</th><th>5 人合計</th></tr></thead>
       <tbody>
-        <tr><td>✈️ 機票（早鳥 / 可接受轉機）</td><td>NT$ 30,000</td><td>NT$ 150,000</td></tr>
+        <tr><td>✈️ 機票（已訂）</td><td>NT$ 37,250</td><td>NT$ 186,250</td></tr>
         <tr><td>🏨 住宿（12 晚，2-3 房或五人公寓）</td><td>NT$ 21,000</td><td>NT$ 105,000</td></tr>
         <tr><td>🚆 跨境 + 比利時國內火車票</td><td>NT$ 6,000</td><td>NT$ 30,000</td></tr>
         <tr><td>🧳 行李寄放 / 短程計程車 / 交通備案</td><td>NT$ 1,800</td><td>NT$ 9,000</td></tr>
@@ -1516,11 +1545,12 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
         <tr><td>🛡️ 旅遊保險 + eSIM + ETIAS 預留</td><td>NT$ 2,400</td><td>NT$ 12,000</td></tr>
         <tr><td>🛍️ 雜支與伴手禮上限</td><td>NT$ 6,500</td><td>NT$ 32,500</td></tr>
       </tbody>
-      <tfoot><tr><td>合計目標</td><td>NT$ 100,000</td><td>NT$ 500,000</td></tr></tfoot>
+      <tfoot><tr><td>更新後合計目標</td><td>NT$ 107,250</td><td>NT$ 536,250</td></tr></tfoot>
     </table>
     <div class="winter-alert" style="margin-top:36px;">
-      <h3>壓到十萬的取捨</h3>
+      <h3>機票已訂後的控預算重點</h3>
       <ul>
+        <li><strong>目前機票已超出原抓法 NT$ 7,250 / 人</strong> · 若仍想把整體往十萬靠近，剩餘項目需要共同回收約 NT$ 36,250 / 五人。</li>
         <li><strong>比利時鐵路票要提早查</strong> · 跨境火車票浮動大，先查 NS International / SNCB International，能壓低 Day 8 與 Day 10 成本。</li>
         <li><strong>不排米其林與高價體驗</strong> · 把錢留給真正想慢慢看的美術館。</li>
         <li><strong>一天最多一個付費大館</strong> · 同時符合半日參觀與預算控制。</li>
