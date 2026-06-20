@@ -192,41 +192,6 @@ body {
 .schedule-event strong { color: var(--winter-blue-deep); font-weight: 600; display: block; margin-bottom: 4px; }
 .schedule-event .note { font-family: 'Caveat', cursive; color: var(--warm-red-deep); font-size: 1rem; }
 .schedule-event .winter-note { background: var(--frost); padding: 4px 8px; border-radius: 2px; font-size: 0.85rem; color: var(--winter-blue-deep); display: inline-block; margin-top: 4px; }
-.day-detail-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; margin-bottom: 24px; transition: grid-template-columns 0.28s ease; }
-.day-detail-layout.detail-open { grid-template-columns: minmax(300px, 0.68fr) minmax(380px, 1fr); }
-.day-detail-main { min-width: 0; }
-.day-detail-layout.detail-open .schedule { grid-template-columns: 72px 1fr; }
-.spot-title-button { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; width: 100%; margin: -3px 0 3px; padding: 6px 8px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: inherit; text-align: left; font: inherit; cursor: pointer; }
-.spot-title-button strong { margin: 0; }
-.spot-title-button .hint { flex: 0 0 auto; align-self: center; padding: 3px 8px; border-radius: 999px; background: var(--frost); color: var(--winter-blue-deep); font-size: 0.72rem; font-weight: 800; white-space: nowrap; }
-.spot-title-button:hover,
-.spot-title-button.active { background: #F8FBFC; border-color: rgba(31,91,118,0.18); }
-.spot-title-button.active .hint { background: var(--warm-red-deep); color: #FFF8EA; }
-.spot-title-button:focus-visible,
-.day-detail-close:focus-visible,
-.map-detail-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.day-detail-panel { display: none; position: sticky; top: 18px; max-height: min(78vh, 760px); overflow: auto; border: 1px solid rgba(31,91,118,0.18); border-radius: 8px; background: linear-gradient(180deg, #FFF 0%, #F8FBFC 100%); box-shadow: 0 18px 34px rgba(16,45,67,0.16); }
-.day-detail-layout.detail-open .day-detail-panel { display: block; }
-.day-detail-shell { padding: 18px; }
-.day-detail-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--paper-dark); }
-.day-detail-label { display: inline-flex; min-height: 24px; align-items: center; padding: 3px 9px; border-radius: 999px; background: var(--warm-red-deep); color: #FFF8EA; font-size: 0.72rem; font-weight: 800; letter-spacing: 0; }
-.day-detail-close { flex: 0 0 auto; width: 34px; height: 34px; border: 1px solid var(--paper-dark); border-radius: 50%; background: #FFFDF5; color: var(--winter-blue-deep); font-size: 1.2rem; line-height: 1; cursor: pointer; }
-.day-detail-close:hover { background: var(--winter-blue-deep); color: #FFF8EA; border-color: var(--winter-blue-deep); }
-.spot-detail-card[hidden] { display: none; }
-.spot-detail-card h3 { font-family: 'Playfair Display', serif; color: var(--winter-blue-deep); font-size: 1.55rem; line-height: 1.25; margin: 6px 0 4px; }
-.spot-detail-subtitle { color: var(--warm-red-deep); font-family: 'Lora', 'Noto Serif TC', serif; font-size: 0.92rem; font-weight: 800; margin-bottom: 14px; }
-.spot-detail-media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
-.spot-detail-media.single { grid-template-columns: 1fr; }
-.spot-detail-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 6px; border: 1px solid #DCE5E8; background: #DCE5E8; }
-.spot-detail-card p { color: var(--ink-soft); line-height: 1.75; font-size: 0.94rem; margin: 10px 0; }
-.spot-detail-note { background: var(--paper); border-left: 4px solid var(--gold); border-radius: 4px; color: var(--ink-soft); line-height: 1.65; padding: 10px 12px; margin: 12px 0; font-size: 0.9rem; }
-.spot-detail-facts { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
-.spot-detail-facts span { display: inline-flex; align-items: center; min-height: 26px; padding: 4px 8px; border-radius: 999px; background: #FFF; border: 1px solid rgba(31,91,118,0.18); color: var(--winter-blue-deep); font-size: 0.78rem; font-weight: 800; line-height: 1.3; }
-.spot-detail-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.spot-detail-links a,
-.map-detail-link { display: inline-flex; align-items: center; justify-content: center; min-height: 32px; padding: 6px 10px; border: 1px solid rgba(31,91,118,0.2); border-radius: 999px; background: #FFFDF5; color: var(--winter-blue-deep); text-decoration: none; font-size: 0.78rem; font-weight: 800; cursor: pointer; }
-.spot-detail-links a:hover,
-.map-detail-link:hover { background: var(--winter-blue); border-color: var(--winter-blue); color: #FFF; }
 .dinner-options { margin: 8px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.65; }
 .dinner-options strong { display: inline; margin: 0; color: var(--plum); font-weight: 700; }
 .event-illo { display: none; }
@@ -535,8 +500,6 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   .section { padding: 60px 0; }
   .section-header { margin-bottom: 40px; }
   .route-map-layout { grid-template-columns: 1fr; }
-  .day-detail-layout.detail-open { grid-template-columns: 1fr; }
-  .day-detail-panel { position: static; max-height: none; }
   .booking-list { padding: 32px 24px; }
 }
 
@@ -589,13 +552,6 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   .schedule-row { display: grid; grid-template-columns: 62px minmax(0, 1fr); }
   .schedule-time { padding: 12px 12px 12px 0; font-size: 0.88rem; }
   .schedule-event { padding: 12px 14px 16px 14px; min-width: 0; font-size: 0.93rem; line-height: 1.7; }
-  .day-detail-layout { gap: 16px; }
-  .day-detail-layout.detail-open .schedule { display: block; }
-  .spot-title-button { flex-direction: column; gap: 4px; padding: 6px 0; }
-  .spot-title-button .hint { align-self: flex-start; font-size: 0.68rem; }
-  .day-detail-shell { padding: 14px; }
-  .spot-detail-card h3 { font-size: 1.3rem; }
-  .spot-detail-media { grid-template-columns: 1fr; }
   .dinner-options { padding-left: 16px; font-size: 0.86rem; }
   .event-illo { display: none; }
   .day-footer { margin: 20px -16px -22px; padding: 16px; grid-template-columns: 1fr; gap: 10px; }
@@ -944,91 +900,16 @@ footer .small { font-size: 0.85rem; opacity: 0.7; margin-top: 8px; }
   </div>
   <div class="day-body">
     <div class="day-winter-tag">從機場搭火車到哈倫，先把行李寄放在哈倫車站，五個人就能輕裝開始第一天行程。</div>
-    <div class="day-detail-layout" data-day1-detail-layout>
-      <div class="day-detail-main">
     <div class="schedule">
       <div class="schedule-row"><div class="schedule-time">07:40</div><div class="schedule-event"><strong>史基浦機場（Amsterdam Airport Schiphol）抵達</strong>入境後先處理 eSIM、提款與行李整理，五人行李集中確認。<span class="event-illo" aria-hidden="true">✈️</span></div></div>
       <div class="schedule-row"><div class="schedule-time">09:20</div><div class="schedule-event"><strong>史基浦機場車站（Schiphol Airport Station）</strong>用 OVpay / NS 車票搭火車到哈倫，避開第一天開車與市區停車壓力。<span class="event-illo" aria-hidden="true">🚆</span></div></div>
       <div class="schedule-row"><div class="schedule-time">10:15</div><div class="schedule-event"><strong>哈倫車站（Haarlem Station）寄放行李</strong>若住宿尚未可入住，先寄放行李或請飯店保管。<span class="event-illo" aria-hidden="true">🧳</span></div></div>
-      <div class="schedule-row"><div class="schedule-time">12:00</div><div class="schedule-event"><button type="button" class="spot-title-button" data-detail-trigger="grote-markt" aria-expanded="false"><strong>哈倫大廣場（Grote Markt Haarlem）</strong><span class="hint">查看景點資料</span></button>午餐與市集廣場散步，五人可選咖啡館或簡餐控制預算。<span class="event-illo" aria-hidden="true">🍽️</span></div></div>
-      <div class="schedule-row"><div class="schedule-time">14:30</div><div class="schedule-event"><button type="button" class="spot-title-button" data-detail-trigger="gouden-straatjes" aria-expanded="false"><strong>哈倫老城與黃金小街（Haarlem Old Town + De Gouden Straatjes）</strong><span class="hint">查看景點資料</span></button>先看聖巴沃教堂外觀，再走大廣場旁的黃金小街（Anegang、Warmoesstraat、Gierstraat、Zijlstraat 等）慢慢逛到斯帕爾訥河岸；以巷弄、小店與河景散步為主，不排重行程。<span class="event-illo" aria-hidden="true">🏘️</span></div></div>
-      <div class="schedule-row"><div class="schedule-time">16:30</div><div class="schedule-event"><button type="button" class="spot-title-button" data-detail-trigger="adriaan" aria-expanded="false"><strong>阿德里安風車與斯帕爾訥河岸（Molen de Adriaan + Spaarne River）</strong><span class="hint">查看景點資料</span></button>接近傍晚時沿河散步，若想吃河畔餐廳（Restaurant Zuidam），這段剛好順路銜接。<span class="event-illo" aria-hidden="true">🌬️</span></div></div>
-      <div class="schedule-row"><div class="schedule-time">18:15</div><div class="schedule-event"><button type="button" class="spot-title-button" data-detail-trigger="day1-dinner" aria-expanded="false"><strong>哈倫晚餐主選：料理鼠王餐廳（Ratatouille Food & Wine）或備選餐廳</strong><span class="hint">查看餐廳資料</span></button>Threads 推薦的料理鼠王餐廳（Ratatouille Food & Wine）可直接列為哈倫正餐主選；它是米其林一星、河邊精緻餐廳，比較像第一晚的高預算紀念餐。喬本教堂餐廳（Jopenkerk Haarlem）與原本餐廳建議都保留，依預算與體力決定。<ul class="dinner-options"><li><strong>料理鼠王餐廳（Ratatouille Food & Wine）</strong>：Spaarne 河邊，米其林一星，Threads 貼文提到套餐約 €125 / 人；五人務必提前訂位，若要壓總預算就改成下方備選。</li><li><strong>喬本教堂餐廳（Jopenkerk Haarlem）</strong>：教堂改建啤酒餐廳，氣氛特別，適合第一晚不用太正式。</li><li><strong>河畔餐廳（Restaurant Zuidam）</strong>：河邊午餐／晚餐，適合接在阿德里安風車（Molen de Adriaan）後面。</li><li><strong>屋頂溫室餐廳（DeDAKKAS）</strong>：屋頂景觀、下午茶、輕鬆晚餐，氣氛強、拍照好看。</li><li><strong>走廊餐廳（Menu Corridor）</strong>：五人好訂位，早午餐到晚餐都可，比較現代舒服、不太觀光。</li><li><strong>布里克餐廳（Restaurant Brick）</strong>：老城小巷晚餐，溫馨有質感，適合想吃好一點但不要米其林。</li><li><strong>圖茹爾小酒館（Toujours）</strong>：想吃肉、海鮮、比較熱鬧時可選，偏精緻 bistro，適合晚餐。</li></ul><span class="event-illo" aria-hidden="true">🍽️</span></div></div>
+      <div class="schedule-row"><div class="schedule-time">12:00</div><div class="schedule-event"><strong>哈倫大廣場（Grote Markt Haarlem）</strong>午餐與市集廣場散步，五人可選咖啡館或簡餐控制預算。<span class="event-illo" aria-hidden="true">🍽️</span></div></div>
+      <div class="schedule-row"><div class="schedule-time">14:30</div><div class="schedule-event"><strong>哈倫老城與黃金小街（Haarlem Old Town + De Gouden Straatjes）</strong>先看聖巴沃教堂外觀，再走大廣場旁的黃金小街（Anegang、Warmoesstraat、Gierstraat、Zijlstraat 等）慢慢逛到斯帕爾訥河岸；以巷弄、小店與河景散步為主，不排重行程。<span class="event-illo" aria-hidden="true">🏘️</span></div></div>
+      <div class="schedule-row"><div class="schedule-time">16:30</div><div class="schedule-event"><strong>阿德里安風車與斯帕爾訥河岸（Molen de Adriaan + Spaarne River）</strong>接近傍晚時沿河散步，若想吃河畔餐廳（Restaurant Zuidam），這段剛好順路銜接。<span class="event-illo" aria-hidden="true">🌬️</span></div></div>
+      <div class="schedule-row"><div class="schedule-time">18:15</div><div class="schedule-event"><strong>哈倫晚餐主選：料理鼠王餐廳（Ratatouille Food & Wine）或備選餐廳</strong>Threads 推薦的料理鼠王餐廳（Ratatouille Food & Wine）可直接列為哈倫正餐主選；它是米其林一星、河邊精緻餐廳，比較像第一晚的高預算紀念餐。喬本教堂餐廳（Jopenkerk Haarlem）與原本餐廳建議都保留，依預算與體力決定。<ul class="dinner-options"><li><strong>料理鼠王餐廳（Ratatouille Food & Wine）</strong>：Spaarne 河邊，米其林一星，Threads 貼文提到套餐約 €125 / 人；五人務必提前訂位，若要壓總預算就改成下方備選。</li><li><strong>喬本教堂餐廳（Jopenkerk Haarlem）</strong>：教堂改建啤酒餐廳，氣氛特別，適合第一晚不用太正式。</li><li><strong>河畔餐廳（Restaurant Zuidam）</strong>：河邊午餐／晚餐，適合接在阿德里安風車（Molen de Adriaan）後面。</li><li><strong>屋頂溫室餐廳（DeDAKKAS）</strong>：屋頂景觀、下午茶、輕鬆晚餐，氣氛強、拍照好看。</li><li><strong>走廊餐廳（Menu Corridor）</strong>：五人好訂位，早午餐到晚餐都可，比較現代舒服、不太觀光。</li><li><strong>布里克餐廳（Restaurant Brick）</strong>：老城小巷晚餐，溫馨有質感，適合想吃好一點但不要米其林。</li><li><strong>圖茹爾小酒館（Toujours）</strong>：想吃肉、海鮮、比較熱鬧時可選，偏精緻 bistro，適合晚餐。</li></ul><span class="event-illo" aria-hidden="true">🍽️</span></div></div>
       <div class="schedule-row"><div class="schedule-time">20:15</div><div class="schedule-event"><strong>回哈倫車站（Haarlem Station）拿行李</strong>若早上寄放在車站或置物櫃，晚餐後先回車站取行李；五人行李多就直接叫車到住宿。<span class="event-illo" aria-hidden="true">🧳</span></div></div>
       <div class="schedule-row"><div class="schedule-time">20:45</div><div class="schedule-event"><strong>Airbnb / 車站周邊住宿 Check-in</strong>住宿先保留在 Airbnb 尋找，優先選靠哈倫車站、可住 5 人、可晚間自助入住的房源；若 Airbnb 不理想，以下飯店作為備選。<ul class="dinner-options"><li><strong>金獅飯店（Hotel Lion d’Or）</strong>：最重視車站方便、每天進出阿姆斯特丹時最推薦。</li><li><strong>Staats 精品飯店（Boutiquehotel Staats）</strong>：想住有設計感、安靜一點，很適合情侶/朋友旅行。</li><li><strong>Malts 小型飯店（Hotel Malts）</strong>：小型溫馨 B&B，走路進老城，偏評價型選擇。</li><li><strong>ML 飯店（Hotel ML）</strong>：老城核心，吃飯拍照方便；質感好但離車站稍遠。</li><li><strong>弗蘭斯哈爾斯大飯店（Amrâth Grand Hotel Frans Hals）</strong>：大廣場與 Teylers Museum 附近，地點市中心但不算車站旁。</li><li><strong>Holiday Inn the niu Dairy 哈倫飯店（Holiday Inn - the niu, Dairy Haarlem）</strong>：現代連鎖感、房型穩定，可作五人分房備選。</li><li><strong>大使市中心飯店（Ambassador City Centre Hotel）</strong>：老城中心、景點方便，但要評估到車站與拖行李距離。</li><li><strong>One 阿姆斯特丹（One Amsterdam）</strong>：若 Day1–3 改住阿姆斯特丹，可作設計簡潔、預算相對好控的備選。</li><li><strong>A-Train 火車飯店（A-Train Hotel）</strong>：靠阿姆斯特丹中央車站，拖行李與搭火車最方便，但要確認五人房型與噪音。</li><li><strong>citizenM 阿姆斯特爾阿姆斯特丹飯店（citizenM Amstel Amsterdam）</strong>：靠 Amstel 一帶，設計感與公共空間好，但房間偏小，五人多半需分 3 間房比較舒服。</li></ul><span class="event-illo" aria-hidden="true">🛏️</span></div></div>
-    </div>
-      </div>
-      <aside class="day-detail-panel" data-day1-detail-panel aria-hidden="true" aria-label="Day 1 景點詳細資料">
-        <div class="day-detail-shell">
-          <div class="day-detail-top">
-            <span class="day-detail-label">Day 1 Detail</span>
-            <button type="button" class="day-detail-close" data-detail-close aria-label="關閉景點詳細資料">×</button>
-          </div>
-          <article class="spot-detail-card" data-day1-detail-card="grote-markt" hidden>
-            <h3>大廣場 + 聖巴佛大教堂</h3>
-            <div class="spot-detail-subtitle">Grote Markt · Grote of St-Bavokerk</div>
-            <div class="spot-detail-media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HaarlemGroteMarkt1.JPG?width=820" alt="哈倫大廣場與聖巴佛大教堂">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sint_bavo_haarlem_orgel_front_1010116.jpg?width=820" alt="聖巴佛大教堂 Müller 管風琴">
-            </div>
-            <p>從哈倫車站沿 Kruisstraat 購物街南下，約 8–10 分鐘走到大廣場。廣場被哥德式大教堂、17 世紀市政廳、肉舖會堂（Vleeshal）與 13 世紀的 Hoofdwacht 環繞，是哈倫老城的核心。</p>
-            <div class="spot-detail-note"><strong>看點：</strong>教堂內的 1738 年 Müller 管風琴有 5000 多支音管，10 歲的莫札特曾彈過；10/25 是週日，上午禮拜可能影響入內參觀，先看外觀最穩。</div>
-            <div class="spot-detail-facts"><span>車站步行約 8–10 分</span><span>市政廳 / Vleeshal 外觀</span><span>週日入內時間需再確認</span></div>
-            <div class="spot-detail-links">
-              <a href="https://www.google.com/maps?q=Grote+Markt+Haarlem" target="_blank" rel="noopener">Google 地圖</a>
-              <a href="https://www.google.com/maps?layer=c&cbll=52.38137,4.63661" target="_blank" rel="noopener">街景</a>
-              <a href="https://www.youtube.com/watch?v=VgcZEvgOxYU" target="_blank" rel="noopener">街景步行影片</a>
-            </div>
-          </article>
-          <article class="spot-detail-card" data-day1-detail-card="gouden-straatjes" hidden>
-            <h3>黃金小街</h3>
-            <div class="spot-detail-subtitle">De Gouden Straatjes</div>
-            <div class="spot-detail-media single">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haarlem_-_Spaarne_104.JPG?width=900" alt="哈倫老城街屋與運河">
-            </div>
-            <p>大廣場旁有一組被稱為「黃金小街」的購物巷弄，像 Anegang、Warmoesstraat、Gierstraat、Zijlstraat 等。獨立小店、咖啡、選物、古著集中，適合抵達日用輕鬆速度慢慢晃。</p>
-            <div class="spot-detail-note"><strong>街景想像：</strong>窄石板巷、山牆屋、櫥窗一間接一間；比阿姆斯特丹市中心更鬆，五個人可以分頭逛、再回廣場集合。</div>
-            <div class="spot-detail-facts"><span>大廣場旁即是</span><span>小店 / 咖啡 / 古著</span><span>適合 14:30 輕鬆散步</span></div>
-            <div class="spot-detail-links">
-              <a href="https://www.google.com/maps?q=Warmoesstraat+Haarlem" target="_blank" rel="noopener">Warmoesstraat 地圖</a>
-              <a href="https://www.google.com/maps?layer=c&cbll=52.38055,4.63540" target="_blank" rel="noopener">街景</a>
-              <a href="https://www.youtube.com/watch?v=qGKQTjEgpwE" target="_blank" rel="noopener">巷弄步行影片</a>
-            </div>
-          </article>
-          <article class="spot-detail-card" data-day1-detail-card="adriaan" hidden>
-            <h3>Spaarne 河岸 + 阿德里安風車</h3>
-            <div class="spot-detail-subtitle">Spaarne · Waag · Gravestenenbrug · Molen de Adriaan</div>
-            <div class="spot-detail-media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haarlem_-_Gravestenenbrug.JPG?width=900" alt="Spaarne 河上的 Gravestenenbrug 古橋">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Molen_de_Adriaan_Haarlem.jpg?width=900" alt="阿德里安風車">
-            </div>
-            <p>從小街往東走到 Spaarne 河畔，會經過文藝復興風格的 Waag 秤量所，再沿河往北看到 Gravestenenbrug 古橋與阿德里安風車。這一段是 Day 1 最有畫面的河景散步。</p>
-            <div class="spot-detail-note"><strong>拍照點：</strong>從河對岸看風車、河水與老城天際線，是哈倫很經典的一張照片。若體力夠，可查當日是否還有風車導覽；累了就只看外觀。</div>
-            <div class="spot-detail-facts"><span>Waag 秤量所 1599</span><span>Gravestenenbrug 木橋</span><span>風車外觀最穩</span></div>
-            <div class="spot-detail-links">
-              <a href="https://www.google.com/maps?q=Gravestenenbrug+Haarlem" target="_blank" rel="noopener">古橋地圖</a>
-              <a href="https://www.google.com/maps?q=Molen+De+Adriaan+Haarlem" target="_blank" rel="noopener">風車地圖</a>
-              <a href="https://www.molenadriaan.nl/en/visiting-hours/" target="_blank" rel="noopener">風車開放時間</a>
-            </div>
-          </article>
-          <article class="spot-detail-card" data-day1-detail-card="day1-dinner" hidden>
-            <h3>第一晚晚餐 · 河畔 / 老城</h3>
-            <div class="spot-detail-subtitle">Dinner · 荷蘭經典菜色與餐廳候選</div>
-            <div class="spot-detail-media">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bitterballen_(11734567276).jpg?width=820" alt="炸肉球 Bitterballen">
-              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Boerenkool_met_worst_en_mosterd.jpeg?width=820" alt="Stamppot 荷蘭冬季料理">
-            </div>
-            <p>抵達日不用太正式，吃得舒服、走得到就好。想輕鬆可選喬本教堂餐廳（Jopenkerk Haarlem），想接風車河景可選河畔餐廳（Restaurant Zuidam），想把第一晚做成紀念餐才選料理鼠王餐廳（Ratatouille Food & Wine）。</p>
-            <div class="spot-detail-note"><strong>五人策略：</strong>Ratatouille 是高預算米其林選項；若要壓總預算，把它當慶祝備案，主選改 Jopenkerk、Zuidam、Menu Corridor 或 Brick 這類比較彈性的餐廳。</div>
-            <div class="spot-detail-facts"><span>Bitterballen 配啤酒</span><span>Stamppot 冬季暖胃</span><span>五人建議先訂位</span></div>
-            <div class="spot-detail-links">
-              <a href="https://www.google.com/maps?q=Jopenkerk+Haarlem" target="_blank" rel="noopener">Jopenkerk 地圖</a>
-              <a href="https://www.google.com/maps?q=Restaurant+Zuidam+Haarlem" target="_blank" rel="noopener">Zuidam 地圖</a>
-              <a href="https://www.youtube.com/watch?v=PvutkO2TNRQ" target="_blank" rel="noopener">哈倫傍晚步行影片</a>
-            </div>
-          </article>
-        </div>
-      </aside>
     </div>
     <div class="map-section">
       <div class="map-section-header"><div class="map-section-title">Day 1 · 交通路線地圖</div></div>
@@ -1798,24 +1679,21 @@ const DAY_DATA = {
         lat: 52.3819,
         lng: 4.6373,
         cat: 'attraction',
-        info: "12:00 午餐與廣場",
-        detailId: 'grote-markt'
+        info: "12:00 午餐與廣場"
       },
       {
         n: "哈倫老城與黃金小街（Haarlem Old Town + De Gouden Straatjes）",
         lat: 52.38055,
         lng: 4.6354,
         cat: 'attraction',
-        info: "14:30 大廣場旁巷弄與小店散步",
-        detailId: 'gouden-straatjes'
+        info: "14:30 大廣場旁巷弄與小店散步"
       },
       {
         n: "阿德里安風車（Molen de Adriaan）",
         lat: 52.3842,
         lng: 4.6416,
         cat: 'attraction',
-        info: "16:30 河岸散步",
-        detailId: 'adriaan'
+        info: "16:30 河岸散步"
       },
       {
         n: "料理鼠王餐廳（Ratatouille Food & Wine）",
@@ -2725,11 +2603,8 @@ function initMap(dayNum) {
   data.locs.forEach((loc, i) => {
     const idx = i + 1;
     const label = loc.cat === 'special' ? '★' : String(idx);
-    const detailButton = loc.detailId
-      ? `<button type="button" class="map-detail-link" data-detail-trigger="${loc.detailId}">查看景點資料</button>`
-      : '';
     const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(loc.cat, label) })
-      .bindPopup(`<strong>${idx}. ${loc.n}</strong><small>${loc.info || ''}</small>${detailButton}`);
+      .bindPopup(`<strong>${idx}. ${loc.n}</strong><small>${loc.info || ''}</small>`);
     if (layerGroups[loc.cat]) layerGroups[loc.cat].addLayer(marker);
   });
 
@@ -2813,48 +2688,6 @@ window.addEventListener('scroll', initVisibleMaps, { passive: true });
 window.addEventListener('load', () => setTimeout(initAllMaps, 250));
 setTimeout(initAllMaps, 250);
 
-const dayOneDetailLayout = document.querySelector('[data-day1-detail-layout]');
-const dayOneDetailPanel = document.querySelector('[data-day1-detail-panel]');
-const dayOneDetailCards = Array.from(document.querySelectorAll('[data-day1-detail-card]'));
-const dayOneDetailClose = document.querySelector('[data-detail-close]');
-const getDayOneDetailCard = (detailId) => dayOneDetailCards.find(card => card.dataset.day1DetailCard === detailId);
-const setDayOneTriggerState = (detailId) => {
-  document.querySelectorAll('[data-detail-trigger]').forEach(trigger => {
-    const active = trigger.dataset.detailTrigger === detailId;
-    trigger.classList.toggle('active', active);
-    trigger.setAttribute('aria-expanded', String(active));
-  });
-};
-const openDayOneDetail = (detailId) => {
-  if (!dayOneDetailLayout || !dayOneDetailPanel) return false;
-  const activeCard = getDayOneDetailCard(detailId);
-  if (!activeCard) return false;
-  dayOneDetailCards.forEach(card => { card.hidden = card !== activeCard; });
-  dayOneDetailLayout.classList.add('detail-open');
-  dayOneDetailPanel.setAttribute('aria-hidden', 'false');
-  setDayOneTriggerState(detailId);
-  if (window.innerWidth <= 900) {
-    dayOneDetailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  return true;
-};
-const closeDayOneDetail = () => {
-  if (!dayOneDetailLayout || !dayOneDetailPanel) return;
-  dayOneDetailLayout.classList.remove('detail-open');
-  dayOneDetailPanel.setAttribute('aria-hidden', 'true');
-  dayOneDetailCards.forEach(card => { card.hidden = true; });
-  setDayOneTriggerState('');
-};
-document.addEventListener('click', (event) => {
-  const trigger = event.target.closest('[data-detail-trigger]');
-  if (!trigger) return;
-  const opened = openDayOneDetail(trigger.dataset.detailTrigger);
-  if (opened) event.preventDefault();
-});
-if (dayOneDetailClose) {
-  dayOneDetailClose.addEventListener('click', closeDayOneDetail);
-}
-
 const dayJumpNav = document.querySelector('.day-jump-nav');
 const dayJumpToggle = document.querySelector('.day-jump-toggle');
 const dayJumpCurrent = document.querySelector('.day-jump-current');
@@ -2907,7 +2740,6 @@ document.addEventListener('click', (event) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeDayJumpNav();
-  if (event.key === 'Escape') closeDayOneDetail();
 });
 
 const getCurrentDayFromViewport = () => {
