@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荷比 13 天 · 行程導覽</title>
+<style>
+
+  :root{
+    --bg:#faf6ef; --card:#ffffff; --ink:#2c2a26; --muted:#6f6a61;
+    --line:#e7ded0; --accent:#1f5d52; --accent2:#c4622d; --gold:#b8893b; --plum:#7A4E91;
+    --chip:#f1ead7; --shadow:0 6px 22px rgba(60,45,25,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Helvetica Neue","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.7;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 18px 80px;}
+  header.hero{padding:42px 0 26px;border-bottom:2px solid var(--line);margin-bottom:20px;}
+  .kicker{letter-spacing:.22em;font-size:13px;color:var(--accent2);font-weight:700;text-transform:uppercase;}
+  h1{font-family:Georgia,"Songti TC",serif;font-size:38px;margin:8px 0 6px;line-height:1.2;}
+  .sub{color:var(--muted);font-size:16px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13.5px;box-shadow:var(--shadow);}
+  .chip b{color:var(--accent);}
+  .pviewnote{background:#eef3f1;border:1px solid #d7e6e1;color:#3f6b60;border-radius:10px;padding:9px 13px;font-size:12.5px;margin:16px 0 4px;}
+  .route{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:14px 0;}
+  .route h2{margin:0 0 14px;font-size:16px;letter-spacing:.04em;color:var(--accent);}
+  .ribbon{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+  .stop{display:flex;align-items:center;gap:7px;background:#f7f2e9;border:1px solid var(--line);border-radius:10px;padding:7px 11px;font-size:13.5px;font-weight:600;}
+  .stop .n{width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .stop.train .n{background:var(--accent2);}
+  .arrow{color:var(--accent2);font-weight:700;}
+  .maplink{display:inline-block;margin-top:14px;background:var(--accent);color:#fff;text-decoration:none;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;}
+  .maplink:hover{background:#17463d;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin:22px 0;}
+  .step.train{border-color:#ecd8c6;}
+  .step-head{display:flex;align-items:baseline;gap:12px;padding:18px 20px 4px;}
+  .step-head .num{font-family:Georgia,serif;font-size:30px;color:var(--accent2);font-weight:700;line-height:1;}
+  .step-head .tt{flex:1;}
+  .step-head h3{margin:0;font-size:21px;}
+  .step-head .nl{color:var(--muted);font-size:13.5px;font-style:italic;}
+  .step-head .tag{font-size:12px;background:#f1ead7;color:var(--gold);border:1px solid #e8dcc2;padding:3px 9px;border-radius:999px;font-weight:700;white-space:nowrap;}
+  .media{margin:14px 0 0;background:#f2ebdf;display:flex;justify-content:center;align-items:center;}
+  .media img{display:block;max-width:100%;max-height:440px;width:auto;height:auto;margin:0 auto;}
+  .media.duo{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+  .media.duo img{max-height:300px;width:100%;object-fit:contain;background:#f2ebdf;}
+  .cap{font-size:11.5px;color:var(--muted);padding:6px 20px 0;background:var(--card);}
+  .body{padding:14px 20px 20px;}
+  .body p{margin:0 0 10px;}
+  .look{background:#f7f2e9;border-left:3px solid var(--accent2);border-radius:0 10px 10px 0;padding:11px 14px;margin:12px 0;font-size:14.5px;}
+  .look b{color:var(--accent2);}
+  .info{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px;}
+  .info span{font-size:12.5px;background:#eef3f1;color:var(--accent);border:1px solid #dce8e4;border-radius:8px;padding:5px 10px;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+  .links a{font-size:13px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:6px 12px;background:#fff;}
+  .links a:hover{background:#f3efe6;}
+  .links a.vlink{background:var(--accent2);color:#fff;border-color:var(--accent2);}
+  .links a.vlink:hover{background:#a8521f;}
+  /* 餐廳圖文卡 */
+  .rgrid{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
+  .rcard{display:grid;grid-template-columns:110px 1fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+  .remblem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#fff;padding:10px 8px;text-align:center;}
+  .remblem .ic{font-size:30px;line-height:1;}
+  .remblem .lb{font-size:11px;font-weight:800;letter-spacing:.03em;line-height:1.3;}
+  .rbody{padding:12px 15px;}
+  .rbody h4{margin:0;font-size:16px;}
+  .rbody .nl{color:var(--muted);font-size:12px;font-style:italic;}
+  .rbody p{margin:6px 0 7px;font-size:13.5px;line-height:1.6;}
+  .rbody .who{font-size:12.5px;color:var(--accent);font-weight:700;}
+  .rlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px;}
+  .rlinks a{font-size:12px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:4px 10px;background:#faf6ef;}
+  .rlinks a.mn{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .note{background:#fff6e9;border:1px solid #f0dcb8;border-radius:14px;padding:16px 18px;font-size:14px;color:#6b5836;margin-top:24px;}
+  .note b{color:var(--accent2);}
+  footer{margin-top:30px;font-size:12px;color:var(--muted);text-align:center;line-height:1.6;}
+  @media(max-width:620px){h1{font-size:30px;} .media img{max-height:340px;} .media.duo{grid-template-columns:1fr;} .rcard{grid-template-columns:84px 1fr;}}
+
+
+  /* combined guide nav */
+  body.guide .wrap{padding-top:0;}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:6px;}
+  .topbar .inner{max-width:880px;margin:0 auto;padding:0 18px;}
+  .brand{font-family:Georgia,serif;font-size:15px;color:var(--winterink,var(--accent));font-weight:700;margin-bottom:8px;letter-spacing:.02em;}
+  .brand b{color:var(--accent2);}
+  .daynav{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;}
+  .daytab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;
+    padding:8px 15px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .daytab .d{color:var(--accent2);font-family:Georgia,serif;margin-right:5px;}
+  .daytab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .daytab.active .d{color:#ffd9a8;}
+  .daytab.soon{opacity:.5;cursor:default;}
+  .dayview[hidden]{display:none;}
+  .dayview>.wrap{padding-bottom:30px;}
+
+</style>
+</head>
+<body class="guide">
+  <div class="topbar">
+    <div class="inner">
+      <div class="brand">🇳🇱🇧🇪 荷比 13 天 · <b>行程導覽</b></div>
+      <div class="daynav">
+        <button class="daytab active" data-target="day1"><span class="d">Day 1</span>哈倫</button>
+        <button class="daytab" data-target="day2"><span class="d">Day 2</span>阿姆斯特丹</button>
+        <button class="daytab soon" disabled><span class="d">Day 3</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 4</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 5</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 6</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 7</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 8</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 9</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 10</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 11</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 12</span>製作中</button>
+        <button class="daytab soon" disabled><span class="d">Day 13</span>製作中</button>
+      </div>
+    </div>
+  </div>
+
+<section class="dayview" id="day1"><div class="wrap">
+<header class="hero">
+<div class="kicker">Day 1 · trip start</div>
+<h1>史基浦 → 哈倫老城</h1>
+<div class="sub">史基浦機場（Schiphol）抵達 → 火車到哈倫（Haarlem）· 抵達日 · 上午到、下午半日遊</div>
+<div class="chips">
+<span class="chip">📅 <b>2026/10/25（週日）</b>※依內文推算</span>
+<span class="chip">🚆 史基浦→哈倫 <b>約25–30分</b>· Sloterdijk 轉1次</span>
+<span class="chip">🚶 哈倫步行 <b>約 2–3 km</b></span>
+<span class="chip">🍂 秋末 · 約 8–13°C</span>
+</div>
+<div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div>
+</header>
+<div class="route">
+<h2>🗺 今日動線</h2>
+<div class="ribbon">
+<div class="stop train"><span class="n">1</span>史基浦機場</div><span class="arrow">→</span>
+<div class="stop train"><span class="n">2</span>機場車站</div><span class="arrow">🚆</span>
+<div class="stop"><span class="n">3</span>哈倫車站</div><span class="arrow">→</span>
+<div class="stop"><span class="n">4</span>大廣場·大教堂</div><span class="arrow">→</span>
+<div class="stop"><span class="n">5</span>黃金小街</div><span class="arrow">→</span>
+<div class="stop"><span class="n">6</span>Spaarne 河岸</div><span class="arrow">→</span>
+<div class="stop"><span class="n">7</span>阿德里安風車</div><span class="arrow">→</span>
+<div class="stop"><span class="n">🍽</span>河畔晚餐</div>
+</div>
+<div style="font-size:12.5px;color:var(--muted);margin-top:10px;">機場 → 哈倫是<b>火車</b>（在 Amsterdam Sloterdijk 轉 1 次）；哈倫市區站 3–7 是<b>步行</b>。</div>
+<a class="maplink" href="https://www.google.com/maps/dir/Station+Haarlem/Grote+Markt,+Haarlem/Warmoesstraat,+Haarlem/Gravestenenbrug,+Haarlem/Molen+De+Adriaan,+Haarlem/Jopenkerk+Haarlem" rel="noopener" target="_blank">🧭 哈倫市區步行路線（Google 地圖）</a>
+</div>
+<!-- STEP 1 · 機場 -->
+<div class="step train">
+<div class="step-head">
+<span class="num">1</span>
+<div class="tt"><h3>史基浦機場</h3><div class="nl">Amsterdam Airport Schiphol</div></div>
+<span class="tag">抵達 · 入境</span>
+</div>
+<div class="media"><img alt="史基浦機場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_Schiphol_Airport_entrance.jpg?width=900"/></div>
+<div class="cap">史基浦機場（單一航廈、機場與車站共構）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>下機後流程：護照查驗 → 提領行李 → 走到 <b>Schiphol Plaza</b>（機場中央大廳，商店、餐飲、ATM、電信櫃都在這層，火車站也在正下方）。整個機場只有一個航廈，動線單純。</p>
+<div class="look"><b>提醒：</b>2026 年起歐盟 <b>EES 入境系統</b>可能要拍照／按指紋，查驗排隊會比以往久，預留時間、五人先講好集合點。</div>
+<div class="look"><b>順手辦：</b>在 Plaza 買 SIM／開 eSIM、領歐元現金、吃個早餐；時間多可上 Panorama Terrace 觀景台看飛機。</div>
+<div class="info"><span>✈️ 單一航廈</span><span>🛂 EES 查驗較久</span><span>🛍 Plaza 商店/餐飲/ATM</span></div>
+<div class="links">
+<a href="https://www.google.com/maps?q=Amsterdam+Airport+Schiphol" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.schiphol.nl/en/" rel="noopener" target="_blank">🔗 機場官網</a>
+</div>
+</div>
+</div>
+<!-- STEP 2 · 機場車站 -->
+<div class="step train">
+<div class="step-head">
+<span class="num">2</span>
+<div class="tt"><h3>史基浦機場車站</h3><div class="nl">Schiphol Airport Station · 火車到哈倫</div></div>
+<span class="tag">搭車 · 轉乘</span>
+</div>
+<div class="media"><img alt="史基浦機場車站 NS 大廳" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hal-schiphol-plaza-ns.jpg?width=900"/></div>
+<div class="cap">Schiphol Plaza 內的 NS 火車閘門大廳，月台就在正下方 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>車站就在 Schiphol Plaza 正下方，搭手扶梯下到月台即可。先在 NS 售票機或 App 買票，或直接用<b>感應信用卡／OVpay</b> 進出閘門（進站、出站都要刷）。</p>
+<div class="look"><b>路線：</b>搭往 Amsterdam 方向，在 <b>Amsterdam Sloterdijk 轉 1 次車</b>往哈倫；全程約 <b>25–30 分鐘</b>，每小時約 4–5 班。月台電子看板認往 Haarlem／Sloterdijk 的車。</div>
+<div class="look"><b>五人省錢：</b>之後可一起買 NS 離峰團體票（同進同出更划算）；今天先順利到哈倫為主。</div>
+<div class="info"><span>🚆 Sloterdijk 轉 1 次</span><span>⏱ 約 25–30 分</span><span>🎫 OVpay 感應 / NS App</span></div>
+<div class="links">
+<a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次查詢</a>
+<a href="https://www.google.com/maps?q=Schiphol+Airport+railway+station" rel="noopener" target="_blank">📍 Google 地圖</a>
+</div>
+</div>
+</div>
+<!-- STEP 3 · 哈倫車站 -->
+<div class="step">
+<div class="step-head">
+<span class="num">3</span>
+<div class="tt"><h3>哈倫車站</h3><div class="nl">Station Haarlem</div></div>
+<span class="tag">抵達 · 寄行李</span>
+</div>
+<div class="media"><img alt="哈倫車站外觀" src="https://commons.wikimedia.org/wiki/Special:FilePath/Haarlem_Station.JPG?width=900"/></div>
+<div class="cap">哈倫車站（1908，新藝術 Jugendstil 風格，全荷最古老的火車站之一）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>到哈倫站先把行李寄放或早 check-in，放空雙手再進老城。站體本身是 1908 年新藝術風格的國家級古蹟。</p>
+<div class="look"><b>街景想像：</b>月台上方是綠色鑄鐵雨棚與彩繪磁磚壁畫，出站前值得抬頭看一眼。</div>
+<div class="info"><span>🧳 站內/住宿寄物</span><span>🕙 上午到 → 下午整段可玩</span><span>🚶 進老城約 8–10 分</span></div>
+<div class="links">
+<a href="https://www.google.com/maps?q=Station+Haarlem" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.38766,4.63862" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 4 -->
+<div class="step">
+<div class="step-head">
+<span class="num">4</span>
+<div class="tt"><h3>大廣場 + 聖巴佛大教堂</h3><div class="nl">Grote Markt · Grote of St-Bavokerk</div></div>
+<span class="tag">核心地標</span>
+</div>
+<div class="media duo">
+<img alt="哈倫大廣場與聖巴佛大教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/HaarlemGroteMarkt1.JPG?width=820"/>
+<img alt="聖巴佛大教堂 Müller 管風琴" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sint_bavo_haarlem_orgel_front_1010116.jpg?width=820"/>
+</div>
+<div class="cap">左：大廣場與哥德式聖巴佛大教堂 · 右：教堂內 1738 年 Müller 管風琴 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>從車站沿 Kruisstraat 購物街南下，約 8–10 分鐘走到大廣場。廣場被哥德式大教堂、17 世紀市政廳、肉舖會堂（Vleeshal）與 13 世紀的 Hoofdwacht 環繞，是哈倫的心臟。</p>
+<div class="look"><b>看點：</b>教堂內那座 <b>1738 年 Müller 管風琴</b>，5000 多支音管，10 歲的莫札特曾彈過——是全世界被畫得最多的管風琴。</div>
+<div class="look"><b>⚠️ 週日提醒：</b>10/25 是禮拜日，上午有使用管風琴的禮拜，白天觀光入內會受限；可先看外觀，內部留意是否開放（平日成人 €4）。</div>
+<div class="info"><span>🚶 車站走來約8–10分</span><span>⛪ 內部 €4</span><span>🕐 週日禮拜日入內受限</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=VgcZEvgOxYU" rel="noopener" target="_blank">▶ YouTube 街景步行</a>
+<a href="https://www.google.com/maps?q=Grote+Markt+Haarlem" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.38137,4.63661" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 5 -->
+<div class="step">
+<div class="step-head">
+<span class="num">5</span>
+<div class="tt"><h3>黃金小街</h3><div class="nl">De Gouden Straatjes</div></div>
+<span class="tag">逛街 · 小店</span>
+</div>
+<div class="media"><img alt="哈倫老城街屋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Haarlem_-_Spaarne_104.JPG?width=900"/></div>
+<div class="cap">哈倫老城街屋與運河（黃金小街即在此一帶）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>大廣場旁有 7 條被稱為「黃金小街」的購物巷弄（Anegang、Warmoesstraat、Gierstraat、Zijlstraat 等），地上有磁磚標記。獨立小店、咖啡、選物、古著都集中在這，是哈倫比阿姆斯特丹更好逛的原因。</p>
+<div class="look"><b>街景想像：</b>窄窄的石板巷、低矮的山牆屋、櫥窗一間接一間，沒有阿姆的人潮，適合慢慢晃、隨意鑽。</div>
+<div class="info"><span>🛍 7 條小街</span><span>☕ 咖啡/選物/古著</span><span>🚶 廣場旁即是</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=qGKQTjEgpwE" rel="noopener" target="_blank">▶ YouTube 巷弄步行</a>
+<a href="https://www.google.com/maps?q=Warmoesstraat+Haarlem" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.38055,4.63540" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 6 -->
+<div class="step">
+<div class="step-head">
+<span class="num">6</span>
+<div class="tt"><h3>Spaarne 河岸 · 古橋</h3><div class="nl">Spaarne · Waag · Gravestenenbrug</div></div>
+<span class="tag">河景 · 拍照</span>
+</div>
+<div class="media"><img alt="Spaarne 河上的 Gravestenenbrug 古橋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Haarlem_-_Gravestenenbrug.JPG?width=900"/></div>
+<div class="cap">Spaarne 河上的 Gravestenenbrug 可升降木橋 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>從小街往東走到 Spaarne 河畔。先經過文藝復興風格的 <b>Waag 秤量所</b>（1599，現為河邊咖啡館），再沿河往北看到 <b>Gravestenenbrug</b>——一座白色木造可開合古橋，是哈倫河景明信片的主角。</p>
+<div class="look"><b>街景想像：</b>河面倒映兩岸山牆屋，偶有遊船穿過開合的木橋；秋天落葉沿河，傍晚光線最美，是這天最值得停下來拍照的點。</div>
+<div class="info"><span>⚖️ Waag 秤量所 1599</span><span>🌉 Gravestenenbrug 木橋</span><span>📷 河景最佳</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=K1t53KNsHhI" rel="noopener" target="_blank">▶ YouTube 運河步行</a>
+<a href="https://www.google.com/maps?q=Gravestenenbrug+Haarlem" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.38183,4.64005" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 7 -->
+<div class="step">
+<div class="step-head">
+<span class="num">7</span>
+<div class="tt"><h3>阿德里安風車</h3><div class="nl">Molen de Adriaan</div></div>
+<span class="tag">必看地標</span>
+</div>
+<div class="media"><img alt="阿德里安風車" src="https://commons.wikimedia.org/wiki/Special:FilePath/Molen_de_Adriaan_Haarlem.jpg?width=900"/></div>
+<div class="cap">Spaarne 河畔的阿德里安風車 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>沿河再往北就是哈倫的明星——阿德里安風車。最早建於 1779、1932 燒毀、2002 重建，立在 Spaarne 河彎上。可入內參加約 45 分鐘導覽，1 樓還有風車與 Spaarne 河 300 年變遷的影片。</p>
+<div class="look"><b>看點：</b>從河對岸（Papentorenvest 一帶）看風車＋河水＋老城天際線，是哈倫最經典的一張照片。<br/><b>✅ 好消息：</b>10/25 在 11/1 前，週日開 10:30–17:00 可入內；<b>11/1 之後</b>就只剩週一/五/六/日開了，你們剛好趕上。</div>
+<div class="info"><span>🕥 週日 10:30–17:00</span><span>🎟 入內 €5（約45分導覽）</span><span>⏱ 末梯閉館前30分</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=D4aT5rHBGCM" rel="noopener" target="_blank">▶ YouTube 風車介紹</a>
+<a href="https://www.google.com/maps?q=Molen+De+Adriaan+Haarlem" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.38490,4.63876" rel="noopener" target="_blank">👁 街景</a>
+<a href="https://www.molenadriaan.nl/en/visiting-hours/" rel="noopener" target="_blank">🔗 官方開放時間</a>
+</div>
+</div>
+</div>
+<!-- DINNER · 7 間餐廳圖文 -->
+<div class="step">
+<div class="step-head">
+<span class="num">🍽</span>
+<div class="tt"><h3>第一晚晚餐 · 河畔／老城</h3><div class="nl">Dinner · 你的 7 家紫字清單</div></div>
+<span class="tag">圖文 · 選餐廳</span>
+</div>
+<div class="media"><img alt="Jopenkerk 教堂改建啤酒餐廳" src="https://commons.wikimedia.org/wiki/Special:FilePath/2015_0512_Jopenkerk.jpg?width=900"/></div>
+<div class="cap">喬本教堂餐廳 Jopenkerk（教堂改建的精釀啤酒餐廳，第一晚首選）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>抵達日不用太正式，吃得舒服、走得到就好。以下完整保留你的 7 家紫字清單，每間都附「📍Google 地圖」可直接看<b>真實照片與評價</b>（小餐廳沒有免費實照、官方／IG 照片有版權，故卡片圖示為設計用途、實照請點地圖）。</p>
+<div class="rgrid">
+<div class="rcard">
+<div class="remblem" style="background:#b8893b;"><span class="ic">🍺</span><span class="lb">啤酒餐廳<br/>教堂改建</span></div>
+<div class="rbody">
+<h4>⭐ 喬本教堂餐廳</h4><div class="nl">Jopenkerk Haarlem</div>
+<p>挑高彩繪玻璃的教堂改建精釀啤酒餐廳，氣氛獨特，喝 Jopen 啤酒配炸肉球最對味。第一晚不用太正式的首選。</p>
+<div class="who">適合：想配啤酒、輕鬆開場、愛氣氛的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Jopenkerk+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a><a href="https://www.jopenkerk.nl/" rel="noopener" target="_blank">🔗 官網</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#1f5d52;"><span class="ic">🌊</span><span class="lb">河景<br/>輕鬆</span></div>
+<div class="rbody">
+<h4>河畔餐廳</h4><div class="nl">Restaurant Zuidam</div>
+<p>Spaarne 河邊的餐廳，接在阿德里安風車後面最順，邊看河景邊吃午／晚餐。</p>
+<div class="who">適合：想要河景、剛看完風車收尾的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+Zuidam+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#356A5C;"><span class="ic">🌿</span><span class="lb">屋頂溫室<br/>好拍</span></div>
+<div class="rbody">
+<h4>屋頂溫室餐廳</h4><div class="nl">DeDAKKAS</div>
+<p>公園裡的屋頂玻璃溫室餐廳，採光通透、植栽環繞，下午茶到輕鬆晚餐都行，氣氛強、拍照好看。</p>
+<div class="who">適合：想要氣氛與拍照、吃輕鬆一點的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=DeDAKKAS+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#6f6a61;"><span class="ic">🛋️</span><span class="lb">現代<br/>不觀光</span></div>
+<div class="rbody">
+<h4>走廊餐廳</h4><div class="nl">Menu Corridor</div>
+<p>比較現代、舒服、不太觀光的小館，早午餐到晚餐都可，五人也好訂位。</p>
+<div class="who">適合：想現代輕鬆、避開觀光感的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Menu+Corridor+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#c4622d;"><span class="ic">🧱</span><span class="lb">老城<br/>溫馨質感</span></div>
+<div class="rbody">
+<h4>布里克餐廳</h4><div class="nl">Restaurant Brick</div>
+<p>老城小巷裡溫馨又有質感的餐廳，想吃好一點、但不要到米其林那麼隆重時的中間選擇。</p>
+<div class="who">適合：想吃好一點、喜歡溫馨氛圍的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+Brick+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#b0563f;"><span class="ic">🦞</span><span class="lb">海鮮<br/>bistro</span></div>
+<div class="rbody">
+<h4>圖茹爾小酒館</h4><div class="nl">Toujours</div>
+<p>偏精緻的 bistro，想吃肉、海鮮、氣氛比較熱鬧時的好選擇。</p>
+<div class="who">適合：想吃肉海鮮、喜歡熱鬧一點的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Toujours+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#7A4E91;"><span class="ic">⭐</span><span class="lb">米其林<br/>一星</span></div>
+<div class="rbody">
+<h4>料理鼠王餐廳</h4><div class="nl">Ratatouille Food &amp; Wine</div>
+<p>Spaarne 河邊的米其林一星，套餐約 €125/人。五人務必提前訂位；想壓總預算就改上面幾家。</p>
+<div class="who">適合：想慶祝、吃一頓精緻好料的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Ratatouille+Food+Wine+Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+</div>
+<div class="links" style="margin-top:14px;"><a class="vlink" href="https://www.youtube.com/watch?v=PvutkO2TNRQ" rel="noopener" target="_blank">▶ 哈倫秋季傍晚 4K 步行</a></div>
+</div>
+</div>
+<div class="note">
+<b>幾個彈性備案：</b>天氣差或腳力夠，可加 <b>Teylers 博物館</b>（全荷最老的博物館，週一休、週日有開）；或在大廣場 De Hallen 美術館避雨。整天節奏很輕，抵達日把重點放在「安頓＋老城散步＋好好吃一頓」即可。
+  </div>
+
+</div></section>
+<section class="dayview" id="day2" hidden><div class="wrap">
+<header class="hero">
+<div class="kicker">Day 2 · museum day</div>
+<h1>阿姆斯特丹 · 國家博物館</h1>
+<div class="sub">當日往返：住宿 ↔ 阿姆斯特丹；荷蘭國家博物館半日慢看 + 九小街／喬丹區</div>
+<div class="chips">
+<span class="chip">📅 <b>2026/10/26（週一）</b></span>
+<span class="chip">🚆 哈倫→阿姆 Centraal <b>約17分直達</b></span>
+<span class="chip">🎒 不搬行李 · 輕裝進城</span>
+<span class="chip">🏛 國家博物館半日</span>
+</div>
+<div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div>
+</header>
+<div class="route">
+<h2>🗺 今日動線</h2>
+<div class="ribbon">
+<div class="stop train"><span class="n">1</span>哈倫→阿姆 Centraal</div><span class="arrow">🚆</span>
+<div class="stop"><span class="n">2</span>博物館廣場</div><span class="arrow">→</span>
+<div class="stop"><span class="n">3</span>國家博物館</div><span class="arrow">→</span>
+<div class="stop"><span class="n">4</span>午餐</div><span class="arrow">→</span>
+<div class="stop"><span class="n">5</span>九小街</div><span class="arrow">→</span>
+<div class="stop"><span class="n">6</span>喬丹區</div>
+</div>
+<div style="font-size:12.5px;color:var(--muted);margin-top:10px;">哈倫 → 阿姆斯特丹中央車站<b>直達火車約 17 分</b>；中央站轉電車 2／5／12 到博物館廣場約 10 分。市區多為步行＋電車。</div>
+<a class="maplink" href="https://www.google.com/maps/dir/Amsterdam+Centraal/Rijksmuseum/De+9+Straatjes+Amsterdam/Westerkerk+Amsterdam" rel="noopener" target="_blank">🧭 阿姆市區動線（Google 地圖）</a>
+</div>
+<!-- STEP 1 · 交通 -->
+<div class="step train">
+<div class="step-head">
+<span class="num">1</span>
+<div class="tt"><h3>哈倫 → 阿姆斯特丹</h3><div class="nl">Haarlem → Amsterdam Centraal</div></div>
+<span class="tag">交通 · 直達</span>
+</div>
+<div class="media"><img alt="阿姆斯特丹中央車站" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_Centraal_Station.jpg?width=900"/></div>
+<div class="cap">阿姆斯特丹中央車站（Cuypers 設計，與國家博物館同一位建築師）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>不搬行李、輕裝進城。哈倫搭直達火車到<b>阿姆斯特丹中央車站約 17 分鐘</b>（每小時 4–6 班）；出站後轉電車 2／5／12 到博物館廣場約 10 分，或沿運河散步過去。</p>
+<div class="look"><b>小提醒：</b>中央車站與國家博物館都是 Pierre Cuypers 設計的紅磚名建築，出站可先抬頭看正面山牆；用 OVpay／NS App 進出刷卡。</div>
+<div class="info"><span>🚆 直達約17分</span><span>🚊 轉電車2/5/12 約10分</span><span>🎫 OVpay 感應</span></div>
+<div class="links">
+<a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a>
+<a href="https://www.google.com/maps?q=Amsterdam+Centraal" rel="noopener" target="_blank">📍 Google 地圖</a>
+</div>
+</div>
+</div>
+<!-- STEP 2 · Museumplein -->
+<div class="step">
+<div class="step-head">
+<span class="num">2</span>
+<div class="tt"><h3>博物館廣場</h3><div class="nl">Museumplein</div></div>
+<span class="tag">廣場 · 拍照</span>
+</div>
+<div class="media"><img alt="博物館廣場全景" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_-_Museumplein_-_Panorama_View.jpg?width=1000"/></div>
+<div class="cap">博物館廣場：國家博物館、梵谷博物館、市立美術館、音樂廳環繞同一片草坪 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>下車先到這片開闊廣場集合。四周是<b>國家博物館、梵谷博物館（Day 3）、市立現代美術館、音樂廳</b>，中間有大草坪與水池，冬天有時設溜冰場。</p>
+<div class="look"><b>提醒：</b>知名的大型「I amsterdam」字母<b>已於 2018 年從這裡移走</b>（現在多在史基浦機場），別撲空；不過博物館前的水池與後方拱門仍很好拍。</div>
+<div class="info"><span>🖼 四大館環繞</span><span>🌳 草坪/水池</span><span>📷 國家博物館立面</span></div>
+<div class="links">
+<a href="https://www.google.com/maps?q=Museumplein+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.358,4.881" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 3 · Rijksmuseum -->
+<div class="step">
+<div class="step-head">
+<span class="num">3</span>
+<div class="tt"><h3>荷蘭國家博物館</h3><div class="nl">Rijksmuseum · 今日主角</div></div>
+<span class="tag">必訂 · 半日</span>
+</div>
+<div class="media duo">
+<img alt="荷蘭國家博物館建築" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rijksmuseum_from_Museumplein_2523.jpg?width=820"/>
+<img alt="林布蘭 夜巡 The Night Watch" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Night_Watch_-_HD.jpg?width=820"/>
+</div>
+<div class="cap">左：國家博物館（Cuypers，1885）· 右：林布蘭《夜巡》(1642)· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>今天的重頭戲，建議排<b>半天慢看</b>。鎮館之寶是林布蘭《夜巡》與維梅爾《倒牛奶的女僕》《讀信藍衣少婦》，集中在 2 樓的<b>榮譽長廊（Gallery of Honour）</b>；還有 Frans Hals、台夫特藍陶、宏偉的圖書館與建築本身。</p>
+<div class="look"><b>⚠️ 必做：</b>線上預約<b>時段票</b>（約 €22.5/人，五人務必一起選同一時段）；週一照常開放 9:00–17:00。人多時先衝《夜巡》再回頭慢看。</div>
+<div class="look"><b>動線建議：</b>2 樓黃金時代 → 榮譽長廊《夜巡》→ 圖書館 → 1 樓特展；累了到館內 RIJKS Café 補給。</div>
+<div class="info"><span>🕘 每日 9:00–17:00</span><span>🎟 約 €22.5 · 線上時段票</span><span>🖼 夜巡/維梅爾</span></div>
+<div class="links">
+<a class="vlink" href="https://www.rijksmuseum.nl/en/from-home/video-tour" rel="noopener" target="_blank">▶ 官方導覽影片</a>
+<a href="https://www.rijksmuseum.nl/en/visit" rel="noopener" target="_blank">🔗 官網訂票</a>
+<a href="https://www.google.com/maps?q=Rijksmuseum" rel="noopener" target="_blank">📍 Google 地圖</a>
+</div>
+</div>
+</div>
+<!-- STEP 4 · 午餐（餐廳圖文卡）-->
+<div class="step">
+<div class="step-head">
+<span class="num">4</span>
+<div class="tt"><h3>午餐 · 博物館周邊</h3><div class="nl">Lunch · 你的紫字清單</div></div>
+<span class="tag">圖文 · 選餐廳</span>
+</div>
+<div class="body">
+<p>看完博物館先吃午餐。以下完整保留你原本整理的博物館區紫字清單，每間附「📍Google 地圖」可看<b>真實照片與評價</b>（小店無免費實照、官方／IG 照有版權，故卡片用設計圖示）。</p>
+<div class="rgrid">
+<div class="rcard">
+<div class="remblem" style="background:#b0563f;"><span class="ic">🦞</span><span class="lb">海鮮<br/>完整午餐</span></div>
+<div class="rbody">
+<h4>范巴勒街海鮮餐廳</h4><div class="nl">The Seafood Bar · Van Baerlestraat</div>
+<p>步行約 5 分鐘，魚、炸魚、海鮮盤，想好好吃一頓完整午餐時最對味。</p>
+<div class="who">適合：愛海鮮、想吃正餐的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=The+Seafood+Bar+Van+Baerlestraat+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#c4622d;"><span class="ic">🍛</span><span class="lb">印尼菜<br/>好分食</span></div>
+<div class="rbody">
+<h4>塞波印尼餐廳</h4><div class="nl">Sama Sebo</div>
+<p>步行約 5–8 分鐘，印尼菜與飯類，五個人很好分食，想吃有記憶點的一餐可選。</p>
+<div class="who">適合：想吃印尼料理、五人共享的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Sama+Sebo+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#1f5d52;"><span class="ic">🇳🇱</span><span class="lb">荷蘭<br/>家常菜</span></div>
+<div class="rbody">
+<h4>荷蘭家常菜餐廳</h4><div class="nl">The Pantry</div>
+<p>Leidseplein 附近、離博物館區不遠；想吃傳統荷蘭菜、把午餐吃成正餐時可選，五人建議訂位。</p>
+<div class="who">適合：想吃傳統荷蘭菜的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=The+Pantry+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#6f6a61;"><span class="ic">☕</span><span class="lb">廣場旁<br/>最方便</span></div>
+<div class="rbody">
+<h4>眼鏡蛇咖啡館</h4><div class="nl">Cobra Café</div>
+<p>就在博物館廣場旁，三明治、漢堡、飲料快速解決，不想走遠最方便。</p>
+<div class="who">適合：想快速吃、不想移動的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Cobra+Cafe+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#b8893b;"><span class="ic">🥐</span><span class="lb">咖啡<br/>早午餐</span></div>
+<div class="rbody">
+<h4>布拉欣咖啡館</h4><div class="nl">Blushing Amsterdam</div>
+<p>步行約 3–5 分鐘，咖啡、蛋糕、健康早午餐與輕食，想吃清爽一點時很合。</p>
+<div class="who">適合：想吃輕食、咖啡甜點的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Blushing+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#356A5C;"><span class="ic">🏛️</span><span class="lb">館內<br/>最省移動</span></div>
+<div class="rbody">
+<h4>國家博物館咖啡館</h4><div class="nl">RIJKS Café / The Café</div>
+<p>就在博物館內，懶得走或天氣差時快速補充體力最方便。</p>
+<div class="who">適合：不想出館、天氣差時的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=RIJKS+restaurant+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+<div class="rcard">
+<div class="remblem" style="background:#7A4E91;"><span class="ic">🛒</span><span class="lb">市場<br/>邊逛邊吃</span></div>
+<div class="rbody">
+<h4>阿爾伯特市場</h4><div class="nl">Albert Cuyp Market</div>
+<p>步行約 15–20 分鐘的露天市集，適合邊逛邊吃小吃。週日不營業，<b>今天週一可作彈性選項</b>。</p>
+<div class="who">適合：想吃街頭小吃、邊走邊逛的人</div>
+<div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Albert+Cuyp+Market+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- STEP 5 · 九小街 -->
+<div class="step">
+<div class="step-head">
+<span class="num">5</span>
+<div class="tt"><h3>九小街</h3><div class="nl">De 9 Straatjes</div></div>
+<span class="tag">運河 · 購物</span>
+</div>
+<div class="media"><img alt="阿姆斯特丹九小街運河" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_Negen_Straatjes_(55028715990).jpg?width=900"/></div>
+<div class="cap">九小街：夾在三大運河之間的精品小巷區 · 圖：Wikimedia Commons</div>
+<div class="body">
+<p>午餐後散步到九小街——夾在 Herengracht、Keizersgracht、Prinsengracht 三大運河間的 9 條小街，獨立選物、古著、咖啡、起司、巧克力都集中在這，是運河區最好逛的一塊。</p>
+<div class="look"><b>紫字順遊：</b><br/>· <b>起司店 De Kaaskamer</b>：買荷蘭起司與伴手禮<br/>· <b>Pompadour 巧克力甜點店</b>：下午補糖<br/>· <b>古著店 Episode</b>：喜歡 vintage 可逛<br/>· <b>馬賽之家攝影博物館 Huis Marseille</b>：小型攝影展<br/>· <b>運河博物館 Grachtenmuseum</b>：了解運河怎麼形成</div>
+<div class="info"><span>🛍 9 條精品小街</span><span>🧀 起司/巧克力/古著</span><span>📷 運河橋景</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=dBo2FLBaCkk" rel="noopener" target="_blank">▶ YouTube 運河步行</a>
+<a href="https://www.google.com/maps?q=De+9+Straatjes+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?layer=c&amp;cbll=52.368,4.884" rel="noopener" target="_blank">👁 街景</a>
+</div>
+</div>
+</div>
+<!-- STEP 6 · 喬丹區 -->
+<div class="step">
+<div class="step-head">
+<span class="num">6</span>
+<div class="tt"><h3>喬丹區</h3><div class="nl">Jordaan</div></div>
+<span class="tag">老城區 · 傍晚</span>
+</div>
+<div class="media"><img alt="喬丹區 Prinsengracht 與西教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam%20Prinsengracht%20%26%20Westerkerk%204.jpg?width=900"/></div>
+<div class="cap">喬丹區 Prinsengracht 運河與西教堂（Westerkerk）· 圖：Wikimedia Commons</div>
+<div class="body">
+<p>九小街往北接到喬丹區——阿姆最有生活感的老街區，運河、窄屋、小店與在地酒館。傍晚在這裡收尾、喝一杯最舒服。</p>
+<div class="look"><b>紫字順遊：</b><br/>· <b>西教堂 Westerkerk</b>：喬丹地標，順路看外觀拍照（旁邊就是安妮之家，要參觀需提早線上預約）<br/>· <b>溫克爾 43 Winkel 43</b>：超有名的蘋果派，下午茶必點<br/>· <b>北市場 Noordermarkt</b>：週一 09:00–14:00，想逛得趁上午（下午動線只能當資訊備用）<br/>· <b>棕色酒吧 Brown cafés</b>：如 Café ’t Smalle，晚上喝一杯體驗在地老酒館</div>
+<div class="info"><span>⛪ 西教堂</span><span>🥧 Winkel 43 蘋果派</span><span>🍺 棕色酒吧</span></div>
+<div class="links">
+<a class="vlink" href="https://www.youtube.com/watch?v=bwKieMmRIaQ" rel="noopener" target="_blank">▶ YouTube 喬丹散步</a>
+<a href="https://www.google.com/maps?q=Jordaan+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a>
+<a href="https://www.google.com/maps?q=Winkel+43+Amsterdam" rel="noopener" target="_blank">🥧 Winkel 43</a>
+</div>
+</div>
+</div>
+<div class="note">
+<b>今晚怎麼吃：</b>Day 2 晚餐不用特別排——可在博物館區或九小街附近吃完再回哈倫，或回哈倫吃晚餐、早點休息（隔天還是阿姆梵谷博物館日）。想小酌就留在喬丹區的棕色酒吧。<br/>
+<b>週一備忘：</b>國家博物館、梵谷博物館週一照常開；部分小店與市集（北市場）只有上午，逛街以下午動線為主、市集當資訊備用即可。
+  </div>
+
+</div></section>
+
+  <div class="wrap">
+    <footer>
+      荷比 13 天 · 逐日視覺導覽（Day 1–2 已完成，Day 3–13 製作中）<br>
+      照片來源：Wikimedia Commons（CC 授權）· 影片連結：YouTube／官方 · 地圖／街景：Google Maps<br>
+      日期、票價與開放時間以官方公告為準。
+    </footer>
+  </div>
+
+  <script>
+    const btns=document.querySelectorAll('.daytab:not(.soon)');
+    const views=document.querySelectorAll('.dayview');
+    btns.forEach(b=>b.addEventListener('click',()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      views.forEach(v=>v.hidden=true);
+      b.classList.add('active');
+      const t=document.getElementById(b.dataset.target);
+      if(t) t.hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    }));
+  </script>
+</body>
+</html>
