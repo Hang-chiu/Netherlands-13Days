@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>荷比 13 天 · 行程導覽</title>
-<style>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>荷比 13 天 · 行程導覽</title><style>
 
   :root{
     --bg:#faf6ef; --card:#ffffff; --ink:#2c2a26; --muted:#6f6a61;
@@ -56,7 +52,6 @@
   .links a:hover{background:#f3efe6;}
   .links a.vlink{background:var(--accent2);color:#fff;border-color:var(--accent2);}
   .links a.vlink:hover{background:#a8521f;}
-  /* 餐廳圖文卡 */
   .rgrid{display:flex;flex-direction:column;gap:12px;margin-top:6px;}
   .rcard{display:grid;grid-template-columns:110px 1fr;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
   .remblem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#fff;padding:10px 8px;text-align:center;}
@@ -76,47 +71,35 @@
   @media(max-width:620px){h1{font-size:30px;} .media img{max-height:340px;} .media.duo{grid-template-columns:1fr;} .rcard{grid-template-columns:84px 1fr;}}
 
 
-  /* combined guide nav */
   body.guide .wrap{padding-top:0;}
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.96);backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:6px;}
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:6px;}
   .topbar .inner{max-width:880px;margin:0 auto;padding:0 18px;}
-  .brand{font-family:Georgia,serif;font-size:15px;color:var(--winterink,var(--accent));font-weight:700;margin-bottom:8px;letter-spacing:.02em;}
+  .brand{font-family:Georgia,serif;font-size:15px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:.02em;}
   .brand b{color:var(--accent2);}
   .daynav{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;}
-  .daytab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;
-    padding:8px 15px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .daytab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;}
   .daytab .d{color:var(--accent2);font-family:Georgia,serif;margin-right:5px;}
   .daytab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   .daytab.active .d{color:#ffd9a8;}
-  .daytab.soon{opacity:.5;cursor:default;}
   .dayview[hidden]{display:none;}
-  .dayview>.wrap{padding-bottom:30px;}
 
-</style>
-</head>
-<body class="guide">
-  <div class="topbar">
-    <div class="inner">
-      <div class="brand">🇳🇱🇧🇪 荷比 13 天 · <b>行程導覽</b></div>
-      <div class="daynav">
-        <button class="daytab active" data-target="day1"><span class="d">Day 1</span>哈倫</button>
-        <button class="daytab" data-target="day2"><span class="d">Day 2</span>阿姆斯特丹</button>
-        <button class="daytab soon" disabled><span class="d">Day 3</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 4</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 5</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 6</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 7</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 8</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 9</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 10</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 11</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 12</span>製作中</button>
-        <button class="daytab soon" disabled><span class="d">Day 13</span>製作中</button>
-      </div>
-    </div>
-  </div>
-
+</style></head><body class="guide">
+<div class="topbar"><div class="inner"><div class="brand">🇳🇱🇧🇪 荷比 13 天 · <b>行程導覽</b></div>
+<div class="daynav">
+<button class="daytab active" data-target="day1"><span class="d">D1</span>哈倫</button>
+<button class="daytab" data-target="day2"><span class="d">D2</span>阿姆</button>
+<button class="daytab" data-target="day3"><span class="d">D3</span>梵谷</button>
+<button class="daytab" data-target="day4"><span class="d">D4</span>烏特勒支</button>
+<button class="daytab" data-target="day5"><span class="d">D5</span>羊角村</button>
+<button class="daytab" data-target="day6"><span class="d">D6</span>庫勒穆勒</button>
+<button class="daytab" data-target="day7"><span class="d">D7</span>台夫特/鹿特丹</button>
+<button class="daytab" data-target="day8"><span class="d">D8</span>安特衛普/布魯日</button>
+<button class="daytab" data-target="day9"><span class="d">D9</span>布魯日/根特</button>
+<button class="daytab" data-target="day10"><span class="d">D10</span>回荷蘭</button>
+<button class="daytab" data-target="day11"><span class="d">D11</span>贊斯堡</button>
+<button class="daytab" data-target="day12"><span class="d">D12</span>漫遊</button>
+<button class="daytab" data-target="day13"><span class="d">D13</span>回程</button>
+</div></div></div>
 <section class="dayview" id="day1"><div class="wrap">
 <header class="hero">
 <div class="kicker">Day 1 · trip start</div>
@@ -583,26 +566,344 @@
   </div>
 
 </div></section>
+<section class="dayview" id="day3" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 3 · Van Gogh</div><h1>梵谷博物館 + 阿姆輕遊</h1><div class="sub">當日往返：住宿 ↔ 阿姆斯特丹；梵谷博物館半日 + 馮德爾公園散步</div><div class="chips"><span class="chip">📅 <b>2026/10/27（週二）</b></span><span class="chip">🚆 哈倫→阿姆 <b>約17分</b></span><span class="chip">🎒 不搬行李</span><span class="chip">🎨 梵谷博物館半日</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>哈倫→阿姆</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>梵谷博物館</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>馮德爾公園</div><span class="arrow">→</span><div class="stop"><span class="n">🍽</span>晚餐</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">哈倫 ↔ 阿姆斯特丹火車約 17 分；博物館區與公園步行＋電車。今天續住、不搬行李。</div><a class="maplink" href="https://www.google.com/maps/dir/Amsterdam+Centraal/Van+Gogh+Museum/Vondelpark+Amsterdam" rel="noopener" target="_blank">🧭 阿姆市區動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>哈倫 → 阿姆斯特丹</h3><div class="nl">Haarlem → Amsterdam</div></div><span class="tag">交通 · 直達</span></div>
+<div class="media"><img alt="阿姆斯特丹中央車站" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_Centraal_Station.jpg?width=900"/></div>
+<div class="cap">阿姆斯特丹中央車站 · 圖：Wikimedia Commons</div>
+<div class="body"><p>第三天續住哈倫、輕裝進城。搭直達火車到阿姆斯特丹中央車站約 17 分，再轉電車 2／12 到博物館區。大件行李留住宿，晚上回同一間。</p><div class="info"><span>🚆 直達17分</span><span>🚊 電車到博物館區</span><span>🎒 不搬行李</span></div><div class="links"><a href="https://www.google.com/maps?q=Amsterdam+Centraal" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>梵谷博物館</h3><div class="nl">Van Gogh Museum · 今日主角</div></div><span class="tag">必訂 · 半日</span></div>
+<div class="media duo"><img alt="梵谷博物館建築" src="https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20Museum%20Amsterdam.jpg?width=820"/><img alt="梵谷 向日葵" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vincent%20van%20Gogh%20-%20Sunflowers%20-%20VGM%20F458.jpg?width=820"/></div>
+<div class="cap">左：梵谷博物館 · 右：梵谷《向日葵》(1889) · 圖：Wikimedia Commons</div>
+<div class="body"><p>把博物館廣場雙館拆成相鄰兩天：昨天國家博物館，今天梵谷。建議 10:00–14:00 半日深度看，依時間軸從紐南、巴黎、亞爾到聖雷米與奧維時期，看畫風如何爆發。</p><div class="look"><b>看點：</b>《向日葵》《盛開的杏花》《麥田群鴉》與大量自畫像；杏花是為姪子出生而畫，最受歡迎。</div><div class="look"><b>⚠️ 必做：</b>線上預約<b>時段票</b>（約 €24/人，現場常買不到），五人選同一時段；週二照常開放。</div><div class="info"><span>🕙 10:00–14:00 半日</span><span>🎟 約€24 · 線上時段票</span><span>🎨 向日葵/杏花</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Van+Gogh+Museum+Amsterdam+tour" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Van+Gogh+Museum" rel="noopener" target="_blank">📍 Google 地圖</a><a href="https://www.vangoghmuseum.nl/en/visit/tickets" rel="noopener" target="_blank">🔗 官網訂票</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>馮德爾公園</h3><div class="nl">Vondelpark</div></div><span class="tag">散步 · 秋景</span></div>
+<div class="media"><img alt="馮德爾公園秋葉" src="https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20leaves%20%40%20Vondelpark%20%40%20Amsterdam%20%2821313604494%29.jpg?width=900"/></div>
+<div class="cap">馮德爾公園秋葉 · 圖：Wikimedia Commons</div>
+<div class="body"><p>梵谷後別急著塞第二個大館。走進旁邊的馮德爾公園散步——阿姆最大的城市公園，秋末滿地金黃落葉，最適合放鬆。出公園就是霍夫特精品街（P.C. Hooftstraat），想逛精品順路。</p><div class="look"><b>街景想像：</b>運河、草坪、咖啡亭與慢跑的人；秋末層林盡染，是這天最舒服的一段。下雨就改咖啡館。</div><div class="info"><span>🍂 秋葉最美</span><span>🚶 城市綠洲</span><span>🛍 旁邊 P.C. Hooftstraat</span></div><div class="links"><a href="https://www.google.com/maps?q=Vondelpark+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>午餐／晚餐 · 博物館區</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>午餐沿用 Day 2 博物館區清單；晚餐今天很適合吃豬肋排或傳統荷蘭菜。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#b0563f;"><span class="ic">🍖</span><span class="lb">烤肉<br/>豬肋排</span></div><div class="rbody"><h4>卡斯特爾烤肉餐廳</h4><div class="nl">Castell · Lijnbaansgracht</div><p>豬肋排與烤肉，17:00 後營業，從梵谷博物館走過去順，五人建議訂位。</p><div class="who">適合：想吃肉、豬肋排的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Castell+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🇳🇱</span><span class="lb">荷蘭<br/>家常菜</span></div><div class="rbody"><h4>荷蘭家常菜餐廳</h4><div class="nl">The Pantry · Leidsekruisstraat</div><p>傳統荷蘭菜，想吃 stamppot、bitterballen 或家常套餐時可選。</p><div class="who">適合：想吃傳統荷蘭菜的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=The+Pantry+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🍢</span><span class="lb">街區<br/>隨性</span></div><div class="rbody"><h4>德派普區晚餐</h4><div class="nl">De Pijp / 博物館區</div><p>想更隨性，就在博物館區或德派普區吃完再回住宿，選擇多。</p><div class="who">適合：想隨性、選擇多的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=De+Pijp+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#6f6a61;"><span class="ic">🚉</span><span class="lb">早收尾<br/>回哈倫</span></div><div class="rbody"><h4>回哈倫晚餐</h4><div class="nl">Haarlem</div><p>大家累了就早點回哈倫吃飯，隔天要正式搬到烏特勒支。</p><div class="who">適合：想早點休息的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Haarlem" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">今晚回同一住宿，先整理 Day 4 搬到烏特勒支的行李與車票。想逛街，博物館旁的霍夫特精品街（P.C. Hooftstraat）順路；下雨就改咖啡館或直接回住宿休息。</div>
 
-  <div class="wrap">
-    <footer>
-      荷比 13 天 · 逐日視覺導覽（Day 1–2 已完成，Day 3–13 製作中）<br>
-      照片來源：Wikimedia Commons（CC 授權）· 影片連結：YouTube／官方 · 地圖／街景：Google Maps<br>
-      日期、票價與開放時間以官方公告為準。
-    </footer>
-  </div>
+</div></section>
+<section class="dayview" id="day4" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 4 · move to Utrecht</div><h1>搬遷①→ 烏特勒支</h1><div class="sub">正式搬遷第 1 次：哈倫/阿姆 → 烏特勒支；Check-in 後運河老城慢遊</div><div class="chips"><span class="chip">📅 <b>2026/10/28（週三）</b></span><span class="chip">🧳 <b>搬遷①</b>→ 烏特勒支</span><span class="chip">🚆 約30–40分</span><span class="chip">🏙 運河老城慢遊</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>退房·搬遷</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>烏特勒支中央站</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>舊運河</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>主教座堂塔</div><span class="arrow">→</span><div class="stop"><span class="n">🍽</span>晚餐</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">哈倫/阿姆 → 烏特勒支火車約 30–40 分；之後 Day 4–7 都住烏特勒支、不再搬行李。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Oudegracht+Utrecht/Domtoren+Utrecht" rel="noopener" target="_blank">🧭 烏特勒支老城動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>搬遷 → 烏特勒支</h3><div class="nl">move to Utrecht</div></div><span class="tag">搬遷①</span></div>
+<div class="body"><p>退房、整理五人大件行李（本趟<b>第 1 次正式搬遷</b>）。哈倫或阿姆搭 NS 火車到烏特勒支中央車站，避開尖峰；先寄放行李或早 check-in，再輕裝出門。住宿優先選車站／Hoog Catharijne 商場周邊，拖行李最省力。</p><div class="info"><span>🧳 正式搬遷①</span><span>🚆 約30–40分</span><span>🛗 住宿選車站旁</span></div><div class="links"><a href="https://www.google.com/maps?q=Utrecht+Centraal" rel="noopener" target="_blank">📍 Google 地圖</a><a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>舊運河</h3><div class="nl">Oudegracht</div></div><span class="tag">運河 · 老城</span></div>
+<div class="media"><img alt="烏特勒支舊運河碼頭" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oudegracht%20304%2C%20Utrecht%20-%20Werf%20met%20planten%2C%202021.jpg?width=900"/></div>
+<div class="cap">烏特勒支舊運河與獨有的雙層碼頭（werf）· 圖：Wikimedia Commons</div>
+<div class="body"><p>烏特勒支老城的靈魂是這條<b>舊運河</b>——全荷獨有的「雙層運河」，水面比街道低一層，岸邊的碼頭倉庫（werf）如今變成河畔餐廳與咖啡。沿運河慢走最能感受這座大學城的生活感。</p><div class="look"><b>街景想像：</b>低一層的石砌碼頭、停滿小船、岸邊露台坐滿人；比阿姆安靜、更在地。</div><div class="info"><span>🛶 雙層運河 werf</span><span>☕ 河畔露台</span><span>🚶 老城慢走</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Utrecht+Oudegracht+walk" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Oudegracht+Utrecht" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>主教座堂塔</h3><div class="nl">Domtoren</div></div><span class="tag">地標 · 拍照</span></div>
+<div class="media"><img alt="烏特勒支主教座堂塔" src="https://commons.wikimedia.org/wiki/Special:FilePath/DomTorenUtrechtNederland.jpg?width=900"/></div>
+<div class="cap">Domtoren：荷蘭最高的教堂塔（112 m）· 圖：Wikimedia Commons</div>
+<div class="body"><p>舊運河旁就是 <b>Domtoren</b>，112 公尺、荷蘭最高的教堂塔。塔與教堂本體之間原本相連，1674 年颶風吹垮中殿，如今塔與教堂中間隔著一片廣場，是烏特勒支最經典的一景。</p><div class="look"><b>看點：</b>可預約導覽登塔（465 階）俯瞰老城；不上塔也值得在塔下廣場仰望。</div><div class="info"><span>🗼 荷蘭最高塔 112m</span><span>🎟 登塔需預約</span><span>📷 塔下廣場</span></div><div class="links"><a href="https://www.google.com/maps?q=Domtoren+Utrecht" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>烏特勒支用餐</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>搬遷日不排遠，吃在車站商場或舊運河周邊。以下為原清單精選。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#b8893b;"><span class="ic">🥐</span><span class="lb">早午餐<br/>慢慢吃</span></div><div class="rbody"><h4>TEDS 舊運河</h4><div class="nl">TEDS Utrecht Oudegracht</div><p>早午餐、咖啡、輕食，搬遷日慢慢吃最合。</p><div class="who">適合：想悠閒早午餐的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=TEDS+Utrecht+Oudegracht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🌮</span><span class="lb">好分食<br/>好拍</span></div><div class="rbody"><h4>街頭美食俱樂部</h4><div class="nl">The Streetfood Club</div><p>Janskerkhof 一帶，餐點好分食、裝潢好拍，五人建議先訂位。</p><div class="who">適合：五人想分食、愛拍照的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=The+Streetfood+Club+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🍽️</span><span class="lb">運河景<br/>全時段</span></div><div class="rbody"><h4>金弗洛里斯咖啡餐廳</h4><div class="nl">Graaf Floris</div><p>舊運河旁，早餐到晚餐都可，想坐著看運河時很適合。</p><div class="who">適合：想要運河景的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Graaf+Floris+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#7A4E91;"><span class="ic">🍛</span><span class="lb">印尼<br/>rijsttafel</span></div><div class="rbody"><h4>Blauw 印尼餐廳</h4><div class="nl">Restaurant Blauw Utrecht</div><p>印尼菜與 rijsttafel 適合五人分食，想吃有記憶點的一餐可選。</p><div class="who">適合：想吃印尼料理、共享的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+Blauw+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#b0563f;"><span class="ic">🍺</span><span class="lb">朋友聚<br/>啤酒</span></div><div class="rbody"><h4>啤酒與木桶</h4><div class="nl">Beers &amp; Barrels Utrecht</div><p>舊運河邊，漢堡、肉類、啤酒與可分享餐點多，適合朋友團。</p><div class="who">適合：想喝啤酒、聚餐的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Beers+and+Barrels+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">搬遷日不塞付費大館，只安排城市散步與咖啡；門票預算留給 Day 6 庫勒穆勒美術館。Day 5–7 每晚回同一住宿，少打包最省力。</div>
 
-  <script>
-    const btns=document.querySelectorAll('.daytab:not(.soon)');
-    const views=document.querySelectorAll('.dayview');
-    btns.forEach(b=>b.addEventListener('click',()=>{
-      btns.forEach(x=>x.classList.remove('active'));
-      views.forEach(v=>v.hidden=true);
-      b.classList.add('active');
-      const t=document.getElementById(b.dataset.target);
-      if(t) t.hidden=false;
-      window.scrollTo({top:0,behavior:'smooth'});
-    }));
-  </script>
-</body>
-</html>
+</div></section>
+<section class="dayview" id="day5" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 5 · Giethoorn</div><h1>羊角村 + 茲沃勒（可刪）</h1><div class="sub">當日往返：烏特勒支 ↔ 羊角村；茲沃勒只在班次/天氣/體力都順時短停</div><div class="chips"><span class="chip">📅 <b>2026/10/29（週四）</b></span><span class="chip">🎒 行李留烏特勒支</span><span class="chip">🚆🚌 火車+70號公車</span><span class="chip">💧 羊角村半日</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>烏特勒支→斯滕韋克</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>70號公車</div><span class="arrow">🚌</span><div class="stop"><span class="n">3</span>羊角村</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>茲沃勒(可刪)</div><span class="arrow">→</span><div class="stop"><span class="n">🚉</span>回烏特勒支</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">烏特勒支 ↔ 斯滕韋克(Steenwijk)火車，轉 70 號公車到羊角村；長交通日，行李全留住宿、輕裝日遊。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Giethoorn/Zwolle" rel="noopener" target="_blank">🧭 今日往返動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>烏特勒支 → 羊角村</h3><div class="nl">via Steenwijk + bus 70</div></div><span class="tag">交通 · 轉乘</span></div>
+<div class="body"><p>輕裝出發。烏特勒支中央車站搭火車到<b>斯滕韋克車站（Steenwijk）</b>，出站左手邊搭 <b>70 號公車</b>到羊角村；班次以當天 NS／9292 為準，五人先確認回程末班與下車站名。</p><div class="info"><span>🚆 火車到 Steenwijk</span><span>🚌 70 號公車</span><span>⏱ 預留回程班次</span></div><div class="links"><a href="https://9292.nl/en" rel="noopener" target="_blank">🔗 NS/9292 查詢</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>羊角村</h3><div class="nl">Giethoorn</div></div><span class="tag">水鄉 · 主菜</span></div>
+<div class="media"><img alt="羊角村水道與茅草屋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Giethoorn%20Netherlands%20Channels-and-houses-of-Giethoorn-06.jpg?width=900"/></div>
+<div class="cap">羊角村水道、小木橋與茅草屋 · 圖：Wikimedia Commons</div>
+<div class="body"><p>今天的主菜。羊角村被稱為「荷蘭威尼斯」，村裡幾乎沒有汽車路，靠水道與小木橋串起一棟棟茅草屋與花園。午餐先在村內吃好一點，再沿水道慢走。</p><div class="look"><b>看點：</b>天氣好、風不大可加 <b>短程遊船／租電動小船</b>，從水面看茅草屋最美；10 月底較冷，下雨就改咖啡館＋短走。</div><div class="info"><span>🛶 水道遊船</span><span>🏠 茅草屋花園</span><span>🍽 村內午餐吃好一點</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Giethoorn+village+boat+tour+4K" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Giethoorn" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>茲沃勒（可刪）</h3><div class="nl">Zwolle</div></div><span class="tag">短停 · 彈性</span></div>
+<div class="media duo"><img alt="茲沃勒 Sassenpoort 城門" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zwolle%2C%20de%20Sassenpoort%20RM41788%20foto5%202016-06-05%2010.11.jpg?width=820"/><img alt="天堂書店 Waanders In de Broeren" src="https://commons.wikimedia.org/wiki/Special:FilePath/Waanders%20in%20de%20Broeren%20DSCF3788.jpg?width=820"/></div>
+<div class="cap">左：Sassenpoort 中世紀城門 · 右：天堂書店（教堂改建的 Waanders In de Broeren）· 圖：Wikimedia Commons</div>
+<div class="body"><p>回程<b>條件式</b>短停茲沃勒：只在公車順、火車接得上、天氣與體力都 OK 時加碼，否則直接回烏特勒支休息。輕鬆繞 <b>Sassenpoort</b> 中世紀城門、大廣場，與<b>天堂書店</b>——一間蓋在哥德式教堂裡的書店咖啡，挑高拱頂下看書最有氣氛。</p><div class="look"><b>提醒：</b>不加博物館，避免長交通日太滿。茲沃勒不是必跑，刪掉也完全 OK。</div><div class="info"><span>🚪 Sassenpoort 城門</span><span>📚 教堂裡的書店</span><span>✂️ 可直接刪</span></div><div class="links"><a href="https://www.google.com/maps?q=Sassenpoort+Zwolle" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>羊角村／茲沃勒用餐</h3><div class="nl">Lunch options</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>主方案在羊角村吃完整午餐；若想把好料放城市，改在茲沃勒吃晚午餐。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🛶</span><span class="lb">水道旁<br/>最穩</span></div><div class="rbody"><h4>范法爾大咖啡館</h4><div class="nl">Grand Café Fanfare</div><p>羊角村中心、水道旁，午晚餐、團體與遊船安排都方便，五人最穩。</p><div class="who">適合：想坐水邊、五人好協調</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Grand+Cafe+Fanfare+Giethoorn" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🍲</span><span class="lb">坐下來<br/>吃完整</span></div><div class="rbody"><h4>蘆葦屋餐廳</h4><div class="nl">Restaurant de Rietstulp</div><p>午餐、晚餐、下午茶皆可，想坐下來吃完整一點時選。</p><div class="who">適合：想吃完整一餐的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+de+Rietstulp+Giethoorn" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#356A5C;"><span class="ic">💧</span><span class="lb">水邊<br/>遊船感</span></div><div class="rbody"><h4>荷蘭威尼斯餐廳</h4><div class="nl">Restaurant Hollands Venetië</div><p>水邊餐廳、遊船感強，想把午餐和水鄉氛圍綁一起時很合。</p><div class="who">適合：想要水鄉氛圍的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+Hollands+Venetie+Giethoorn" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#7A4E91;"><span class="ic">🍷</span><span class="lb">城市<br/>好抵達</span></div><div class="rbody"><h4>詹森小酒館</h4><div class="nl">Brasserie Jansen (Zwolle)</div><p>茲沃勒市中心好抵達，午餐、晚餐、小酌都可，五人最容易協調。</p><div class="who">適合：改在茲沃勒吃的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Brasserie+Jansen+Zwolle" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">這是長交通日，核心是「行李留住宿、輕裝日遊」。茲沃勒只在一切都順時加碼；任何一項不順就刪，提早回烏特勒支休息，隔天還要去庫勒穆勒。</div>
+
+</div></section>
+<section class="dayview" id="day6" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 6 · Kröller-Müller</div><h1>庫勒穆勒美術館 + 高費呂沃</h1><div class="sub">當日往返：烏特勒支 ↔ 高費呂沃國家公園 / 庫勒穆勒美術館（梵谷與森林同日）</div><div class="chips"><span class="chip">📅 <b>2026/10/30（週五）</b></span><span class="chip">🎒 行李留烏特勒支</span><span class="chip">🚆🚌 火車+公車/計程車</span><span class="chip">🖼 美術館至少半天</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>烏特勒支→公園</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>高費呂沃入口</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>庫勒穆勒美術館</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>雕塑花園</div><span class="arrow">→</span><div class="stop"><span class="n">🚉</span>回烏特勒支</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">烏特勒支搭火車到 Ede-Wageningen 或 Apeldoorn，再轉公車/短程計程車進國家公園；班次前一晚先查，公車不順就五人分攤計程車。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Hoge+Veluwe+National+Park/Kr%C3%B6ller-M%C3%BCller+Museum" rel="noopener" target="_blank">🧭 今日往返動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>烏特勒支 → 高費呂沃</h3><div class="nl">to Hoge Veluwe</div></div><span class="tag">交通 · 轉乘</span></div>
+<div class="body"><p>輕裝出發。火車到 <b>Ede-Wageningen</b> 或 <b>Apeldoorn</b>，再接公車或短程計程車進<b>高費呂沃國家公園</b>入口；今日交通較零碎，前一晚務必用 9292／Google Maps 查好班次與末班，公車不順時五人分攤計程車最實際。</p><div class="info"><span>🚆 轉乘較多</span><span>🚕 計程車可分攤</span><span>⏱ 先查末班車</span></div><div class="links"><a href="https://9292.nl/en" rel="noopener" target="_blank">🔗 9292 查詢</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>高費呂沃國家公園</h3><div class="nl">Hoge Veluwe National Park</div></div><span class="tag">森林 · 白單車</span></div>
+<div class="media"><img alt="高費呂沃免費白色腳踏車" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fietsenstalling%20im%20Hoge%20Veluwe%20National%20Park%20-%20panoramio.jpg?width=900"/></div>
+<div class="cap">園內可免費借用的白色腳踏車（White Bikes）· 圖：Wikimedia Commons</div>
+<div class="body"><p>荷蘭最大的國家公園之一，森林、沙丘與荒原交織。最有名的是園內<b>免費借用的白色腳踏車</b>，騎著穿越森林到美術館最有趣（秋末天冷，量力而為）。</p><div class="look"><b>看點：</b>遼闊的石楠荒原與沙丘地景；門票含公園與美術館，先確認當日開放與末班接駁。</div><div class="info"><span>🚲 免費白單車</span><span>🌲 森林荒原</span><span>🎟 公園+館門票</span></div><div class="links"><a href="https://www.google.com/maps?q=Hoge+Veluwe+National+Park" rel="noopener" target="_blank">📍 Google 地圖</a><a href="https://www.hogeveluwe.nl/en" rel="noopener" target="_blank">🔗 官網</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>庫勒穆勒美術館</h3><div class="nl">Kröller-Müller Museum · 主角</div></div><span class="tag">必看 · 半天</span></div>
+<div class="media"><img alt="庫勒穆勒美術館入口" src="https://commons.wikimedia.org/wiki/Special:FilePath/Entrance%20Kr%C3%B6ller-M%C3%BCller%20Museum.JPG?width=900"/></div>
+<div class="cap">庫勒穆勒美術館入口與雕塑 · 圖：Wikimedia Commons</div>
+<div class="body"><p>藏在國家公園裡的美術館，擁有<b>全世界第二大的梵谷收藏</b>（近 90 幅油畫），還有秀拉、蒙德里安等大師，加上歐洲最大的<b>戶外雕塑公園</b>之一。至少保留半天慢看。</p><div class="look"><b>看點：</b>梵谷《夜晚露天咖啡座》《吃馬鈴薯的人》等；雕塑花園可散步。<b>週一休館</b>，週五照常開。</div><div class="info"><span>🖼 全球第二大梵谷收藏</span><span>🗿 戶外雕塑公園</span><span>🕐 週一休·週五開</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Kroller+Muller+Museum+Van+Gogh" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Kroller-Muller+Museum" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>用餐</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>白天在公園/美術館內簡餐或自備輕食；晚上回烏特勒支好好吃一頓。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#356A5C;"><span class="ic">🥪</span><span class="lb">館內<br/>簡餐</span></div><div class="rbody"><h4>美術館／公園餐廳</h4><div class="nl">Museum / Park café</div><p>園區腹地大、餐點選擇有限，中午用館內簡餐或自備輕食最省時。</p><div class="who">適合：想省移動、邊看邊吃的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Kroller-Muller+Museum+restaurant" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🛶</span><span class="lb">運河<br/>質感</span></div><div class="rbody"><h4>Mej. Janssen 運河餐廳</h4><div class="nl">Mej Janssen (Utrecht)</div><p>回烏特勒支後，舊運河 werfkelder 氣氛，想吃有質感的晚餐可選。</p><div class="who">適合：晚上想吃好一點的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Mej+Janssen+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#6f6a61;"><span class="ic">🍽️</span><span class="lb">座位多<br/>回程順</span></div><div class="rbody"><h4>Zakkendrager 餐廳</h4><div class="nl">Restaurant De Zakkendrager</div><p>Vredenburg 與舊運河之間，座位多、離車站回程也方便。</p><div class="who">適合：五人、想回程順的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Restaurant+De+Zakkendrager+Utrecht" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">今天是長交通日，行李留住宿、晚上回烏特勒支。睡前確認 Day 7 台夫特、鹿特丹與小孩堤防的交通與天氣（小孩堤防看 WaterShuttle 船班）。</div>
+
+</div></section>
+<section class="dayview" id="day7" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 7 · Delft &amp; Rotterdam</div><h1>台夫特 + 鹿特丹（+小孩堤防）</h1><div class="sub">當日往返：烏特勒支 → 台夫特老城 → 鹿特丹；小孩堤防只在船班/天色/體力都順時加碼</div><div class="chips"><span class="chip">📅 <b>2026/10/31（週六）</b></span><span class="chip">🎒 行李留烏特勒支</span><span class="chip">🚆 烏→台夫特→鹿特丹</span><span class="chip">⛴ 小孩堤防條件式</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>烏特勒支→台夫特</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>台夫特老城</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>鹿特丹</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>伊拉斯謨橋</div><span class="arrow">→</span><div class="stop"><span class="n">5</span>小孩堤防(可刪)</div><span class="arrow">→</span><div class="stop"><span class="n">🚉</span>回烏特勒支</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">烏特勒支 → 台夫特（上午）→ 鹿特丹（下午）；小孩堤防看 WaterShuttle 船班加碼。行李留烏特勒支，晚上回住宿。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Delft/Rotterdam+Centraal/Kinderdijk" rel="noopener" target="_blank">🧭 今日西南荷蘭動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>烏特勒支 → 台夫特</h3><div class="nl">to Delft</div></div><span class="tag">交通</span></div>
+<div class="body"><p>輕裝日遊西南荷蘭。火車先到台夫特，晚上回烏特勒支，不用找鹿特丹住宿、也不寄大行李。</p><div class="info"><span>🚆 直達/轉乘</span><span>🎒 行李留住宿</span></div><div class="links"><a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>台夫特老城</h3><div class="nl">Delft</div></div><span class="tag">老城 · 藍瓷</span></div>
+<div class="media"><img alt="台夫特大廣場與新教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/0804%20Delft%2C%20Markt%20with%20Nieuwe%20Kerk%2C%20Delft%20407.jpg?width=900"/></div>
+<div class="cap">台夫特大廣場（Markt）與新教堂 · 圖：Wikimedia Commons</div>
+<div class="body"><p>上午先逛台夫特——維梅爾的故鄉、荷蘭藍瓷（Delft Blue）的產地。散步大廣場（Markt）、<b>新教堂</b>（橘色王室長眠於此）、舊教堂與運河老街。對藍瓷有興趣可加 <b>皇家台夫特 Royal Delft</b>。</p><div class="look"><b>街景想像：</b>安靜運河、磚砌山牆、自行車與小橋，比鹿特丹古典、比阿姆悠閒。</div><div class="info"><span>⛪ 新教堂(王室陵)</span><span>🔵 Delft Blue 藍瓷</span><span>🚶 運河老城</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Delft+old+town+walk" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Markt+Delft" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>鹿特丹</h3><div class="nl">Rotterdam · 現代建築</div></div><span class="tag">現代 · 建築</span></div>
+<div class="media duo"><img alt="鹿特丹市集大廳 Markthal" src="https://commons.wikimedia.org/wiki/Special:FilePath/Interior%20of%20Markthal%20%28Rotterdam%29.jpg?width=820"/><img alt="方塊屋 Kubuswoningen" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cube%20houses%20%28DSC%203076%29.jpg?width=820"/></div>
+<div class="cap">左：市集大廳 Markthal · 右：方塊屋 Cube Houses · 圖：Wikimedia Commons</div>
+<div class="body"><p>下午轉鹿特丹——二戰後重建、全荷最大膽的現代建築之城。<b>市集大廳 Markthal</b>（馬蹄形拱頂＋巨幅天花壁畫＋美食攤）與<b>方塊屋 Kubuswoningen</b> 是必看，兩者就在隔壁。</p><div class="look"><b>看點：</b>Markthal 可順便解決午餐／點心；方塊屋有一戶開放參觀。</div><div class="info"><span>🏛 Markthal 市集美食</span><span>🟨 方塊屋</span><span>🏙 現代建築</span></div><div class="links"><a href="https://www.google.com/maps?q=Markthal+Rotterdam" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">4</span><div class="tt"><h3>伊拉斯謨橋</h3><div class="nl">Erasmusbrug</div></div><span class="tag">地標 · 河景</span></div>
+<div class="media"><img alt="伊拉斯謨橋與鹿特丹天際線" src="https://commons.wikimedia.org/wiki/Special:FilePath/Overzicht%20Erasmusbrug%2C%20de%20Maas%20en%20de%20skyline%20van%20Rotterdam%20-%20Rotterdam%20-%2020358918%20-%20RCE.jpg?width=900"/></div>
+<div class="cap">伊拉斯謨橋（天鵝橋）與馬斯河天際線 · 圖：Wikimedia Commons</div>
+<div class="body"><p>跨越馬斯河的<b>伊拉斯謨橋</b>暱稱「天鵝橋」，是鹿特丹的象徵。橋上或對岸 Wilhelminapier 看高樓天際線最壯觀；傍晚點燈尤其漂亮。</p><div class="info"><span>🦢 天鵝橋</span><span>🌆 河岸天際線</span><span>📷 傍晚點燈</span></div><div class="links"><a href="https://www.google.com/maps?q=Erasmusbrug+Rotterdam" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">5</span><div class="tt"><h3>小孩堤防（可刪）</h3><div class="nl">Kinderdijk · WaterShuttle</div></div><span class="tag">條件式 · UNESCO</span></div>
+<div class="media"><img alt="小孩堤防風車群" src="https://commons.wikimedia.org/wiki/Special:FilePath/KinderdijkMolens02.jpg?width=900"/></div>
+<div class="cap">小孩堤防 19 座風車群（UNESCO 世界遺產）· 圖：Wikimedia Commons</div>
+<div class="body"><p><b>條件式加碼。</b>小孩堤防有 19 座 18 世紀風車並排於水道旁，是 UNESCO 世界遺產、荷蘭最經典的風車地景。只在 <b>WaterShuttle 船班、日照與體力都順</b>時去（從鹿特丹 Willemskade 搭船）；否則鹿特丹市區本身就很完整。</p><div class="look"><b>提醒：</b>10 月底日落早，去就抓精華段；先查當天 WaterShuttle 時刻，別用舊 Waterbus 當固定前提。</div><div class="info"><span>🌬 19 座風車</span><span>⛴ 看 WaterShuttle 船班</span><span>✂️ 可直接刪</span></div><div class="links"><a href="https://www.google.com/maps?q=Kinderdijk" rel="noopener" target="_blank">📍 Google 地圖</a><a href="https://kinderdijk.nl/en/watershuttle/" rel="noopener" target="_blank">🔗 WaterShuttle</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>用餐</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>午餐在台夫特或鹿特丹 Markthal 解決；晚餐回烏特勒支吃。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🏛️</span><span class="lb">市集<br/>美食攤</span></div><div class="rbody"><h4>市集大廳 Markthal</h4><div class="nl">Markthal Rotterdam</div><p>拱頂下的美食市集，攤位多、好分食，午餐或點心最方便。</p><div class="who">適合：想邊逛邊吃的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Markthal+Rotterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🚶</span><span class="lb">老城<br/>運河邊</span></div><div class="rbody"><h4>台夫特老城餐廳</h4><div class="nl">Delft Markt 周邊</div><p>大廣場與運河旁有不少餐廳咖啡，上午逛完先吃午餐再轉鹿特丹。</p><div class="who">適合：想在古典老城吃飯的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Delft+Markt+restaurants" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#6f6a61;"><span class="ic">🍽️</span><span class="lb">回程<br/>烏特勒支</span></div><div class="rbody"><h4>烏特勒支晚餐</h4><div class="nl">Utrecht (回程)</div><p>晚上回烏特勒支吃，這是烏特勒支最後一晚，順便整理比利時行李。</p><div class="who">適合：想回程順、早點收的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Oudegracht+Utrecht+restaurants" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">這是烏特勒支最後一晚。晚餐後整理 Day 8 搬到布魯日的行李與跨境車票；小孩堤防若被刪，改成「台夫特上午＋鹿特丹建築/美食下午」就很完整。</div>
+
+</div></section>
+<section class="dayview" id="day8" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 8 · to Belgium</div><h1>搬遷②→ 安特衛普 + 布魯日</h1><div class="sub">正式搬遷第 2 次：烏特勒支 → 安特衛普短停 → 布魯日入住（進入比利時）</div><div class="chips"><span class="chip">📅 <b>2026/11/1（週日）</b></span><span class="chip">🧳 <b>搬遷②</b>→ 布魯日</span><span class="chip">🚆 跨境火車</span><span class="chip">🧳 安特衛普寄物為前提</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>退房·跨境</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>安特衛普中央站</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>聖母主教座堂</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>布魯日入住</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">烏特勒支 → 安特衛普（短停）→ 布魯日，全程火車。安特衛普短停以中央車站寄物成功為前提；不順就直接去布魯日。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Antwerpen-Centraal/Brugge" rel="noopener" target="_blank">🧭 今日跨境動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>烏特勒支 → 安特衛普</h3><div class="nl">cross-border to Antwerp</div></div><span class="tag">搬遷②</span></div>
+<div class="body"><p>退房、整理大件行李（<b>第 2 次正式搬遷</b>，也是進比利時的日子）。查 NS International／SNCB 或經鹿特丹/布雷達的組合班次，行李多就選少轉乘的。為把搬遷壓在三次內，今天不住安特衛普。</p><div class="info"><span>🧳 正式搬遷②</span><span>🚆 跨境火車</span><span>🎟 早鳥票先訂</span></div><div class="links"><a href="https://www.nsinternational.com/en" rel="noopener" target="_blank">🔗 NS International</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>安特衛普中央車站</h3><div class="nl">Antwerpen-Centraal</div></div><span class="tag">短停 · 寄物</span></div>
+<div class="media"><img alt="安特衛普中央車站大廳" src="https://commons.wikimedia.org/wiki/Special:FilePath/Antwerp%2C%20BE%20%28DSC%200192%29%20Antwerpen-Centraal%20railway%20station%20main%20hall%20ceiling.jpg?width=900"/></div>
+<div class="cap">安特衛普中央車站——常被選為世界最美車站之一 · 圖：Wikimedia Commons</div>
+<div class="body"><p>車站本身就是景點——挑高石造大廳、玻璃穹頂，被譽為「鐵路大教堂」。先在中央車站寄行李（luggage lockers，五人先確認尺寸／空位／可線上預訂），再輕裝走梅爾購物街（Meir）到老城。</p><div class="look"><b>⚠️ 前提：</b>安特衛普短停<b>以寄物成功為前提</b>；若櫃位不順，就縮短停留、直接前往布魯日入住。</div><div class="info"><span>🚉 鐵路大教堂</span><span>🧳 站內寄物先確認</span><span>🛍 Meir 購物街</span></div><div class="links"><a href="https://www.google.com/maps?q=Antwerpen-Centraal" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>聖母主教座堂 + 大廣場</h3><div class="nl">Cathedral of Our Lady · Grote Markt</div></div><span class="tag">老城 · 順遊</span></div>
+<div class="media"><img alt="安特衛普聖母主教座堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cathedral%20Antwerp%20July%202015-1.jpg?width=900"/></div>
+<div class="cap">安特衛普聖母主教座堂（魯本斯名畫所在）· 圖：Wikimedia Commons</div>
+<div class="body"><p>從車站走梅爾到老城，看<b>聖母主教座堂</b>（內有魯本斯《下十字架》等名作）與市政廳、行會屋環繞的<b>大廣場（Grote Markt）</b>。今天不排博物館，避免拖行李日太滿，看外觀與街區氛圍即可。</p><div class="info"><span>⛪ 魯本斯名畫</span><span>🏛 大廣場行會屋</span><span>📷 老城外觀為主</span></div><div class="links"><a href="https://www.google.com/maps?q=Onze-Lieve-Vrouwekathedraal+Antwerp" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">4</span><div class="tt"><h3>布魯日入住</h3><div class="nl">Bruges</div></div><span class="tag">入住 · 夜景</span></div>
+<div class="media duo"><img alt="布魯日市集廣場與鐘樓" src="https://commons.wikimedia.org/wiki/Special:FilePath/Grote%20Markt%2C%20Belfort%20-%20panoramio.jpg?width=820"/><img alt="布魯日玫瑰碼頭" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruegge%20View%20from%20Rozenhoedkaai.jpg?width=820"/></div>
+<div class="cap">左：市集廣場與鐘樓 Belfort · 右：玫瑰碼頭 Rozenhoedkaai · 圖：Wikimedia Commons</div>
+<div class="body"><p>取回行李搭火車到布魯日（依班次可能經根特轉乘）。住宿優先選<b>布魯日車站或老城邊緣</b>，石板路不適合拖太久行李。入住後先看市集廣場（Markt）、鐘樓（Belfort）與玫瑰碼頭（Rozenhoedkaai）的夜景。</p><div class="look"><b>街景想像：</b>運河彎口的山牆倒影、鵝卵石街與馬車聲；布魯日的夜晚與清晨最有氣氛，值得連住兩晚。</div><div class="info"><span>🏰 中世紀古城</span><span>🌙 玫瑰碼頭夜景</span><span>🧳 住宿靠車站/老城邊緣</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Bruges+old+town+night+walk+4K" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Markt+Brugge" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>布魯日晚餐</h3><div class="nl">Belgian classics</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>第一晚輕鬆吃比利時經典；老城餐廳偏觀光，想道地可往小巷找。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🦪</span><span class="lb">淡菜<br/>薯條</span></div><div class="rbody"><h4>比利時淡菜薯條</h4><div class="nl">Mosselen-friet</div><p>比利時國民組合：白酒蒸淡菜配薯條，份量大、五人好分享。</p><div class="who">適合：想吃比利時經典海味的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=mosselen+restaurant+Brugge" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#7A4E91;"><span class="ic">🍫</span><span class="lb">巧克力<br/>鬆餅</span></div><div class="rbody"><h4>巧克力與鬆餅</h4><div class="nl">Chocolate &amp; Waffles</div><p>布魯日是巧克力名城，飯後來份手工巧克力或現烤鬆餅。</p><div class="who">適合：愛甜點、想邊走邊吃的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=chocolate+shop+Brugge+Markt" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#b0563f;"><span class="ic">🍺</span><span class="lb">比利時<br/>啤酒</span></div><div class="rbody"><h4>比利時啤酒酒吧</h4><div class="nl">Belgian beer bar</div><p>修道院啤酒、棕色酒館氣氛濃，入住後喝一杯收尾。</p><div class="who">適合：想喝比利時啤酒的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=beer+bar+Brugge" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">安特衛普短停以寄物成功為前提；不順就縮短、直接到布魯日入住。今晚重點是穩定入住，夜景看市集廣場與玫瑰碼頭即可，明天早上再好好玩布魯日。</div>
+
+</div></section>
+<section class="dayview" id="day9" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 9 · Bruges &amp; Ghent</div><h1>布魯日上午 + 根特下午</h1><div class="sub">布魯日續住；上午享受布魯日清晨老城，下午當日往返根特</div><div class="chips"><span class="chip">📅 <b>2026/11/2（週一）</b></span><span class="chip">🛏 續住布魯日</span><span class="chip">🚆 布魯日↔根特</span><span class="chip">🎒 大件行李留住宿</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop"><span class="n">1</span>布魯日清晨</div><span class="arrow">→</span><div class="stop"><span class="n">2</span>聖血聖殿</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>聖母教堂</div><span class="arrow">→</span><div class="stop train"><span class="n">4</span>根特(下午)</div><span class="arrow">🚆</span><div class="stop"><span class="n">5</span>伯爵城堡/塗鴉街</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">上午布魯日老城（步行），中午後火車到根特半日；五人可查 SNCB Mini Group Ticket。大件行李留布魯日。</div><a class="maplink" href="https://www.google.com/maps/dir/Markt+Brugge/Gent-Sint-Pieters/Graslei+Gent" rel="noopener" target="_blank">🧭 布魯日↔根特動線（Google 地圖）</a></div>
+<div class="step">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>布魯日清晨老城</h3><div class="nl">Bruges morning</div></div><span class="tag">清晨 · 人少</span></div>
+<div class="media"><img alt="布魯日玫瑰碼頭清晨" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruegge%20View%20from%20Rozenhoedkaai.jpg?width=900"/></div>
+<div class="cap">玫瑰碼頭 Rozenhoedkaai——布魯日最經典運河彎口 · 圖：Wikimedia Commons</div>
+<div class="body"><p>既然住在布魯日，早上先享受人少的清晨老城：市集廣場（Markt）、鐘樓（Belfort）外觀、玫瑰碼頭運河彎口。清晨光線與空街，照片與氛圍都比下午舒服。</p><div class="info"><span>🌅 清晨人少</span><span>🔔 鐘樓 Belfort</span><span>📷 玫瑰碼頭</span></div><div class="links"><a href="https://www.google.com/maps?q=Rozenhoedkaai+Brugge" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>聖血聖殿</h3><div class="nl">Basilica of the Holy Blood</div></div><span class="tag">小點 · 高記憶</span></div>
+<div class="media"><img alt="聖血聖殿" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruges%20Belgium%20Basilica-of-Holy%20Blood-01.jpg?width=900"/></div>
+<div class="cap">聖血聖殿（藏有聖血聖物）· 圖：Wikimedia Commons</div>
+<div class="body"><p>位在市集旁城堡廣場（Burg）的小聖殿，藏有傳說中的「聖血」聖物。位置核心、停留短、記憶點高，很適合補進上午動線，不影響下午去根特。</p><div class="info"><span>⛪ 聖血聖物</span><span>📍 Burg 廣場</span><span>⏱ 停留短</span></div><div class="links"><a href="https://www.google.com/maps?q=Basilica+of+the+Holy+Blood+Bruges" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>布魯日聖母教堂</h3><div class="nl">Church of Our Lady</div></div><span class="tag">地標 · 名作</span></div>
+<div class="media"><img alt="布魯日聖母教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/1010%20Church%20of%20Our%20Lady%20%28Bruges%29%20Photo%20by%20Giles%20Laurent.jpg?width=900"/></div>
+<div class="cap">布魯日聖母教堂（122m 磚塔）· 圖：Wikimedia Commons / Giles Laurent</div>
+<div class="body"><p>122 公尺的高聳磚塔是布魯日天際線地標。教堂本體可免費看；若想看<b>米開朗基羅《聖母與聖子》</b>大理石像與陵墓區，需另買博物館區門票。</p><div class="info"><span>🧱 122m 磚塔</span><span>🗿 米開朗基羅聖母子</span><span>⛪ 教堂本體免費</span></div><div class="links"><a href="https://www.google.com/maps?q=Church+of+Our+Lady+Bruges" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">4</span><div class="tt"><h3>根特老城</h3><div class="nl">Ghent · Graslei</div></div><span class="tag">運河 · 下午精華</span></div>
+<div class="media duo"><img alt="根特香草河岸 Graslei" src="https://commons.wikimedia.org/wiki/Special:FilePath/Graslei%20Ghent.jpg?width=820"/><img alt="聖巴夫主教座堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gent%2C%20Kathedrale%20St.%20Bavo%20%28Au%C3%9Fenansicht%29%20%281%29.jpg?width=820"/></div>
+<div class="cap">左：香草河岸 Graslei／Korenlei · 右：聖巴夫主教座堂 · 圖：Wikimedia Commons</div>
+<div class="body"><p>中午吃飽後火車到根特（Gent-Sint-Pieters，再轉電車進老城）。下午精華是<b>香草河岸 Graslei／穀物河岸 Korenlei</b> 的中世紀行會屋運河景，與<b>聖巴夫主教座堂</b>（鎮堂之寶是范艾克兄弟的《根特祭壇畫》）。</p><div class="look"><b>票價：</b>布魯日→根特單程約 €5.9/人；Day 9 週一平日離峰，五人可查 <b>SNCB Mini Group Ticket</b>（4–14 人、約 6 折）。</div><div class="info"><span>🚆 SNCB Mini Group</span><span>🏛 Graslei 行會屋</span><span>🖼 根特祭壇畫</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Ghent+old+town+walk" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Graslei+Gent" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">5</span><div class="tt"><h3>伯爵城堡 + 塗鴉街</h3><div class="nl">Gravensteen · Werregarenstraat</div></div><span class="tag">城堡 · 個性</span></div>
+<div class="media duo"><img alt="根特伯爵城堡" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gravensteen%2C%20Ghent%20%28DSCF0191%29.jpg?width=820"/><img alt="根特塗鴉街" src="https://commons.wikimedia.org/wiki/Special:FilePath/Werregarenstraat%20graffiti%2001.jpg?width=820"/></div>
+<div class="cap">左：伯爵城堡 Gravensteen · 右：塗鴉街 Werregarenstraat · 圖：Wikimedia Commons</div>
+<div class="body"><p>順遊水邊的<b>伯爵城堡 Gravensteen</b>（12 世紀石造城堡，看外觀就很有戲；想登城牆才需門票），與一條合法<b>塗鴉街 Werregarenstraat</b>——天天有新作的免費景點，很有個性。</p><div class="info"><span>🏰 12 世紀城堡</span><span>🎨 合法塗鴉街</span><span>🆓 外觀/塗鴉免費</span></div><div class="links"><a href="https://www.google.com/maps?q=Gravensteen+Gent" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>根特／布魯日用餐</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>中午在布魯日吃飽再出發；晚餐看體力選根特或回布魯日。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🏛️</span><span class="lb">運河邊<br/>氣氛</span></div><div class="rbody"><h4>根特老城餐廳</h4><div class="nl">Graslei / Korenlei</div><p>香草河岸沿線餐廳咖啡，邊看行會屋運河邊吃下午茶或早晚餐。</p><div class="who">適合：想要運河景氣氛的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Graslei+restaurants+Gent" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#b0563f;"><span class="ic">🍺</span><span class="lb">布魯日<br/>晚餐</span></div><div class="rbody"><h4>回布魯日晚餐</h4><div class="nl">Bruges</div><p>若大家累了，看完根特精華就回布魯日吃晚餐、喝杯啤酒收尾。</p><div class="who">適合：想早點回布魯日的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=restaurant+Markt+Brugge" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">大件行李留布魯日，下午只帶輕裝去根特。天氣差或想慢遊，可刪根特、整天留布魯日老城與運河。今晚整理 Day 10 回荷蘭的跨境車票，早點收行李。</div>
+
+</div></section>
+<section class="dayview" id="day10" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 10 · back to NL</div><h1>搬遷③→ 回荷蘭收尾住宿</h1><div class="sub">正式搬遷第 3 次（最後一次）：布魯日 → 布魯塞爾南站轉車 → 荷蘭最後住宿點</div><div class="chips"><span class="chip">📅 <b>2026/11/3（週二）</b></span><span class="chip">🧳 <b>搬遷③</b>（最後一次）</span><span class="chip">🚆 布魯塞爾南站轉車</span><span class="chip">🛌 恢復 · 採買 · 洗衣</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop"><span class="n">1</span>布魯日退房</div><span class="arrow">→</span><div class="stop train"><span class="n">2</span>布魯塞爾南站轉車</div><span class="arrow">🚆</span><div class="stop"><span class="n">3</span>大廣場(備案)</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>最後住宿點</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">布魯日 → 布魯塞爾南站（只轉車不進城）→ 史基浦／阿姆斯特丹斯洛特戴克。今天當恢復日，不硬排布魯塞爾市區。</div><a class="maplink" href="https://www.google.com/maps/dir/Brugge/Bruxelles-Midi/Schiphol+Airport" rel="noopener" target="_blank">🧭 回荷蘭動線（Google 地圖）</a></div>
+<div class="step">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>布魯日退房</h3><div class="nl">check-out</div></div><span class="tag">搬遷③ · 恢復日</span></div>
+<div class="media"><img alt="布魯日清晨" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruegge%20View%20from%20Rozenhoedkaai.jpg?width=900"/></div>
+<div class="cap">離開前的布魯日清晨 · 圖：Wikimedia Commons</div>
+<div class="body"><p>把今天當<b>恢復日</b>。早起的人可在住宿附近或玫瑰碼頭短走拍照，再從容退房。確認護照、票券、充電器與行李——這是<b>最後一次換住宿</b>，重點是穩穩抵達。</p><div class="info"><span>🧳 最後一次搬遷</span><span>☕ 從容退房</span><span>📷 玫瑰碼頭短走</span></div><div class="links"><a href="https://www.google.com/maps?q=Brugge+station" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step train">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>布魯塞爾南站轉車</h3><div class="nl">Brussels-Midi transfer</div></div><span class="tag">轉車 · 不進城</span></div>
+<div class="body"><p>搭 SNCB 到<b>布魯塞爾南站（Brussels-Midi）</b>轉跨境火車回荷蘭。主方案<b>只在站內轉乘</b>、買午餐、上洗手間，五人帶行李抓 30–45 分鐘緩衝，不拖行李進老城石板路。</p><div class="look"><b>取捨：</b>行程中段已有布魯日與根特，這天用轉車回荷蘭，把最後三晚留給恢復、採買與回程準備。</div><div class="info"><span>🚆 站內轉車</span><span>⏱ 緩衝30–45分</span><span>🥪 站內午餐</span></div><div class="links"><a href="https://www.google.com/maps?q=Bruxelles-Midi" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>布魯塞爾大廣場（備案）</h3><div class="nl">Grand-Place · optional</div></div><span class="tag">備案 · 加碼</span></div>
+<div class="media"><img alt="布魯塞爾大廣場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Edificios%20en%20la%20Grand-Place%2C%20Bruselas%2C%20B%C3%A9lgica%2C%202021-12-15%2C%20DD%20184-186%20HDR.jpg?width=900"/></div>
+<div class="cap">布魯塞爾大廣場 Grand-Place（UNESCO）· 圖：Wikimedia Commons</div>
+<div class="body"><p><b>只在精神好、寄物順、車票時間允許時加碼。</b>大廣場 Grand-Place 金光行會屋、聖于貝爾皇家拱廊、巧克力與鬨餅短停；否則維持主方案，南站只轉車不進城。</p><div class="info"><span>🏛 金色行會屋</span><span>🛍 皇家拱廊</span><span>✂️ 純備案</span></div><div class="links"><a href="https://www.google.com/maps?q=Grand-Place+Brussels" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">4</span><div class="tt"><h3>最後住宿點 Check-in</h3><div class="nl">final stay · Schiphol/Sloterdijk</div></div><span class="tag">入住 · 休息</span></div>
+<div class="media"><img alt="史基浦/斯洛特戴克軸線" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hal-schiphol-plaza-ns.jpg?width=900"/></div>
+<div class="cap">回到史基浦／阿姆斯特丹斯洛特戴克軸線 · 圖：Wikimedia Commons</div>
+<div class="body"><p>抵達後先 check-in 或寄放行李。最後三晚優先住<b>史基浦或阿姆斯特丹斯洛特戴克</b>（靠車站/機場、Day 11–13 最省力）。今晚不跑遠：洗衣、補超市、整理退稅與行李重量。</p><div class="info"><span>🏨 靠車站/機場</span><span>🧺 洗衣補給</span><span>🧳 整理退稅/重量</span></div><div class="links"><a href="https://www.google.com/maps?q=Amsterdam+Sloterdijk+station" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="note">第 3 次也是最後一次搬遷；主方案布魯塞爾只轉車、不進城，大廣場是備案。回到荷蘭後以恢復與準備為主，讓 Day 11–13 輕鬆收尾。</div>
+
+</div></section>
+<section class="dayview" id="day11" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 11 · windmills/shopping</div><h1>贊斯堡風車村 或 採買</h1><div class="sub">續住最後住宿點；天氣好補贊斯堡風車村，天氣差或想輕鬆就進阿姆採買</div><div class="chips"><span class="chip">📅 <b>2026/11/4（週三）</b></span><span class="chip">🛏 續住最後住宿點</span><span class="chip">🌬 風車村 或 採買</span><span class="chip">🎒 不搬行李</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>最後住宿點</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>贊斯堡風車村</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>阿姆採買</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>美食/咖啡</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">天氣好補贊斯堡風車村（Zaanse Schans），天氣差或想輕鬆直接進阿姆採買；住史基浦/斯洛特戴克最省移動。</div><a class="maplink" href="https://www.google.com/maps/dir/Amsterdam+Sloterdijk/Zaanse+Schans/De+Pijp+Amsterdam" rel="noopener" target="_blank">🧭 今日彈性動線（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>出發 · 兩個版本</h3><div class="nl">weather-flexible</div></div><span class="tag">彈性</span></div>
+<div class="body"><p>今天看天氣決定：<b>晴天</b>補贊斯堡風車村；<b>下雨或想輕鬆</b>就直接進阿姆斯特丹採買與咖啡。住史基浦或斯洛特戴克最省移動時間。</p><div class="info"><span>☀️ 晴 → 風車村</span><span>🌧 雨 → 採買</span><span>🚆 軸線最省時</span></div><div class="links"><a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>贊斯堡風車村</h3><div class="nl">Zaanse Schans</div></div><span class="tag">風車 · 拍照</span></div>
+<div class="media"><img alt="贊斯堡風車村" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zaanse%20Schans%2C%20Windm%C3%BChlen%20--%202015%20--%207270.jpg?width=900"/></div>
+<div class="cap">贊斯堡沿河風車群 · 圖：Wikimedia Commons</div>
+<div class="body"><p>阿姆近郊最方便的風車村：一排綠色木造風車沿河而立，加上木鞋工坊、起司作坊與綠色木屋，是經典荷蘭明信片場景。以外觀、木鞋、起司試吃與河岸拍照為主，不排太多室內展館。</p><div class="look"><b>街景想像：</b>轉動的風車、河面倒影與綠色木屋；交通約 40 分鐘可達，半天剛好。</div><div class="info"><span>🌬 沿河風車群</span><span>👟 木鞋/起司</span><span>📷 明信片場景</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/results?search_query=Zaanse+Schans+windmills+4K" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Zaanse+Schans" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>阿姆採買 · 不同街區</h3><div class="nl">De Pijp / Oud-West</div></div><span class="tag">採買 · 美食</span></div>
+<div class="media"><img alt="舊西區美食廳 Foodhallen" src="https://commons.wikimedia.org/wiki/Special:FilePath/Foodhallen%20in%20Oud-West%20%28Amsterdam%2C%20The%20Netherlands%202017%29%20%2834245643041%29.jpg?width=900"/></div>
+<div class="cap">舊西區 De Hallen／Foodhallen 室內美食廣場 · 圖：Wikimedia Commons</div>
+<div class="body"><p>不重複九小街與喬丹，改走<b>德派普區（De Pijp）＋阿爾伯特市場</b>（小吃、超市伴手禮）或<b>舊西區（Oud-West）＋德哈倫美食廳（De Hallen/Foodhallen）</b>（室內美食廣場、設計小店、雨天最穩），讓收尾有不同街區感。</p><div class="info"><span>🛒 Albert Cuyp 市場</span><span>🏬 Foodhallen 室內</span><span>🛍 超市伴手禮</span></div><div class="links"><a href="https://www.google.com/maps?q=Foodhallen+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>用餐／採買點</h3><div class="nl">Food &amp; Market</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>今天以小吃、市場與美食廳為主，邊逛邊吃。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🏬</span><span class="lb">室內<br/>美食廳</span></div><div class="rbody"><h4>德哈倫美食廳</h4><div class="nl">De Hallen / Foodhallen</div><p>舊西區室內美食廣場，攤位多、雨天與多人分食最穩。</p><div class="who">適合：雨天、想多樣選擇的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Foodhallen+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#7A4E91;"><span class="ic">🛒</span><span class="lb">市場<br/>小吃</span></div><div class="rbody"><h4>阿爾伯特市場</h4><div class="nl">Albert Cuyp Market</div><p>天氣好、想邊走邊吃街頭小吃與買伴手禮時最合。</p><div class="who">適合：想逛市場、吃小吃的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Albert+Cuyp+Market+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🌆</span><span class="lb">城市<br/>景觀</span></div><div class="rbody"><h4>藍色阿姆斯特丹</h4><div class="nl">Blue Amsterdam</div><p>市中心商場上方的景觀餐廳，看城市景、喝咖啡或吃輕食。</p><div class="who">適合：想要城市景觀的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Blue+Amsterdam+restaurant" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">不排大館門票；天氣差就放棄風車村，把時間留給超市伴手禮、美食廳與市場小吃。晚餐後先把重物、退稅單與伴手禮集中，Day 12 就不用邊玩邊擔心行李。</div>
+
+</div></section>
+<section class="dayview" id="day12" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 12 · free roam</div><h1>阿姆斯特丹自由漫遊</h1><div class="sub">最後完整日：阿姆隨意散步、咖啡、補買與收行李，不排大館或長支線</div><div class="chips"><span class="chip">📅 <b>2026/11/5（週四）</b></span><span class="chip">🛏 續住最後住宿點</span><span class="chip">🚶 自由漫遊</span><span class="chip">🧳 晚上整理托運/退稅</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop"><span class="n">1</span>自由選區</div><span class="arrow">→</span><div class="stop"><span class="n">2</span>補買伴手禮</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>景觀午餐</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>收行李</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">今天不做硬性任務，依天氣與心情選一條街區線；晚上預留時間回住宿整理行李。</div><a class="maplink" href="https://www.google.com/maps/dir/Jordaan+Amsterdam/De+Pijp+Amsterdam/Oud-West+Amsterdam" rel="noopener" target="_blank">🧭 自由漫遊參考（Google 地圖）</a></div>
+<div class="step">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>阿姆自由選區</h3><div class="nl">pick a neighbourhood</div></div><span class="tag">散步 · 隨心</span></div>
+<div class="media"><img alt="阿姆運河船屋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Free%20photo%20Amsterdam%20picture%20of%20a%20view%20along%20the%20canal%20Dijkgracht%20with%20train%20track%20and%20old%20house-boats%20%2849248476156%29.jpg?width=900"/></div>
+<div class="cap">阿姆運河與老船屋 · 圖：Wikimedia Commons</div>
+<div class="body"><p>最後完整日，依心情選一條線，不全員硬排：<br/>· <b>舊西區／德哈倫</b>：雨天、室內小吃、設計店最穩<br/>· <b>德派普區</b>：市場、小吃、咖啡與超市補買<br/>· <b>喬丹區回訪</b>：再拍運河、買小物、吃蘋果派<br/>· <b>阿姆北區／NDSM</b>：想看工業風與河岸（注意回程時間）</p><div class="info"><span>🚶 依心情選區</span><span>☕ 咖啡運河</span><span>🆓 免費散步</span></div><div class="links"><a href="https://www.google.com/maps?q=Jordaan+Amsterdam" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>景觀午餐 + 補買</h3><div class="nl">lunch &amp; last shopping</div></div><span class="tag">用餐 · 採買</span></div>
+<div class="media"><img alt="喬丹區運河與西教堂" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam%20Prinsengracht%20%26%20Westerkerk%204.jpg?width=900"/></div>
+<div class="cap">喬丹區運河與西教堂——回訪好走 · 圖：Wikimedia Commons</div>
+<div class="body"><p>午餐可去市中心商場上方的<b>藍色阿姆斯特丹（Blue Amsterdam）</b>看城市景，或補吃 Day 2/3 沒吃到的荷蘭家常菜。下午把要帶回家的<b>起司、巧克力、餅乾、藥妝、伴手禮</b>補齊；重物別買太晚，方便回住宿分裝。</p><div class="info"><span>🌆 Blue Amsterdam 景觀</span><span>🧀 起司/巧克力</span><span>🛍 最後補買</span></div><div class="links"><a href="https://www.google.com/maps?q=Blue+Amsterdam+restaurant" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">3</span><div class="tt"><h3>回住宿 · 整理行李</h3><div class="nl">pack &amp; tax refund</div></div><span class="tag">收尾</span></div>
+<div class="body"><p>傍晚先回最後住宿點整理<b>托運重量、退稅單、易碎品</b>與隔天機場動線。這個時段留空，會讓最後一天舒服很多。晚餐可在市區或住宿附近簡單吃；累了就在史基浦／斯洛特戴克附近解決。</p><div class="info"><span>🧳 托運分裝</span><span>🧾 退稅單備齊</span><span>🛌 早點休息</span></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">🍽</span><div class="tt"><h3>用餐</h3><div class="nl">Lunch &amp; Dinner</div></div><span class="tag">圖文 · 選餐廳</span></div>
+<div class="body"><p>今天不追打卡名單，舒服收尾為主。</p><div class="rgrid"><div class="rcard"><div class="remblem" style="background:#1f5d52;"><span class="ic">🌆</span><span class="lb">城市<br/>景觀</span></div><div class="rbody"><h4>藍色阿姆斯特丹</h4><div class="nl">Blue Amsterdam</div><p>市中心商場上方，看城市景、喝咖啡或吃輕食，最後完整日很合。</p><div class="who">適合：想要城市景觀收尾的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=Blue+Amsterdam+restaurant" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div>
+<div class="rcard"><div class="remblem" style="background:#c4622d;"><span class="ic">🇳🇱</span><span class="lb">荷蘭<br/>家常補完</span></div><div class="rbody"><h4>荷蘭家常菜餐廳</h4><div class="nl">The Pantry</div><p>前面沒吃到的話，今天補一頓 stamppot、bitterballen 等家常菜。</p><div class="who">適合：想補吃荷蘭菜的人</div><div class="rlinks"><a class="mn" href="https://www.google.com/maps?q=The+Pantry+Amsterdam" rel="noopener" target="_blank">📍 看真實照片/評價</a></div></div></div></div></div>
+</div>
+<div class="note">最後完整日不排大館與長距離支線，費用集中在餐食、咖啡與最後補買。晚上務必預留時間回住宿整理行李、確認隔天去機場的火車或叫車時間。</div>
+
+</div></section>
+<section class="dayview" id="day13" hidden><div class="wrap">
+<header class="hero"><div class="kicker">Day 13 · departure</div><h1>史基浦回程</h1><div class="sub">最後住宿點 → 史基浦機場；單純交通日，預留退稅與安檢時間</div><div class="chips"><span class="chip">📅 <b>2026/11/6（週五）</b></span><span class="chip">🧳 退房回程</span><span class="chip">🚆 → 史基浦機場</span><span class="chip">🛂 預留退稅/安檢</span></div><div class="pviewnote">📷 照片在 <b>Chrome／手機瀏覽器</b>打開時完整顯示；工作區左側的預覽窗因安全限制看不到外部照片，屬正常。</div></header>
+<div class="route"><h2>🗺 今日動線</h2><div class="ribbon"><div class="stop train"><span class="n">1</span>退房</div><span class="arrow">🚆</span><div class="stop"><span class="n">2</span>史基浦機場</div><span class="arrow">→</span><div class="stop"><span class="n">3</span>出境/退稅</div><span class="arrow">→</span><div class="stop"><span class="n">4</span>回程</div></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">住史基浦最短、斯洛特戴克/萊頓可用火車；行李多時五人分攤計程車也合理。</div><a class="maplink" href="https://www.google.com/maps/dir/Amsterdam+Sloterdijk/Schiphol+Airport" rel="noopener" target="_blank">🧭 前往機場（Google 地圖）</a></div>
+<div class="step train">
+<div class="step-head"><span class="num">1</span><div class="tt"><h3>退房 · 前往史基浦</h3><div class="nl">to Schiphol</div></div><span class="tag">交通</span></div>
+<div class="media"><img alt="史基浦 Plaza 火車大廳" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hal-schiphol-plaza-ns.jpg?width=900"/></div>
+<div class="cap">史基浦 Plaza 的 NS 火車大廳 · 圖：Wikimedia Commons</div>
+<div class="body"><p>確認護照、退稅單、伴手禮與托運重量。住史基浦走過去最短；斯洛特戴克或萊頓用火車銜接；行李很多就五人分攤計程車。若最後三晚住機場軸線，這天壓力最低。</p><div class="info"><span>🧳 確認重量/退稅</span><span>🚆 火車到機場</span><span>🚕 行李多可分攤計程車</span></div><div class="links"><a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a></div></div>
+</div>
+<div class="step">
+<div class="step-head"><span class="num">2</span><div class="tt"><h3>史基浦出境</h3><div class="nl">Schiphol Departures</div></div><span class="tag">出境 · 退稅</span></div>
+<div class="media"><img alt="史基浦機場" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam_Schiphol_Airport_entrance.jpg?width=900"/></div>
+<div class="cap">史基浦機場——抓足 Check-in、退稅與安檢時間 · 圖：Wikimedia Commons</div>
+<div class="body"><p>抓足 Check-in、<b>退稅</b>與安檢時間（退稅櫃台與海關蓋章排隊可能久，別壓太緊）。最後在機場補水、買點小食，五人在登機口集合確認護照與登機證。</p><div class="look"><b>Tot ziens！</b>荷比 13 天到這裡完美收尾，一路順風。</div><div class="info"><span>🛂 退稅先排</span><span>🥐 機場補給</span><span>🎫 登機口集合</span></div><div class="links"><a href="https://www.schiphol.nl/en/" rel="noopener" target="_blank">🔗 機場官網</a></div></div>
+</div>
+<div class="note">最後一天維持單純交通：預留退稅與安檢時間，最後一段只保留火車或五人分攤計程車。Tot ziens, Nederland &amp; België！</div>
+
+</div></section>
+<div class="wrap"><footer>荷比 13 天 · 逐日視覺導覽（Day 1–13 完成）<br>照片來源：Wikimedia Commons（CC 授權）· 地圖／街景：Google Maps · 影片：YouTube<br>日期、票價與開放時間以官方公告為準。</footer></div>
+<script>
+const btns=document.querySelectorAll('.daytab');
+const views=document.querySelectorAll('.dayview');
+btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('active'));views.forEach(v=>v.hidden=true);b.classList.add('active');const t=document.getElementById(b.dataset.target);if(t)t.hidden=false;window.scrollTo({top:0,behavior:'smooth'});}));
+</script>
+</body></html>
