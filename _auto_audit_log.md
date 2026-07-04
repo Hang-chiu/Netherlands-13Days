@@ -5,3 +5,5 @@
 - 2026-07-05 00:29 CST — 修正 D3 交通資訊：住宿→阿姆斯特丹「直達17分」→「直達約10分」，與 D1 別墅住宿卡（Halfweg-Zwanenburg 直達中央車站約 10 分、每 20 分一班）一致；已查證 Trainline/Rome2Rio 實際約 8–10 分直達。已本機 commit、未 push。
 
 - 2026-07-05 00:47 CST — 每日加入明確午餐時間（8 天新增 🍴 卡，D2/D4/D7/D12 原已有）＋傍晚回程/回住宿休息卡（D1–D12 共 12 張 🌙）；D5 補羊角村 whisper boat 船票說明（Klook 為阿姆團、不適用）。div 1119/1119、各日時間遞增。本機 commit、未 push。
+
+- 2026-07-05 01:02 CST — D8 重整：寫入 Utrecht→Antwerp 車程（~1h53/1轉）＋安特衛普午餐(Elfde Gebod/Frites Atelier)＋晚餐(De Groote Witte Arend/De Bomma)，改為傍晚轉布魯日。D9：午餐移到布魯日、寫入 Bruges→Ghent 22–27分/39km、根特晚餐(Amadeus)。D10 分頁改「布魯塞爾/回荷蘭」。同步全部今日動線快捷列(午餐/休息)。div 1135/1135、時間遞增、無斷鏈。
