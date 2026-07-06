@@ -50,7 +50,7 @@
   .info{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 6px;}
   .info span{font-size:12.5px;background:#eef3f1;color:var(--accent);border:1px solid #dce8e4;border-radius:8px;padding:5px 10px;}
   .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
-  .links a{font-size:13px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:6px 12px;background:#fff;}
+  .links a{font-size:13px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:0 12px;background:#fff;display:inline-flex;align-items:center;min-height:36px;}
   .links a:hover{background:#f3efe6;}
   .links a.vlink{background:var(--accent2);color:#fff;border-color:var(--accent2);}
   .links a.vlink:hover{background:#a8521f;}
@@ -65,12 +65,13 @@
   .rbody p{margin:6px 0 7px;font-size:13.5px;line-height:1.6;}
   .rbody .who{font-size:12.5px;color:var(--accent);font-weight:700;}
   .rlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px;}
-  .rlinks a{font-size:12px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:4px 10px;background:#faf6ef;}
+  .rlinks a{font-size:12px;text-decoration:none;color:var(--accent);border:1px solid var(--line);border-radius:8px;padding:0 10px;background:#faf6ef;display:inline-flex;align-items:center;min-height:34px;}
   .rlinks a.mn{background:var(--accent);color:#fff;border-color:var(--accent);}
   .note{background:#fff6e9;border:1px solid #f0dcb8;border-radius:14px;padding:16px 18px;font-size:14px;color:#6b5836;margin-top:24px;}
   .note b{color:var(--accent2);}
   footer{margin-top:30px;font-size:12px;color:var(--muted);text-align:center;line-height:1.6;}
   @media(max-width:620px){h1{font-size:30px;} .media img{max-height:340px;} .media.duo{grid-template-columns:1fr;} .rcard{grid-template-columns:84px 1fr;}}
+  @media print{.dayview[hidden]{display:block!important;} .topbar{position:static;box-shadow:none;} .backtop-wrap{display:none;} .step,.route,.note,.rcard{break-inside:avoid;} a[href]{text-decoration:none;color:inherit;}}
 
 
   body.guide .wrap{padding-top:0;}
@@ -133,7 +134,7 @@
 <a class="maplink" href="https://www.google.com/maps/dir/Station+Haarlem/Grote+Markt,+Haarlem/Warmoesstraat,+Haarlem/Gravestenenbrug,+Haarlem/Molen+De+Adriaan,+Haarlem/Jopenkerk+Haarlem" rel="noopener" target="_blank">🧭 哈倫市區步行路線（Google 地圖）</a>
 </div>
 <div class="note" style="border-color:#c4622d;"><b>🎟 出發前必訂總表（時段票五人請訂同一時段／梯次）：</b><br/>• <b>Rijksmuseum</b> 國家博物館（D2 · 約€25 · 線上時段票）　• <b>Van Gogh Museum</b> 梵谷博物館（D3 · 約€25 · 常售完）　• <b>Dom 塔</b>登頂導覽＋可選 DOMunder（D4 · 約€14.5 · 旺季易售完）　• <b>羊角村電動船／共乘船</b>（D5 · 線上較便宜、季末先確認船家）　• <b>聖彼得堡洞穴</b>官方導覽（D6 · 場次有限、務必先訂）　• <b>Mauritshuis</b> 莫瑞泰斯（D7 · 約€21 · 線上時段票）　• <b>安妮之家</b>（若要去 · 需提早數週搶票）<br/><b>餐廳訂位：</b>各晚 5 人建議先訂；FishnBites（D7 週日 17:00 起）、De Groote Witte Arend／Elfde Gebod（D8 週一有開）；Ratatouille（D1）週一公休、當天改點。<br/><b>💶 小費：</b>荷比餐廳帳單多已含服務費、非強制；滿意時湊整數或留約 5–10%，咖啡小額湊整即可。</div>
-<div class="note"><b>🎒 行前實務（出發前備好）：</b><br/><b>🔌 插頭電壓：</b>荷蘭、比利時同為 <b>230V／Type C·F 圓孔插座</b>（兩國通用、免換）；台灣 110V 扁腳，需帶<b>歐規轉接頭</b>。手機／相機／筆電／行動電源多為 100–240V 可直接充；吹風機、電棒等高功率電器先確認支援 230V，否則改用住宿提供的。<br/><b>🛡 保險：</b>五人出發前投保旅平險＋海外醫療險（申根醫療費貴、多需先自費再理賠；行程含 Dom 塔 465 階、鐘樓 366 階、聖彼得堡洞穴等活動），保單號碼與 24h 協助電話存離線。<br/><b>🆘 緊急電話：</b>荷蘭、比利時共用歐盟 <b>112</b>（警消救護、可英語）；行前把<b>駐荷蘭台北代表處</b>（海牙）與<b>駐比利時台北代表處</b>（布魯塞爾）急難電話、住宿地址與五人手機存成離線可查。</div>
+<div class="note"><b>🎒 行前實務（出發前備好）：</b><br/><b>🔌 插頭電壓：</b>荷蘭、比利時同為 <b>230V／Type C·F 圓孔插座</b>（兩國通用、免換）；台灣 110V 扁腳，需帶<b>歐規轉接頭</b>。手機／相機／筆電／行動電源多為 100–240V 可直接充；吹風機、電棒等高功率電器先確認支援 230V，否則改用住宿提供的。<br/><b>🛡 保險：</b>五人出發前投保旅平險＋海外醫療險（申根醫療費貴、多需先自費再理賠；行程含 Dom 塔 465 階、鐘樓 366 階、聖彼得堡洞穴等活動），保單號碼與 24h 協助電話存離線。<br/><b>🆘 緊急電話：</b>荷蘭、比利時共用歐盟 <b>112</b>（警消救護、可英語）；行前把<b>駐荷蘭台北代表處</b>（海牙）與<b>駐比利時台北代表處</b>（布魯塞爾）急難電話、住宿地址與五人手機存成離線可查。<br/><b>📶 連網（一張走完荷比全程）：</b>五人各買一張<b>「歐洲全區」eSIM</b>（如 Airalo／Holafly 等，單一方案即涵蓋含荷蘭、比利時在內的 30+ 國、跨國免換卡）；<b>出發前在台灣先下載安裝</b>、把台灣門號的數據漫遊關掉、只留 eSIM 上網（台灣號可保留收簡訊／OTP），落地開機即通——D1 早上 EES 查驗排隊、趕火車到哈倫時就不用擠史基浦電信櫃台。用量抓每人約 <b>5–10GB／13 天</b>（導航＋查 NS／SNCB 班次為主）。</div>
 <div class="note" style="border-color:#7A4E91;"><b>💶 花費粗估（機票另計、每人約略、實際依訂房與訂票為準）：</b>住宿 12 晚（5 人分 2 房／整套）約 <b>€700–900</b>；境內＋跨境火車與 De Lijn 約 <b>€120–160</b>；博物館與登塔門票合計約 <b>€90–110</b>（Rijks €25＋梵谷 €25＋Dom €14.5＋Mauritshuis €21＋Belfort €15 等、按實際去的算）；餐食每日約 €35–55、13 天約 <b>€500–700</b>。合計約 <b>€1,400–1,900／人</b>（不含機票、購物與退稅）。建議每人備 <b>€150–250 現金</b>應急，其餘刷感應信用卡（Malie House、Mercure、多數交通只收卡）。</div>
 <!-- STEP 1 · 機場 -->
 <div class="step train" id="d1s1">
@@ -427,6 +428,7 @@
 <div class="body">
 <p>不搬行李、輕裝進城。從住宿搭直達火車到<b>阿姆斯特丹中央車站</b>（每小時多班）；出站後轉電車 2／12 到博物館廣場約 15–20 分，或沿運河散步過去。</p>
 <div class="look"><b>小提醒：</b>中央車站與國家博物館都是 Pierre Cuypers 設計的紅磚名建築，出站可先抬頭看正面山牆；用 OVpay／NS App 進出刷卡。</div>
+<div class="look"><b>要不要買一日票？通常不用。</b>本行程在阿姆多半步行、偶爾搭 1–2 趟電車（2／12），直接用 <b>OVpay 感應</b>（單趟約 €1.5–3、上下車都要嗶）最省事，不必特地買 <b>GVB 24 小時一日票（約 €10）</b>或 Amsterdam Travel Ticket——大致同一天搭 <b>3 趟以上</b>才回本。就算刷多了，同一張卡／手機錢包當天也有<b>自動封頂（GVB Max，約每日 €10 上限）</b>不會爆量。五人各用各的卡／手機，<b>同一趟務必同一張嗶進嗶出</b>。此判斷同樣適用 D3、D11、D12 進城日。</div>
 <div class="info"><span>🚆 直達火車</span><span>🚊 轉電車2/12 約15–20分</span><span>🎫 OVpay 感應</span></div>
 <div class="links"><a class="vlink" href="https://www.youtube.com/watch?v=v_Diywl8bus" rel="noopener" target="_blank">▶ 中央站內部步行</a>
 <a href="https://www.ns.nl/en/journeyplanner/" rel="noopener" target="_blank">🔗 NS 班次</a>
@@ -712,7 +714,7 @@
 <div class="step-head"><span class="num">2</span><span class="time">10:15</span><div class="tt"><h3>羊角村</h3><div class="nl">Giethoorn</div></div><span class="tag">水鄉 · 主菜</span></div>
 <div class="media"><img alt="羊角村水道與茅草屋" src="https://commons.wikimedia.org/wiki/Special:FilePath/Giethoorn%20Netherlands%20Channels-and-houses-of-Giethoorn-06.jpg?width=900"/></div>
 <div class="cap">羊角村水道、小木橋與茅草屋 · 圖：Wikimedia Commons</div>
-<div class="body"><p>今天的主菜。羊角村被稱為「荷蘭威尼斯」，村裡幾乎沒有汽車路，靠水道與小木橋串起一棟棟茅草屋與花園。午餐先在村內吃好一點，再沿水道慢走。</p><div class="look"><b>看點：</b>天氣好、風不大可加 <b>短程遊船／租電動小船</b>，從水面看茅草屋最美；10 月底較冷，下雨就改咖啡館＋短走。</div><div class="look"><b>🛥 船票怎麼買：</b>5 人最划算是<b>直接在村內租一艘電動「whisper boat」</b>（可坐 6 人、整船約 €30–60／2 小時、自己開）；想輕鬆就搭<b>共乘遊船</b>（約 €10/人、線上更便宜、現場約 €12.5）。<b>Klook 的羊角村多是「阿姆斯特丹出發＋巴士」一日團</b>，你們自己搭火車去用不到、可跳過。10 月底是季末，出發前先確認船家仍營業。</div><div class="info"><span>🛶 水道遊船</span><span>🏠 茅草屋花園</span><span>🍽 村內午餐吃好一點</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/watch?v=AoJ0U4051jI" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Giethoorn" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+<div class="body"><p>今天的主菜。羊角村被稱為「荷蘭威尼斯」，村裡幾乎沒有汽車路，靠水道與小木橋串起一棟棟茅草屋與花園。午餐先在村內吃好一點，再沿水道慢走。</p><div class="look"><b>看點：</b>天氣好、風不大可加 <b>短程遊船／租電動小船</b>，從水面看茅草屋最美；10 月底較冷，下雨就改咖啡館＋短走。</div><div class="look"><b>🛥 船票怎麼買：</b>5 人最划算是<b>直接在村內租一艘電動「whisper boat」</b>（可坐 6 人、整船約 €30–60／2 小時、自己開）；想輕鬆就搭<b>共乘遊船</b>（約 €10/人、線上更便宜、現場約 €12.5）。<b>Klook 的羊角村多是「阿姆斯特丹出發＋巴士」一日團</b>，你們自己搭火車去用不到、可跳過。10 月底是季末，出發前先確認船家仍營業。</div><div class="look"><b>🌧 雨天／大風備案：</b>自己開的電動 <b>whisper boat 是無頂敞篷</b>，下雨等於淋整趟。若當天有雨就<b>別租敞篷船</b>——改搭上面提到的<b>有頂共乘遊船（overdekte rondvaart，如 Smit Giethoorn，約 €10/人、約 1 小時、船艙全罩遮雨）</b>，一樣能從水面看茅草屋；或乾脆放棄行船，改進室內的 <b>'t Olde Maat Uus 民俗博物館</b>（老農舍改建、看百年前羊角村生活）躲雨。租船前先看天氣，再決定敞篷或有頂。</div><div class="info"><span>🛶 水道遊船</span><span>🏠 茅草屋花園</span><span>🍽 村內午餐吃好一點</span></div><div class="links"><a class="vlink" href="https://www.youtube.com/watch?v=AoJ0U4051jI" rel="noopener" target="_blank">▶ YouTube 影片</a><a href="https://www.google.com/maps?q=Giethoorn" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
 </div>
 <div class="step" id="d5lunch">
 <div class="step-head"><span class="num">🍴</span><span class="time">12:30</span><div class="tt"><h3>午餐 · 羊角村水岸</h3><div class="nl">Lunch</div></div><span class="tag">用餐 · 午餐</span></div>
@@ -839,7 +841,7 @@
 <div class="route"><h2>🗺 今日動線（點站點可跳到該行程）</h2><div class="ribbon"><a class="stop train" href="#d8s1"><span class="n">1</span>烏特勒支 → 安特衛普</a><span class="arrow">🚆</span><a class="stop" href="#d8s2"><span class="n">2</span>安特衛普中央車站</a><span class="arrow">→</span><a class="stop" href="#d8s3"><span class="n">3</span>聖母主教座堂</a><span class="arrow">→</span><a class="stop" href="#d8lunch"><span class="n">🍴</span>午餐</a><span class="arrow">→</span><a class="stop" href="#d8pm"><span class="n">4</span>安特衛普午後</a><span class="arrow">→</span><a class="stop" href="#d8sdine"><span class="n">🍽</span>晚餐</a><span class="arrow">🚆</span><a class="stop" href="#d8s4"><span class="n">5</span>前往布魯日</a><span class="arrow">→</span><a class="stop" href="#d8stay"><span class="n">🏠</span>Bruges Central</a><span class="arrow">→</span><a class="stop" href="#d8rest"><span class="n">🌙</span>休息</a></div><div style="font-size:12.5px;color:var(--muted);margin-top:10px;">烏特勒支 → 安特衛普（短停）→ 布魯日，全程火車。安特衛普短停以中央車站寄物成功為前提；不順就直接去布魯日。<br>🏨→🚉 出發先從 Malie House 回 Utrecht Centraal（巴士約 10 分）；抵布魯日後從車站到 Bruges Central 約 1.5km，建議搭巴士。</div><a class="maplink" href="https://www.google.com/maps/dir/Utrecht+Centraal/Antwerpen-Centraal/Brugge" rel="noopener" target="_blank">🧭 今日跨境動線（Google 地圖）</a></div>
 <div class="step train" id="d8s1">
 <div class="step-head"><span class="num">1</span><span class="time">08:30</span><div class="tt"><h3>烏特勒支 → 安特衛普</h3><div class="nl">cross-border to Antwerp</div></div><span class="tag">搬遷②</span></div>
-<div class="body"><p>退房、整理大件行李（<b>第 2 次正式搬遷</b>，也是進比利時的日子）。查 NS International／SNCB 或經鹿特丹/布雷達的組合班次（<b>烏特勒支→安特衛普約 108km、通常轉 1 次，最快約 1h27、平均約 1h53</b>）；行李多就選少轉乘的。為把搬遷壓在三次內，今天不住安特衛普。</p><div class="info"><span>🧳 正式搬遷②</span><span>🚆 約1.5–2小時 · 1轉</span><span>🎟 早鳥票先訂</span></div><div class="links"><a href="https://www.nsinternational.com/en" rel="noopener" target="_blank">🔗 NS International</a></div></div>
+<div class="body"><p>退房、整理大件行李（<b>第 2 次正式搬遷</b>，也是進比利時的日子）。查 NS International／SNCB 或經鹿特丹/布雷達的組合班次（<b>烏特勒支→安特衛普約 108km、通常轉 1 次，最快約 1h27、平均約 1h53</b>）；行李多就選少轉乘的。為把搬遷壓在三次內，今天不住安特衛普。</p><div class="look"><b>⚠️ 比利時火車≠荷蘭：不能刷 OVpay 進閘門。</b>荷蘭那套刷 OVpay／感應卡進出閘門，在比利時 SNCB/NMBS 火車<b>不通用</b>——比利時火車沒有感應閘門，務必<b>上車前</b>用 SNCB App／售票機／櫃台買好票（可刷 Visa/Master/Amex）；<b>自 2026/7/1 起車上已不再售票</b>，沒票上車＝無票、會被開約 €90 罰單。安特衛普→布魯日（D8）、布魯日↔根特（D9）、布魯日→布魯塞爾南站（D10）每段 SNCB 都要各自先買票。此段 Utrecht→Antwerp 若搭 <b>Eurocity Direct（阿姆-布魯塞爾線、不能劃位、上車自由座）</b>，五人＋大件行李要一起上車、尖峰要有站著的心理準備。</div><div class="info"><span>🧳 正式搬遷②</span><span>🚆 約1.5–2小時 · 1轉</span><span>🎟 早鳥票先訂</span></div><div class="links"><a href="https://www.nsinternational.com/en" rel="noopener" target="_blank">🔗 NS International</a></div></div>
 </div>
 <div class="step" id="d8s2">
 <div class="step-head"><span class="num">2</span><span class="time">11:30</span><div class="tt"><h3>安特衛普中央車站</h3><div class="nl">Antwerpen-Centraal</div></div><span class="tag">短停 · 寄物</span></div>
@@ -906,7 +908,7 @@
 <div class="step-head"><span class="num">1</span><span class="time">08:00</span><div class="tt"><h3>布魯日清晨老城</h3><div class="nl">Bruges morning</div></div><span class="tag">清晨 · 人少</span></div>
 <div class="media"><img alt="布魯日玫瑰碼頭清晨" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bruegge%20View%20from%20Rozenhoedkaai.jpg?width=900"/></div>
 <div class="cap">玫瑰碼頭 Rozenhoedkaai——布魯日最經典運河彎口 · 圖：Wikimedia Commons</div>
-<div class="body"><p>既然住在布魯日，早上先享受人少的清晨老城：市集廣場（Markt）、鐘樓（Belfort）、玫瑰碼頭運河彎口。清晨空街人少、氛圍舒服；不過 11/3 布魯日日出約 <b>07:41</b>，08:00 天剛亮、光線偏暗且冷，穿暖、相機調高 ISO，約 08:30 後太陽升高才有暖光。<b>鐘樓 Belfort 可登 366 階</b>俯瞰紅瓦老城（付費時段票約 €15、每時段限流、旺季易售完）——想登塔就一早先到或上 museabrugge.be 預約，否則清晨看外觀＋玫瑰碼頭即可。</p><div class="info"><span>🌅 清晨人少</span><span>🔔 鐘樓 Belfort</span><span>📷 玫瑰碼頭</span></div><div class="links"><a href="https://www.google.com/maps?q=Rozenhoedkaai+Brugge" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+<div class="body"><p>既然住在布魯日，早上先享受人少的清晨老城：市集廣場（Markt）、鐘樓（Belfort）、玫瑰碼頭運河彎口。清晨空街人少、氛圍舒服；不過 11/3 布魯日日出約 <b>07:41</b>，08:00 天剛亮、光線偏暗且冷，穿暖、相機調高 ISO，約 08:30 後太陽升高才有暖光。<b>鐘樓 Belfort 可登 366 階</b>俯瞰紅瓦老城（付費時段票約 €15、每時段限流、旺季易售完）——想登塔就一早先到或上 museabrugge.be 預約，否則清晨看外觀＋玫瑰碼頭即可。</p><div class="look"><b>🌅 陰雨日晚點出門：</b>08:00 這段幾乎沒地方躲雨——聖血聖殿 10:00 才開、聖母教堂等室內館多 09:30 後才開。若當天陰雨，08:00–09:30 只能在冷雨中站運河邊；建議<b>09:00 後再出門</b>，先進 Markt／Burg 旁早開的咖啡館或鬆餅店暖身，等 09:30 光線與店家到位再開始走，正好接上既定的 09:30 聖血聖殿→09:45 聖母教堂動線。</div><div class="info"><span>🌅 清晨人少</span><span>🔔 鐘樓 Belfort</span><span>📷 玫瑰碼頭</span></div><div class="links"><a href="https://www.google.com/maps?q=Rozenhoedkaai+Brugge" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
 </div>
 <div class="step" id="d9s2">
 <div class="step-head"><span class="num">2</span><span class="time">09:30</span><div class="tt"><h3>聖血聖殿</h3><div class="nl">Basilica of the Holy Blood</div></div><span class="tag">小點 · 高記憶</span></div>
@@ -934,7 +936,7 @@
 <div class="step-head"><span class="num">5</span><span class="time">15:00</span><div class="tt"><h3>伯爵城堡 + 塗鴉街</h3><div class="nl">Gravensteen · Werregarenstraat</div></div><span class="tag">城堡 · 個性</span></div>
 <div class="media duo"><img alt="根特伯爵城堡" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gravensteen%2C%20Ghent%20%28DSCF0191%29.jpg?width=820"/><img alt="根特塗鴉街" src="https://commons.wikimedia.org/wiki/Special:FilePath/Werregarenstraat%20graffiti%2001.jpg?width=820"/></div>
 <div class="cap">左：伯爵城堡 Gravensteen · 右：塗鴉街 Werregarenstraat · 圖：Wikimedia Commons</div>
-<div class="body"><p>順遊水邊的<b>伯爵城堡 Gravensteen</b>（12 世紀石造城堡，看外觀就很有戲；想登城牆才需門票），與一條合法<b>塗鴉街 Werregarenstraat</b>——天天有新作的免費景點，很有個性。</p><div class="info"><span>🏰 12 世紀城堡</span><span>🎨 合法塗鴉街</span><span>🆓 外觀/塗鴉免費</span></div><div class="links"><a href="https://www.google.com/maps?q=Gravensteen+Gent" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+<div class="body"><p>順遊水邊的<b>伯爵城堡 Gravensteen</b>（12 世紀石造城堡，看外觀就很有戲；想登城牆才需門票），與一條合法<b>塗鴉街 Werregarenstraat</b>——天天有新作的免費景點，很有個性。</p><div class="look"><b>🌦 下午雨備：</b>根特下午精華（運河、城堡外觀、塗鴉街）幾乎全戶外，遇雨可躲進兩個現成室內名點——<b>聖巴夫主教座堂看《根特祭壇畫》</b>（教堂免費、看祭壇畫另購約 €12.5、含 AR、最後入場約 16:00）或<b>進伯爵城堡內部</b>（約 €15、含語音導覽、最後入場約 16:40）。兩處都要趁下午早段進，別拖到傍晚才想進卻已閉門。</div><div class="info"><span>🏰 12 世紀城堡</span><span>🎨 合法塗鴉街</span><span>🆓 外觀/塗鴉免費</span></div><div class="links"><a href="https://www.google.com/maps?q=Gravensteen+Gent" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
 </div>
 <div class="step" id="d9sdine">
 <div class="step-head"><span class="num">🍽</span><span class="time">18:00</span><div class="tt"><h3>根特晚餐</h3><div class="nl">Ghent · Patershol / Graslei</div></div><span class="tag">晚餐 · 根特</span></div>
@@ -960,7 +962,7 @@
 </div>
 <div class="step train" id="d10s2">
 <div class="step-head"><span class="num">2</span><span class="time">11:00</span><div class="tt"><h3>布魯塞爾南站轉車</h3><div class="nl">Brussels-Midi transfer</div></div><span class="tag">轉車 · 不進城</span></div>
-<div class="body"><p>搭 SNCB 到<b>布魯塞爾南站（Brussels-Midi）</b>轉跨境火車回荷蘭（布魯日→南站約 55 分、班次密集；跨境車只停南站、不停中央／北站，在南站轉最順）。主方案<b>只在站內轉乘</b>、買午餐、上洗手間，五人帶行李抓 30–45 分鐘緩衝，不拖行李進老城石板路。</p><div class="look"><b>⚠️ 到阿姆別坐過站：</b>布魯塞爾→阿姆的車<b>不停 Sloterdijk</b>——Eurostar 只到 <b>Amsterdam Centraal</b>（約 1 小時 50 分）、較便宜的 Eurocity Direct 只到 <b>Amsterdam Zuid</b>（約 2 小時）。到站後要<b>再轉一程 NS 一站</b>才到飯店旁的 Sloterdijk：從 Centraal 搭 sprinter 約 5 分最順（若在 Zuid 下車則多為地鐵 50／51 約 14 分）。布魯日→飯店全程抓 3.5–4.5 小時。</div><div class="look"><b>取捨：</b>行程中段已有布魯日與根特，這天用轉車回荷蘭，把最後三晚留給恢復、採買與回程準備。</div><div class="info"><span>🚆 站內轉車</span><span>⏱ 緩衝30–45分</span><span>🥪 站內午餐</span></div><div class="links"><a href="https://www.google.com/maps?q=Bruxelles-Midi" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
+<div class="body"><p>搭 SNCB 到<b>布魯塞爾南站（Brussels-Midi）</b>轉跨境火車回荷蘭（布魯日→南站約 55 分、班次密集；跨境車只停南站、不停中央／北站，在南站轉最順）。主方案<b>只在站內轉乘</b>、買午餐、上洗手間，五人帶行李抓 30–45 分鐘緩衝，不拖行李進老城石板路。</p><div class="look"><b>⚠️ 到阿姆別坐過站：</b>布魯塞爾→阿姆的車<b>不停 Sloterdijk</b>——Eurostar 只到 <b>Amsterdam Centraal</b>（約 1 小時 50 分）、較便宜的 Eurocity Direct 只到 <b>Amsterdam Zuid</b>（約 2 小時）。到站後要<b>再轉一程 NS 一站</b>才到飯店旁的 Sloterdijk：從 Centraal 搭 sprinter 約 5 分最順（若在 Zuid 下車則多為地鐵 50／51 約 14 分）。布魯日→飯店全程抓 3.5–4.5 小時。<b>Eurostar（前 Thalys）為強制訂位、對號座、座位有限常售罄，五人請出發前一次訂滿 5 座、越早越便宜；Eurocity Direct 不能劃位、上車自由座、尖峰易客滿。兩者都別當天才買。</b></div><div class="look"><b>取捨：</b>行程中段已有布魯日與根特，這天用轉車回荷蘭，把最後三晚留給恢復、採買與回程準備。</div><div class="info"><span>🚆 站內轉車</span><span>⏱ 緩衝30–45分</span><span>🥪 站內午餐</span></div><div class="links"><a href="https://www.google.com/maps?q=Bruxelles-Midi" rel="noopener" target="_blank">📍 Google 地圖</a></div></div>
 </div>
 <div class="step" id="d10s3">
 <div class="step-head"><span class="num">3</span><span class="time">12:00</span><div class="tt"><h3>布魯塞爾大廣場（備案）</h3><div class="nl">Grand-Place · optional</div></div><span class="tag">備案 · 加碼</span></div>
@@ -1086,5 +1088,5 @@
 
 <div class="backtop-wrap"><button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 回到頂端</button></div></div></section>
 <div class="wrap"><footer>荷比 13 天 · 逐日視覺導覽（10/26 一 – 11/7 六）<br>照片來源：Wikimedia Commons（CC 授權）· 住宿照片：Airbnb 房源 · 地圖：Google Maps · 影片：YouTube<br>日期、票價與開放時間以官方公告為準。</footer></div><script>
-const btns=document.querySelectorAll(".daytab");const views=document.querySelectorAll(".dayview");btns.forEach(b=>b.addEventListener("click",()=>{btns.forEach(x=>x.classList.remove("active"));views.forEach(v=>v.hidden=true);b.classList.add("active");const t=document.getElementById(b.dataset.target);if(t)t.hidden=false;window.scrollTo({top:0,behavior:"smooth"});}));
+const btns=document.querySelectorAll(".daytab");const views=document.querySelectorAll(".dayview");btns.forEach(b=>b.addEventListener("click",()=>{btns.forEach(x=>x.classList.remove("active"));views.forEach(v=>v.hidden=true);b.classList.add("active");const t=document.getElementById(b.dataset.target);if(t)t.hidden=false;b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});window.scrollTo({top:0,behavior:"smooth"});}));
 </script></body></html>
