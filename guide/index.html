@@ -90,6 +90,32 @@
 .backtop-wrap{text-align:center;margin:26px 0 6px;}
 .backtop{font-family:inherit;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:11px 24px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);}
 .backtop:hover{background:#17463d;}
+  /* ===== D1 pre-trip note restructuring (segmented rows) ===== */
+  .note .nrow{padding:11px 0;border-top:1px dashed #e6cfa4;}
+  .note .nrow:first-of-type{border-top:none;padding-top:8px;}
+  .note .nrow.warn{background:#fdf3ee;border-radius:8px;padding:11px 12px;}
+  .note .nlabel{display:block;font-weight:700;color:var(--accent2);font-size:13.5px;margin-bottom:3px;letter-spacing:.01em;}
+  .note .ntext{display:block;font-size:13.5px;line-height:1.65;color:#6b5836;}
+  .note .ntext b{color:#5a4a2e;}
+  .note .nhead{display:block;font-weight:700;color:var(--accent2);font-size:14.5px;margin-bottom:4px;}
+  .note .nsub{display:block;font-size:12px;color:#8a7a5c;font-weight:400;margin-top:2px;}
+  .booklist{list-style:none;margin:6px 0 0;padding:0;}
+  .booklist li{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-top:1px dashed #e6cfa4;font-size:13.5px;line-height:1.5;}
+  .booklist li:first-child{border-top:none;padding-top:4px;}
+  .dchip{flex:0 0 auto;min-width:30px;text-align:center;font-family:Georgia,serif;font-weight:700;font-size:12px;color:#fff;background:var(--accent2);border-radius:999px;padding:2px 8px;line-height:1.5;}
+  .booklist .nm{font-weight:700;color:#5a4a2e;}
+  .booklist .meta{color:#8a7a5c;}
+  .costlist{list-style:none;margin:6px 0 0;padding:0;}
+  .costlist li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px dashed #dcc6e6;font-size:13.5px;}
+  .costlist li:first-child{border-top:none;padding-top:4px;}
+  .costlist .ci{color:#6b5836;}
+  .costlist .cv{flex:0 0 auto;font-weight:700;color:var(--plum);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .costlist li.total{border-top:1.5px solid #cbb0dc;margin-top:2px;background:#f4ecf8;border-radius:8px;padding:8px 10px;}
+  .costlist li.total .ci{font-weight:700;color:#5a4a2e;}
+  .note .plumhead{color:var(--plum);}
+  .note.plum .nrow{border-top-color:#e2d2ec;}
+  @media(max-width:620px){.note .nlabel,.note .ntext,.booklist li,.costlist li{font-size:13px;} .costlist li{flex-wrap:wrap;} .costlist .cv{width:100%;text-align:right;}}
+  @media print{.booklist li,.costlist li,.note .nrow{break-inside:avoid;}}
 </style></head><body class="guide"><div class="topbar"><div class="inner"><div class="brand">🇳🇱🇧🇪 荷比 13 天 · <b>行程導覽</b></div><div class="daynav">
 <button class="daytab active" data-target="day1"><span class="d">D1</span>哈倫</button>
 <button class="daytab" data-target="day2"><span class="d">D2</span>阿姆-國家博物館</button>
@@ -133,9 +159,42 @@
 <div style="font-size:12.5px;color:var(--muted);margin-top:10px;">機場 → 哈倫是<b>火車</b>（在 Amsterdam Sloterdijk 轉 1 次）；哈倫市區站 3–7 是<b>步行</b>。</div>
 <a class="maplink" href="https://www.google.com/maps/dir/Station+Haarlem/Grote+Markt,+Haarlem/Warmoesstraat,+Haarlem/Gravestenenbrug,+Haarlem/Molen+De+Adriaan,+Haarlem/Jopenkerk+Haarlem" rel="noopener" target="_blank">🧭 哈倫市區步行路線（Google 地圖）</a>
 </div>
-<div class="note" style="border-color:#c4622d;"><b>🎟 出發前必訂總表（時段票五人請訂同一時段／梯次）：</b><br/>• <b>Rijksmuseum</b> 國家博物館（D2 · 約€25 · 線上時段票）　• <b>Van Gogh Museum</b> 梵谷博物館（D3 · 約€25 · 常售完）　• <b>Dom 塔</b>登頂導覽＋可選 DOMunder（D4 · 約€14.5 · 旺季易售完）　• <b>羊角村電動船／共乘船</b>（D5 · 線上較便宜、季末先確認船家）　• <b>聖彼得堡洞穴</b>官方導覽（D6 · 場次有限、務必先訂）　• <b>Mauritshuis</b> 莫瑞泰斯（D7 · 約€21 · 線上時段票）　• <b>安妮之家</b>（若要去 · 需提早數週搶票）<br/><b>餐廳訂位：</b>各晚 5 人建議先訂；FishnBites（D7 週日 17:00 起）、De Groote Witte Arend／Elfde Gebod（D8 週一有開）；Ratatouille（D1）週一公休、當天改點。<br/><b>💶 小費：</b>荷比餐廳帳單多已含服務費、非強制；滿意時湊整數或留約 5–10%，咖啡小額湊整即可。</div>
-<div class="note"><b>🎒 行前實務（出發前備好）：</b><br/><b>🔌 插頭電壓：</b>荷蘭、比利時同為 <b>230V／Type C·F 圓孔插座</b>（兩國通用、免換）；台灣 110V 扁腳，需帶<b>歐規轉接頭</b>。手機／相機／筆電／行動電源多為 100–240V 可直接充；吹風機、電棒等高功率電器先確認支援 230V，否則改用住宿提供的。<br/><b>🛡 保險：</b>五人出發前投保旅平險＋海外醫療險（申根醫療費貴、多需先自費再理賠；行程含 Dom 塔 465 階、鐘樓 366 階、聖彼得堡洞穴等活動），保單號碼與 24h 協助電話存離線。<br/><b>🆘 緊急電話：</b>荷蘭、比利時共用歐盟 <b>112</b>（警消救護、可英語）；行前把<b>駐荷蘭台北代表處</b>（海牙）與<b>駐比利時台北代表處</b>（布魯塞爾）急難電話、住宿地址與五人手機存成離線可查。<br/><b>📶 連網（一張走完荷比全程）：</b>五人各買一張<b>「歐洲全區」eSIM</b>（如 Airalo／Holafly 等，單一方案即涵蓋含荷蘭、比利時在內的 30+ 國、跨國免換卡）；<b>出發前在台灣先下載安裝</b>、把台灣門號的數據漫遊關掉、只留 eSIM 上網（台灣號可保留收簡訊／OTP），落地開機即通——D1 早上 EES 查驗排隊、趕火車到哈倫時就不用擠史基浦電信櫃台。用量抓每人約 <b>5–10GB／13 天</b>（導航＋查 NS／SNCB 班次為主）。<br/><b>🗣 語言：</b>荷蘭全境與比利時法蘭德斯（<b>安特衛普、布魯日、根特</b>）講荷語／法蘭德斯語（同一種語言），只有<b>布魯塞爾是法／荷雙語</b>；好在<b>英語幾乎人人通</b>、菜單景點都有英文，五人全程英語無礙。想拉近距離：荷語 Hallo／Dank je／Alstublieft／Tot ziens；到布魯塞爾可用法語 Bonjour／Merci／S'il vous plaît／Au revoir（在荷語區先講法語有些人不受用，講英語最中性）。<br/><b>👝 防扒手：</b>阿姆中央車站、電車 2 號線、水壩廣場（Dam）、布魯塞爾南站（Midi）與擁擠月台是扒竊高發區，慣以兩人一組搭訕／塞地圖分心再下手。護照與大鈔留住宿保險箱、只帶當天現金；背包前抱、拉鍊朝內，手機別放外套外側口袋；五人上下車、過閘門互相顧包。被扒先報警拿報案編號（理賠用）再掛失卡片。</div>
-<div class="note" style="border-color:#7A4E91;"><b>💶 花費粗估（機票另計、每人約略、實際依訂房與訂票為準）：</b>住宿 12 晚（5 人分 2 房／整套）約 <b>€700–900</b>；境內＋跨境火車與 De Lijn 約 <b>€120–160</b>；博物館與登塔門票合計約 <b>€90–110</b>（Rijks €25＋梵谷 €25＋Dom €14.5＋Mauritshuis €21＋Belfort €15 等、按實際去的算）；餐食每日約 €35–55、13 天約 <b>€500–700</b>。合計約 <b>€1,400–1,900／人</b>（不含機票、購物與退稅）。建議每人備 <b>€150–250 現金</b>應急，其餘刷感應信用卡（Malie House、Mercure、多數交通只收卡）。</div>
+<div class="note" style="border-color:#c4622d;">
+<span class="nhead">🎟 出發前必訂總表<span class="nsub">時段票五人請訂同一時段／梯次</span></span>
+<ul class="booklist">
+<li><span class="dchip">D2</span><span><span class="nm">Rijksmuseum</span> 國家博物館<span class="meta"> · 約€25 · 線上時段票</span></span></li>
+<li><span class="dchip">D3</span><span><span class="nm">Van Gogh Museum</span> 梵谷博物館<span class="meta"> · 約€25 · 常售完</span></span></li>
+<li><span class="dchip">D4</span><span><span class="nm">Dom 塔</span>登頂導覽＋可選 DOMunder<span class="meta"> · 約€14.5 · 旺季易售完</span></span></li>
+<li><span class="dchip">D5</span><span><span class="nm">羊角村電動船／共乘船</span><span class="meta"> · 線上較便宜、季末先確認船家</span></span></li>
+<li><span class="dchip">D6</span><span><span class="nm">聖彼得堡洞穴</span>官方導覽<span class="meta"> · 場次有限、務必先訂</span></span></li>
+<li><span class="dchip">D7</span><span><span class="nm">Mauritshuis</span> 莫瑞泰斯<span class="meta"> · 約€21 · 線上時段票</span></span></li>
+<li><span class="dchip">選</span><span><span class="nm">安妮之家</span><span class="meta"> · 若要去，需提早數週搶票</span></span></li>
+</ul>
+<div class="nrow"><span class="nlabel">🍴 餐廳訂位</span><span class="ntext">各晚 5 人建議先訂。FishnBites（D7 週日 17:00 起）、De Groote Witte Arend／Elfde Gebod（D8 週一有開）；Ratatouille（D1）週一公休、當天改點。</span></div>
+<div class="nrow"><span class="nlabel">💶 小費</span><span class="ntext">荷比帳單多已含服務費、非強制；滿意時湊整數或留約 5–10%，咖啡小額湊整即可。</span></div>
+</div>
+<div class="note">
+<span class="nhead">🎒 行前實務<span class="nsub">出發前備好</span></span>
+<div class="nrow"><span class="nlabel">🔌 插頭電壓</span><span class="ntext">荷、比同為 <b>230V／Type C·F 圓孔</b>（兩國通用免換）；台灣 110V 扁腳，需帶<b>歐規轉接頭</b>。手機／相機／筆電／行動電源多 100–240V 可直充；吹風機、電棒等高功率先確認支援 230V，否則用住宿的。</span></div>
+<div class="nrow"><span class="nlabel">🧥 穿著／打包</span><span class="ntext">10 月底–11 月初荷比約 <b>8–13°C</b>、風大且近乎每日短陣雨，採<b>洋蔥式</b>＋一件<b>防風防水外套</b>（傘常被風吹壞，連帽風雨衣更實用）；重點是一雙<b>已穿開、好走的防水鞋</b>——全程每日步行 2–3km 以上、多石板與運河邊濕滑路面，還有 Dom 塔 465 階、Belfort 366 階；聖彼得堡洞穴常年約 10°C，進洞加件外套。</span></div>
+<div class="nrow"><span class="nlabel">🛡 保險</span><span class="ntext">五人投保旅平險＋海外醫療險（申根醫療貴、多需先自費再理賠；行程含 Dom 塔 465 階、鐘樓 366 階、聖彼得堡洞穴等）。保單號與 24h 協助電話存離線。</span></div>
+<div class="nrow"><span class="nlabel">💊 個人藥品</span><span class="ntext">處方藥（＋英文藥名或處方箋影本）與常備藥（腸胃、止痛、感冒、暈車、OK 繃）<b>自備足量</b>；荷比藥局（apotheek）多在<b>週日、國定假日不營業</b>，成藥須到藥局、部分需醫師處方，臨時買不易。</span></div>
+<div class="nrow"><span class="nlabel">🆘 緊急電話</span><span class="ntext">荷、比共用歐盟 <b>112</b>（警消救護、可英語）。把<b>駐荷蘭台北代表處</b>（海牙）、<b>駐比利時台北代表處</b>（布魯塞爾）急難電話、住宿地址與五人手機存成離線可查。</span></div>
+<div class="nrow"><span class="nlabel">📶 連網</span><span class="ntext">五人各買一張<b>「歐洲全區」eSIM</b>（Airalo／Holafly 等，單一方案涵蓋荷、比等 30+ 國、跨國免換卡）。<b>出發前在台灣先下載安裝</b>、關掉台灣門號數據漫遊只留 eSIM（台灣號留著收簡訊／OTP），落地開機即通——D1 早上 EES 查驗、趕火車就不用擠史基浦電信櫃台。每人抓 <b>5–10GB／13 天</b>（導航＋查 NS／SNCB 班次為主）。</span></div>
+<div class="nrow"><span class="nlabel">🗣 語言</span><span class="ntext">荷蘭全境與比利時法蘭德斯（<b>安特衛普、布魯日、根特</b>）講荷語／法蘭德斯語（同一種），只有<b>布魯塞爾是法／荷雙語</b>；<b>英語幾乎人人通</b>、菜單景點都有英文，全程英語無礙。拉近距離：荷語 Hallo／Dank je／Alstublieft／Tot ziens；布魯塞爾可用法語 Bonjour／Merci／S'il vous plaît／Au revoir（荷語區講法語有人不受用，講英語最中性）。</span></div>
+<div class="nrow warn"><span class="nlabel">👝 防扒手</span><span class="ntext">阿姆中央車站、電車 2 號線、水壩廣場（Dam）、布魯塞爾南站（Midi）與擁擠月台是高發區，常兩人一組搭訕／塞地圖分心下手。護照與大鈔留保險箱、只帶當天現金；背包前抱、拉鍊朝內，手機別放外套外側口袋；五人上下車、過閘門互相顧包。被扒先報警拿報案編號（理賠用）再掛失卡片。</span></div>
+</div>
+<div class="note plum" style="border-color:#7A4E91;">
+<span class="nhead plumhead">💶 花費粗估<span class="nsub">機票另計、每人約略、實際依訂房與訂票為準</span></span>
+<ul class="costlist">
+<li><span class="ci">住宿 12 晚（5 人分 2 房／整套）</span><span class="cv">€700–900</span></li>
+<li><span class="ci">境內＋跨境火車與 De Lijn</span><span class="cv">€120–160</span></li>
+<li><span class="ci">博物館與登塔門票<span class="nsub">Rijks €25＋梵谷 €25＋Dom €14.5＋Mauritshuis €21＋Belfort €15 等、按實際去的算</span></span><span class="cv">€90–110</span></li>
+<li><span class="ci">餐食（每日約 €35–55 ×13 天）</span><span class="cv">€500–700</span></li>
+<li class="total"><span class="ci">合計／人（不含機票、購物與退稅）</span><span class="cv">€1,400–1,900</span></li>
+</ul>
+<div class="nrow" style="border-top:1px dashed #dcc6e6;margin-top:2px;"><span class="ntext">建議每人備 <b>€150–250 現金</b>應急，其餘刷感應信用卡（Malie House、Mercure、多數交通只收卡）。</span></div>
+</div>
 <!-- STEP 1 · 機場 -->
 <div class="step train" id="d1s1">
 <div class="step-head">
