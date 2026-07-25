@@ -130,6 +130,7 @@
 <button class="daytab" data-target="day11"><span class="d">D11</span>荷蘭-贊斯堡</button>
 <button class="daytab" data-target="day12"><span class="d">D12</span>荷蘭漫遊</button>
 <button class="daytab" data-target="day13"><span class="d">D13</span>回程</button>
+<button class="daytab" data-target="tickets"><span class="d">€</span>票價</button>
 </div></div></div>
 <section class="dayview" id="day1"><div class="wrap">
 <header class="hero">
@@ -1426,6 +1427,197 @@
 <div class="note">最後一天維持單純交通：預留退稅與安檢時間，最後一段只保留火車或五人分攤計程車。Tot ziens, Nederland &amp; België！</div>
 
 <div class="backtop-wrap"><button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 回到頂端</button></div></div></section>
+<section class="dayview" id="tickets" hidden><div class="wrap">
+<style>
+#tickets .tkhead{text-align:center;padding:6px 0 18px;}
+#tickets .tkeb{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:800;}
+#tickets .tkhead h2{font-family:Georgia,"Songti TC",serif;font-size:clamp(24px,5.4vw,34px);color:var(--ink);margin:6px 0 6px;font-weight:700;}
+#tickets .tkhead .tkhsub{color:var(--muted);font-size:13.5px;line-height:1.5;}
+#tickets .tkhead .tkhsub b{color:var(--ink);}
+#tickets .tkrate{display:inline-block;margin-top:11px;font-size:12.5px;color:var(--accent);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:4px 13px;font-weight:800;}
+#tickets .tkboard{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;}
+#tickets .tkamt{text-align:center;}
+#tickets .tkamt .lead{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;}
+#tickets .tkamt .big{font-family:Georgia,serif;color:var(--accent);font-size:clamp(42px,10vw,60px);line-height:.94;font-weight:700;margin:5px 0 2px;}
+#tickets .tkamt .twd{font-size:14px;color:var(--gold);font-weight:800;}
+#tickets .tkamt .per{font-size:12px;color:var(--muted);margin-top:3px;}
+#tickets .tkhtitle{font-family:Georgia,"Songti TC",serif;font-size:18px;color:var(--ink);margin:0 0 4px;font-weight:700;}
+#tickets .tkside p{margin:0 0 11px;font-size:13px;color:var(--muted);line-height:1.5;}
+#tickets .tkchips{display:flex;flex-wrap:wrap;gap:6px;}
+#tickets .tkchip{font-size:12px;color:var(--ink);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+#tickets .tkchip b{color:var(--accent);font-family:Georgia,serif;}
+#tickets .tksec{margin-top:26px;}
+#tickets .tksech{display:flex;align-items:baseline;gap:10px;}
+#tickets .tksech .no{font-family:Georgia,serif;font-size:22px;color:var(--gold);font-weight:700;line-height:1;}
+#tickets .tksech h3{font-family:Georgia,"Songti TC",serif;font-size:clamp(18px,4vw,21px);color:var(--ink);margin:0;font-weight:700;}
+#tickets .tksecsub{color:var(--muted);font-size:12.5px;margin:4px 0 13px 32px;line-height:1.5;}
+#tickets .tkrow{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin-bottom:8px;box-shadow:var(--shadow);}
+#tickets .tkday{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:3px;}
+#tickets .tkname{font-size:15.5px;color:var(--ink);font-weight:700;line-height:1.3;}
+#tickets .tkname .nl{font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:13px;color:var(--muted);margin-left:5px;}
+#tickets .tknote{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:4px;}
+#tickets .tknote .k{color:var(--ink);font-weight:700;}
+#tickets .tkprice{text-align:right;white-space:nowrap;padding-top:2px;}
+#tickets .tkprice .eur{font-family:Georgia,serif;font-size:20px;color:var(--ink);font-weight:700;}
+#tickets .tkprice .eur .star{color:var(--gold);font-size:13px;margin-right:1px;}
+#tickets .tkprice .twd{display:block;font-size:12px;color:var(--gold);font-weight:800;margin-top:1px;}
+#tickets .tkprice .free{color:var(--accent);font-weight:800;font-size:14px;}
+#tickets .tkprice.warn .eur{color:var(--accent2);}
+#tickets .tksub{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:14px 16px;border:2px solid var(--accent);border-radius:12px;background:var(--chip);margin-top:4px;}
+#tickets .tksub .lab{font-size:13.5px;color:var(--ink);font-weight:800;}
+#tickets .tksub .lab span{color:var(--muted);font-weight:400;font-size:12px;}
+#tickets .tksub .val{text-align:right;}
+#tickets .tksub .val .eur{font-family:Georgia,serif;font-size:24px;color:var(--accent);font-weight:800;}
+#tickets .tksub .val .twd{display:block;font-size:12.5px;color:var(--gold);font-weight:800;}
+#tickets .tknotes{margin-top:24px;background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+#tickets .tknotes h4{font-family:Georgia,"Songti TC",serif;font-size:16px;margin:0 0 12px;color:var(--ink);font-weight:700;}
+#tickets .tknotes ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;}
+#tickets .tknotes li{font-size:12.8px;line-height:1.6;color:var(--muted);padding-left:16px;position:relative;}
+#tickets .tknotes li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+#tickets .tknotes li b{color:var(--ink);}
+#tickets .tknotes li .new{color:var(--accent2);font-weight:800;}
+@media(max-width:560px){#tickets .tkboard{grid-template-columns:1fr;text-align:center;gap:16px;}#tickets .tkside{text-align:left;}#tickets .tkchips{justify-content:flex-start;}}
+</style>
+
+<div class="tkhead">
+<div class="tkeb">Tickets · Toegangsprijzen</div>
+<h2>門票・票價總覽</h2>
+<div class="tkhsub">13 天行程中「確定會去」的館所 · <b>2026 成人票</b> · 每項含台幣估算</div>
+<div class="tkrate">💶 匯率以 1 € ≈ NT$37 概算</div>
+</div>
+
+<div class="tkboard">
+<div class="tkamt">
+<div class="lead">核心門票 · 每人</div>
+<div class="big">€88</div>
+<div class="twd">≈ NT$3,255</div>
+<div class="per">6 間確定入場的美術館與地標</div>
+</div>
+<div class="tkside">
+<div class="tkhtitle">三大美術館＋三個地標，一次抓齊</div>
+<p>比利時段幾乎都能「看外觀免費」，真正要先付、要先訂的就是這六項。</p>
+<div class="tkchips">
+<span class="tkchip">國家博物館 <b>€25</b></span>
+<span class="tkchip">梵谷 <b>€25</b></span>
+<span class="tkchip">莫瑞泰斯 <b>€15.5</b></span>
+<span class="tkchip">Dom 塔 <b>€13.5</b></span>
+<span class="tkchip">聖巴佛 <b>€4</b></span>
+<span class="tkchip">風車 <b>€5</b></span>
+</div>
+</div>
+</div>
+
+<div class="tksec">
+<div class="tksech"><span class="no">Ⅰ</span><h3>確定入場 · 建議先訂票</h3></div>
+<div class="tksecsub">★ = 只賣線上時段票、常售完，5 人務必選同一時段。</div>
+
+<div class="tkrow">
+<div><div class="tkday">D1 · 哈倫 Haarlem</div><div class="tkname">聖巴佛大教堂 <span class="nl">Grote of St-Bavokerk</span></div><div class="tknote">週一正常開放；看 1738 年 <span class="k">Müller 管風琴</span>。</div></div>
+<div class="tkprice"><span class="eur">€4</span><span class="twd">≈ NT$150</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D1 · 哈倫 Haarlem</div><div class="tkname">阿德里安風車 <span class="nl">Molen de Adriaan</span></div><div class="tknote">約 45 分導覽；週一午後開，<span class="k">末梯 16:30</span>。</div></div>
+<div class="tkprice"><span class="eur">€5</span><span class="twd">≈ NT$185</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D2 · 阿姆斯特丹 Amsterdam</div><div class="tkname">荷蘭國家博物館 <span class="nl">Rijksmuseum</span></div><div class="tknote">排半天；鎮館 <span class="k">林布蘭《夜巡》</span>、維梅爾《倒牛奶女僕》。</div></div>
+<div class="tkprice"><span class="eur"><span class="star">★</span>€25</span><span class="twd">≈ NT$925</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D3 · 阿姆斯特丹 Amsterdam</div><div class="tkname">梵谷博物館 <span class="nl">Van Gogh Museum</span></div><div class="tknote">半日深度看；<span class="k">《向日葵》《盛開的杏花》</span>與大量自畫像。</div></div>
+<div class="tkprice"><span class="eur"><span class="star">★</span>€25</span><span class="twd">≈ NT$925</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D4 · 烏特勒支 Utrecht</div><div class="tkname">主教座堂塔樓 <span class="nl">Domtoren</span></div><div class="tknote">荷蘭最高教堂塔，<span class="k">只能跟導覽登 465 階</span>約 1 小時。</div></div>
+<div class="tkprice"><span class="eur"><span class="star">★</span>€13.5</span><span class="twd">≈ NT$500</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D7 · 海牙 Den Haag</div><div class="tkname">莫瑞泰斯皇家美術館 <span class="nl">Mauritshuis</span></div><div class="tknote">維梅爾 <span class="k">《戴珍珠耳環的少女》</span>；館小、假日人多，早場最舒服。</div></div>
+<div class="tkprice"><span class="eur"><span class="star">★</span>€15.5</span><span class="twd">≈ NT$575</span></div>
+</div>
+
+<div class="tksub">
+<div class="lab">小計 · 每人 <span>（6 項確定入場）</span></div>
+<div class="val"><span class="eur">€88</span><span class="twd">≈ NT$3,255</span></div>
+</div>
+</div>
+
+<div class="tksec">
+<div class="tksech"><span class="no">Ⅱ</span><h3>選配 · 多數看外觀免費</h3></div>
+<div class="tksecsub">教堂本體通常免費，只有塔樓／內部展區才收費——可到現場再決定要不要進。</div>
+
+<div class="tkrow">
+<div><div class="tkday">D5 · 羊角村 Giethoorn</div><div class="tkname">水鄉遊船 <span class="nl">whisper boat / rondvaart</span></div><div class="tknote">共乘每人 €10–12.5；自租整船 €30–60／2 小時。看天氣、季末先確認營業。</div></div>
+<div class="tkprice"><span class="eur">€10–12.5</span><span class="twd">≈ NT$370–460</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D6 · 馬斯垂克 Maastricht</div><div class="tkname">聖彼得堡洞穴・城堡 <span class="nl">Sint-Pietersberg · Fort</span></div><div class="tknote">加碼行程，<span class="k">需線上預約</span>、洞內冷帶外套；各約 1 小時。</div></div>
+<div class="tkprice"><span class="eur">€9.95</span><span class="twd">≈ NT$370</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D6 · 馬斯垂克 Maastricht</div><div class="tkname">聖瑟法斯教堂 <span class="nl">Sint-Servaasbasiliek</span></div><div class="tknote">荷蘭最古老教堂之一；純老城散步可略過。</div></div>
+<div class="tkprice"><span class="eur">約 €6</span><span class="twd">≈ NT$220</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D8 · 安特衛普 Antwerpen</div><div class="tkname">聖母主教座堂 <span class="nl">Cathedral of Our Lady</span></div><div class="tknote">內有 <span class="k">魯本斯《下十字架》</span>；行程原定看外觀，想進再購票。</div></div>
+<div class="tkprice"><span class="eur">€12</span><span class="twd">≈ NT$445</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 布魯日 Brugge</div><div class="tkname">鐘樓 <span class="nl">Belfort</span></div><div class="tknote">登 366 階俯瞰紅瓦老城；時段限流、旺季易售完。</div></div>
+<div class="tkprice"><span class="eur">€15</span><span class="twd">≈ NT$555</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 布魯日 Brugge</div><div class="tkname">聖血聖殿 <span class="nl">Basilica of the Holy Blood</span></div><div class="tknote">教堂免費；<span class="k">寶物室 €5（≈NT$185）</span>，10:00 才開。</div></div>
+<div class="tkprice"><span class="free">免費起</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 布魯日 Brugge</div><div class="tkname">聖母教堂 <span class="nl">Church of Our Lady</span></div><div class="tknote">教堂本體免費；<span class="k">米開朗基羅像展區 €10（≈NT$370）</span>。</div></div>
+<div class="tkprice"><span class="free">免費起</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 根特 Gent</div><div class="tkname">伯爵城堡 <span class="nl">Gravensteen</span></div><div class="tknote">看外觀就有戲；<span class="k">登城牆才需門票</span>，含語音導覽。</div></div>
+<div class="tkprice"><span class="eur">€13</span><span class="twd">≈ NT$480</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 根特 Gent</div><div class="tkname">塗鴉街 <span class="nl">Werregarenstraat</span></div><div class="tknote">合法塗鴉巷，天天有新作——免費又有個性。</div></div>
+<div class="tkprice"><span class="free">免費</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D9 · 根特 Gent</div><div class="tkname">根特祭壇畫（雨備）<span class="nl">Ghent Altarpiece</span></div><div class="tknote">聖巴夫主教座堂，教堂免費；看祭壇畫另購、含 AR。</div></div>
+<div class="tkprice"><span class="eur">€12.5</span><span class="twd">≈ NT$460</span></div>
+</div>
+
+<div class="tkrow">
+<div><div class="tkday">D11 · 贊斯堡 Zaanse Schans</div><div class="tkname">風車村 <span class="nl">Zaanse Schans</span></div><div class="tknote"><span class="k">2026 擬開始收村莊入場費</span>（原本免費）；個別風車入內另約 €5.5。</div></div>
+<div class="tkprice warn"><span class="eur">約 €17.5</span><span class="twd">≈ NT$650</span></div>
+</div>
+</div>
+
+<div class="tknotes">
+<h4>出發前重點</h4>
+<ul>
+<li><b>三大美術館＋Dom 塔一定要官網線上時段票</b>，5 人選同一時段；現場常買不到，尤其週末。</li>
+<li><span class="new">🆕 2026 留意：</span>贊斯堡風車村 <b>擬開始收 €17.5（≈NT$650）村莊入場費</b>（原本免費），出發前務必上官方確認是否上路——5 人就差近 €90。</li>
+<li><b>比利時段以「看外觀免費」為主</b>：安特衛普／布魯日／根特的教堂、城堡、塗鴉街，本體多免費，只有塔樓和內部展區收費，到現場再決定。</li>
+<li>皆為 <b>2026 成人參考價</b>，18 歲以下多免費；<b>台幣以 1 € ≈ NT$37 概算</b>，實際以刷卡當日匯率與各館官網為準。各館訂票連結在每日行程頁裡。</li>
+</ul>
+</div>
+
+</div></section>
 <div class="wrap"><footer>荷比 13 天 · 逐日視覺導覽（10/26 一 – 11/7 六）<br>照片來源：Wikimedia Commons（CC 授權）· 店家官網 · 住宿照片：Airbnb 房源 · 地圖：Google Maps · 影片：YouTube<br>日期、票價與開放時間以官方公告為準。</footer></div><script>
 const btns=document.querySelectorAll(".daytab");const views=document.querySelectorAll(".dayview");btns.forEach(b=>b.addEventListener("click",()=>{btns.forEach(x=>x.classList.remove("active"));views.forEach(v=>v.hidden=true);b.classList.add("active");const t=document.getElementById(b.dataset.target);if(t)t.hidden=false;b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});window.scrollTo({top:0,behavior:"smooth"});}));
 </script></body></html>
