@@ -116,6 +116,35 @@
   .note.plum .nrow{border-top-color:#e2d2ec;}
   @media(max-width:620px){.note .nlabel,.note .ntext,.booklist li,.costlist li{font-size:13px;} .costlist li{flex-wrap:wrap;} .costlist .cv{width:100%;text-align:right;}}
   @media print{.booklist li,.costlist li,.note .nrow{break-inside:avoid;}}
+  /* ── 必訂總表：可勾選 ── */
+  .bkprog{display:flex;align-items:center;gap:10px;margin:9px 0 2px;}
+  .bkprog .bt{font-size:12.5px;font-weight:700;color:var(--accent2);white-space:nowrap;}
+  .bkprog .bt b{font-size:16px;}
+  .bkprog .bb{flex:1;height:8px;border-radius:999px;background:#f5e6cc;border:1px solid #e6cfa4;overflow:hidden;}
+  .bkprog .bb i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d98545,#c4622d);transition:width .25s ease;}
+  .bkprog .br{font-size:11px;font-weight:700;color:#8a7a5c;background:#fffaf1;border:1px solid #e6cfa4;border-radius:999px;padding:4px 10px;cursor:pointer;font-family:inherit;white-space:nowrap;}
+  .bkprog .br:hover{color:var(--accent2);border-color:var(--accent2);}
+  .bkhint{font-size:11.5px;color:#8a7a5c;line-height:1.55;margin-bottom:2px;}
+  .booklist li .bkchk{width:19px;height:19px;flex:0 0 auto;margin:1px 0 0;accent-color:#1f7a52;cursor:pointer;}
+  .booklist li.done{opacity:.5;}
+  .booklist li.done .bktx{text-decoration:line-through;}
+  .note .nrow.done{opacity:.5;}
+  .note .nrow.done .nlabel{text-decoration:line-through;}
+  .nchk{display:inline-flex;align-items:center;gap:7px;}
+  .nchk input{width:19px;height:19px;accent-color:#1f7a52;cursor:pointer;margin:0;flex:0 0 auto;}
+  .nlist{list-style:none;margin:5px 0 0;padding:0;}
+  .nlist>li{position:relative;padding-left:15px;margin-bottom:6px;font-size:13.5px;line-height:1.62;color:#6b5836;}
+  .nlist>li:last-child{margin-bottom:0;}
+  .nlist>li::before{content:"";position:absolute;left:3px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .nlist>li b{color:#5a4a2e;}
+  .nlist>li.hi::before{background:#c4622d;}
+  .nlist>li.ok::before{background:#1f7a52;}
+  .nlist ul{list-style:none;margin:5px 0 0;padding:0;}
+  .nlist ul li{position:relative;padding-left:14px;margin-bottom:4px;line-height:1.6;}
+  .nlist ul li:last-child{margin-bottom:0;}
+  .nlist ul li::before{content:"\2013";position:absolute;left:2px;top:0;color:var(--gold);font-weight:700;}
+  @media(max-width:620px){.nlist>li{font-size:13px;}}
+  @media print{.bkprog,.bkhint{display:none;} .booklist li .bkchk,.nchk input{display:none;}}
 </style></head><body class="guide"><div class="topbar"><div class="inner"><div class="brand">🇳🇱🇧🇪 荷比 13 天 · <b>行程導覽</b></div><div class="daynav">
 <button class="daytab active" data-target="day1"><span class="d">D1</span>哈倫</button>
 <button class="daytab" data-target="day2"><span class="d">D2</span>阿姆-國家博物館</button>
@@ -179,19 +208,52 @@
 </div>
 <div class="note" style="border-color:#c4622d;">
 <span class="nhead">🎟 出發前必訂總表<span class="nsub">時段票五人請訂同一時段／梯次</span></span>
+<div class="bkprog"><span class="bt">已訂 <b id="bkdone">0</b> / <span id="bktotal">9</span></span><span class="bb"><i id="bkfill"></i></span><button type="button" class="br" id="bkreset">全部清空</button></div>
+<div class="bkhint">訂完一項就打勾，會記在這台裝置的瀏覽器裡，下次打開還在（換裝置或清瀏覽資料會歸零）。</div>
 <ul class="booklist">
-<li><span class="dchip">D2</span><span><span class="nm">Rijksmuseum</span> 國家博物館<span class="meta"> · €25 · 線上時段票</span></span></li>
-<li><span class="dchip">D3</span><span><span class="nm">Van Gogh Museum</span> 梵谷博物館<span class="meta"> · €25 · <b>只賣線上、現場買不到</b></span></span></li>
-<li><span class="dchip">D4</span><span><span class="nm">聖馬丁主教座堂塔樓</span>登頂導覽＋可選 DOMunder<span class="meta"> · €13.50 · 只能跟導覽、遲到票作廢</span></span></li>
-<li><span class="dchip">D5</span><span><span class="nm">羊角村電動船／共乘船</span><span class="meta"> · 線上較便宜、季末先確認船家</span></span></li>
-<li><span class="dchip">D6</span><span><span class="nm">聖彼得堡洞穴</span> Grotten Noord 官方導覽<span class="meta"> · €9.95 起（浮動）· 訂票已改 exploremaastricht.nl</span></span></li>
-<li><span class="dchip">D7</span><span><span class="nm">Mauritshuis</span> 莫瑞泰斯<span class="meta"> · €21 · 線上時段票</span></span></li>
-<li><span class="dchip">D1</span><span><span class="nm">阿德里安風車</span>導覽梯次<span class="meta"> · €7.50 · 每梯限 12 人、5 人建議先訂</span></span></li>
-<li><span class="dchip">D9</span><span><span class="nm">布魯日鐘樓</span> Belfort<span class="meta"> · €15 · 11/3 起 10:00 才開、票綁時段</span></span></li>
+<li data-bk="rijks"><input type="checkbox" class="bkchk" aria-label="國家博物館 已訂"><span class="dchip">D2</span><span class="bktx"><span class="nm">Rijksmuseum</span> 國家博物館<span class="meta"> · €25 · 線上時段票</span></span></li>
+<li data-bk="vangogh"><input type="checkbox" class="bkchk" aria-label="梵谷博物館 已訂"><span class="dchip">D3</span><span class="bktx"><span class="nm">Van Gogh Museum</span> 梵谷博物館<span class="meta"> · €25 · <b>只賣線上、現場買不到</b></span></span></li>
+<li data-bk="domtoren"><input type="checkbox" class="bkchk" aria-label="聖馬丁主教座堂塔樓 已訂"><span class="dchip">D4</span><span class="bktx"><span class="nm">聖馬丁主教座堂塔樓</span>登頂導覽＋可選 DOMunder<span class="meta"> · €13.50 · 只能跟導覽、遲到票作廢</span></span></li>
+<li data-bk="giethoorn"><input type="checkbox" class="bkchk" aria-label="羊角村船 已訂"><span class="dchip">D5</span><span class="bktx"><span class="nm">羊角村電動船／共乘船</span><span class="meta"> · 線上較便宜、季末先確認船家</span></span></li>
+<li data-bk="grotten"><input type="checkbox" class="bkchk" aria-label="聖彼得堡洞穴 已訂"><span class="dchip">D6</span><span class="bktx"><span class="nm">聖彼得堡洞穴</span> Grotten Noord 官方導覽<span class="meta"> · €9.95 起（浮動）· 訂票已改 exploremaastricht.nl</span></span></li>
+<li data-bk="mauritshuis"><input type="checkbox" class="bkchk" aria-label="莫瑞泰斯 已訂"><span class="dchip">D7</span><span class="bktx"><span class="nm">Mauritshuis</span> 莫瑞泰斯<span class="meta"> · €21 · 線上時段票</span></span></li>
+<li data-bk="adriaan"><input type="checkbox" class="bkchk" aria-label="阿德里安風車 已訂"><span class="dchip">D1</span><span class="bktx"><span class="nm">阿德里安風車</span>導覽梯次<span class="meta"> · €7.50 · 每梯限 12 人、5 人建議先訂</span></span></li>
+<li data-bk="belfort"><input type="checkbox" class="bkchk" aria-label="布魯日鐘樓 已訂"><span class="dchip">D9</span><span class="bktx"><span class="nm">布魯日鐘樓</span> Belfort<span class="meta"> · €15 · 11/3 起 10:00 才開、票綁時段</span></span></li>
 </ul>
-<div class="nrow"><span class="nlabel">🍴 餐廳訂位</span><span class="ntext">各晚 5 人建議先訂。FishnBites（D7 週日 17:00 起）、De Groote Witte Arend／Elfde Gebod（D8 週一有開）；Ratatouille（D1）週一公休、當天改點。<b>怎麼訂（不用講電話）：</b>多數餐廳可用 <b>Google 地圖的「訂位」鈕或餐廳官網</b>線上訂，部分用 <b>TheFork</b>；也可<b>請住宿櫃台代訂</b>。熱門店與週末<b>提前 2–3 天</b>、米其林（Ratatouille）更早訂。</span></div>
-<div class="nrow"><span class="nlabel">💶 小費</span><span class="ntext">荷比帳單多已含服務費、非強制；滿意時湊整數或留約 5–10%，咖啡小額湊整即可。</span></div>
-<div class="nrow"><span class="nlabel">⏰ 火車誤點、預約時段趕不上怎麼辦</span><span class="ntext"><b>博物館時段票</b>（Rijks／梵谷／Mauritshuis）遲到通常有轉圜——多數館可當日稍後入場或由服務台安排（各館規定不一，購票時瞄一眼條款；到館先照常出示票，不行就找服務台）。<b>導覽梯次不同：聖馬丁主教座堂塔樓、聖彼得堡洞穴是固定梯次，過時即作廢、多不退款</b>——一發現會遲到，馬上用訂單信裡的連結或電話問能否改場；改不了就放下，別為它打亂全天。這兩張票的<b>前後行程請留大緩衝</b>。</span></div>
+<div class="nrow" data-bk="resto"><span class="nlabel nchk"><input type="checkbox" class="bkchk" aria-label="餐廳訂位 已訂">🍴 餐廳訂位</span>
+<ul class="nlist">
+<li><b>各晚 5 人建議先訂。</b></li>
+<li>哪幾家、哪天：
+<ul>
+<li><b>FishnBites</b> — D7 週日 17:00 起</li>
+<li><b>De Groote Witte Arend／Elfde Gebod</b> — D8 週一有開</li>
+<li><b>Ratatouille</b>（D1）— 週一公休，當天改點</li>
+</ul></li>
+<li class="ok"><b>怎麼訂（不用講電話）：</b>
+<ul>
+<li>多數餐廳可用 <b>Google 地圖的「訂位」鈕或餐廳官網</b>線上訂</li>
+<li>部分用 <b>TheFork</b></li>
+<li>也可<b>請住宿櫃台代訂</b></li>
+</ul></li>
+<li class="hi"><b>提前多久：</b>熱門店與週末<b>提前 2–3 天</b>；米其林（Ratatouille）更早訂。</li>
+</ul></div>
+<div class="nrow"><span class="nlabel">💶 小費</span>
+<ul class="nlist">
+<li>荷比帳單<b>多已含服務費、非強制</b>。</li>
+<li>滿意時<b>湊整數或留約 5–10%</b>。</li>
+<li>咖啡小額<b>湊整即可</b>。</li>
+</ul></div>
+<div class="nrow"><span class="nlabel">⏰ 火車誤點、預約時段趕不上怎麼辦</span>
+<ul class="nlist">
+<li class="ok"><b>博物館時段票</b>（Rijks／梵谷／Mauritshuis）<b>遲到通常有轉圜</b>——多數館可當日稍後入場，或由服務台安排。
+<ul>
+<li>各館規定不一，購票時瞄一眼條款。</li>
+<li>到館先照常出示票，不行就找服務台。</li>
+</ul></li>
+<li class="hi"><b>導覽梯次不同：聖馬丁主教座堂塔樓、聖彼得堡洞穴是固定梯次，過時即作廢、多不退款。</b></li>
+<li>一發現會遲到，<b>馬上用訂單信裡的連結或電話問能否改場</b>；改不了就放下，別為它打亂全天。</li>
+<li class="hi">這兩張票的<b>前後行程請留大緩衝</b>。</li>
+</ul></div>
 </div>
 <div class="note">
 <span class="nhead">🎒 行前實務<span class="nsub">出發前備好</span></span>
@@ -1900,4 +1962,39 @@
 </div></section>
 <div class="wrap"><footer>荷比 13 天 · 逐日視覺導覽（10/26 一 – 11/7 六）<br>照片來源：Wikimedia Commons（CC 授權）· 店家官網 · 住宿照片：Airbnb 房源 · 地圖：Google Maps · 影片：YouTube<br>日期、票價與開放時間以官方公告為準。</footer></div><script>
 const btns=document.querySelectorAll(".daytab");const views=document.querySelectorAll(".dayview");btns.forEach(b=>b.addEventListener("click",()=>{btns.forEach(x=>x.classList.remove("active"));views.forEach(v=>v.hidden=true);b.classList.add("active");const t=document.getElementById(b.dataset.target);if(t)t.hidden=false;b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});window.scrollTo({top:0,behavior:"smooth"});}));
+</script>
+<script>
+(function(){
+  var KEY='nl13-musttrip-done-v1', saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){saved={};}
+  var rows=[].slice.call(document.querySelectorAll('[data-bk]'));
+  var eD=document.getElementById('bkdone'),eT=document.getElementById('bktotal'),eF=document.getElementById('bkfill');
+  if(!rows.length||!eD)return;
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
+  function paint(){
+    var n=0;
+    rows.forEach(function(r){
+      var on=!!saved[r.getAttribute('data-bk')];
+      if(on)n++;
+      r.classList.toggle('done',on);
+      var b=r.querySelector('.bkchk'); if(b)b.checked=on;
+    });
+    eT.textContent=rows.length; eD.textContent=n;
+    eF.style.width=(rows.length?(n/rows.length*100):0)+'%';
+  }
+  rows.forEach(function(r){
+    var b=r.querySelector('.bkchk'); if(!b)return;
+    b.addEventListener('change',function(){
+      var id=r.getAttribute('data-bk');
+      if(b.checked){saved[id]=1;}else{delete saved[id];}
+      save();paint();
+    });
+  });
+  var rs=document.getElementById('bkreset');
+  if(rs)rs.addEventListener('click',function(){
+    if(!confirm('確定要把所有勾選清空？'))return;
+    saved={};save();paint();
+  });
+  paint();
+})();
 </script></body></html>
