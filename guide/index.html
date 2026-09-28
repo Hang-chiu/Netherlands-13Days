@@ -4371,4 +4371,97 @@ const btns=document.querySelectorAll(".daytab");const views=document.querySelect
     document.head.appendChild(style);
   }
 })();
+</script>
+<script>
+(function(){
+  // Visible labels for the named transit stops used in the itinerary.
+  var stops=[
+    {label:'機場大廳／火車站在地下',tone:'airport',aliases:['Schiphol Plaza']},
+    {label:'機場出境大廳',tone:'airport',aliases:['Schiphol Departures']},
+    {label:'機場／火車站',tone:'airport',aliases:['Amsterdam Airport Schiphol','Schiphol Airport Station','Schiphol Airport','史基浦機場車站','史基浦機場','機場車站','Schiphol']},
+    {label:'火車站',tone:'rail',aliases:['Station Haarlem','Haarlem Station','哈倫車站','哈倫站','Halfweg-Zwanenburg 車站','Halfweg-Zwanenburg']},
+    {label:'火車／地鐵／電車／公車轉乘站',tone:'hub',aliases:['Amsterdam Sloterdijk Station','Amsterdam Sloterdijk 車站','Amsterdam Sloterdijk','Sloterdijk 車站','Sloterdijk']},
+    {label:'火車／地鐵／電車轉乘站',tone:'hub',aliases:['Amsterdam Lelylaan','Station Lelylaan','Lelylaan 車站','Lelylaan']},
+    {label:'公車站',tone:'local',aliases:['Jan Tooropstraat']},
+    {label:'地鐵站',tone:'local',aliases:['Postjesweg 地鐵站','Postjesweg']},
+    {label:'地鐵終點站',tone:'local',aliases:['Isolatorweg','Gein']},
+    {label:'火車／地鐵／電車／渡輪轉乘站',tone:'hub',aliases:['Amsterdam Centraal','阿姆斯特丹中央車站','阿姆中央車站','阿姆 Centraal']},
+    {label:'電車站',tone:'local',aliases:['Rijksmuseum-Spiegelgracht','Rijksmuseum 電車站','Leidseplein','Rozengracht']},
+    {label:'電車終點站',tone:'local',aliases:['Osdorp Dijkgraafplein','Dijkgraafplein','Azartplein']},
+    {label:'火車／電車／公車轉乘站',tone:'hub',aliases:['Utrecht Centraal','Utrecht CS','烏特勒支中央車站']},
+    {label:'公車站',tone:'local',aliases:['Janskerkhof']},
+    {label:'火車／公車轉乘站',tone:'rail',aliases:['Steenwijk, Station','Steenwijk Station','Steenwijk']},
+    {label:'公車站',tone:'local',aliases:['Dominee Hylkemaweg']},
+    {label:'火車站',tone:'rail',aliases:['Zwolle Station','Zwolle 車站','Maastricht station','Maastricht Station','馬斯垂克中央車站']},
+    {label:'公車終點站',tone:'local',aliases:['Sint Pietersberg']},
+    {label:'火車／電車／公車轉乘站',tone:'hub',aliases:['Den Haag Centraal','海牙中央車站','Den Haag HS']},
+    {label:'電車站',tone:'local',aliases:['Scheveningen Noorderstrand','Javabrug','Madurodam','Nieuwe Duinweg','Circustheater','Kurhaus']},
+    {label:'火車／地鐵／電車／公車轉乘站',tone:'hub',aliases:['Rotterdam Centraal','Rotterdam']},
+    {label:'火車站',tone:'rail',aliases:['Rotterdam Alexander','Gouda','Aalter']},
+    {label:'火車／地鐵／電車轉乘站',tone:'hub',aliases:['Bruxelles-Midi','Brussels South']},
+    {label:'火車／公車轉乘站',tone:'rail',aliases:['布魯日車站','Brugge 車站','Brugge station']},
+    {label:'公車站',tone:'local',aliases:["'t Zand",'’t Zand','‘t Zand']},
+    {label:'火車／電車／公車轉乘站',tone:'hub',aliases:['Gent-Sint-Pieters','根特聖彼得車站','根特站']},
+    {label:'電車站',tone:'local',aliases:['Koophandelsplein','Gent Zuid']},
+    {label:'電車終點站',tone:'local',aliases:['Flanders Expo']},
+    {label:'火車／地鐵／電車轉乘站',tone:'hub',aliases:['Antwerpen-Centraal','安特衛普中央車站']},
+    {label:'火車站',tone:'rail',aliases:['Zaandijk-Zaanse Schans','Zaandijk Zaanse Schans','贊斯堡車站','Hoofddorp']},
+    {label:'火車／電車站',tone:'hub',aliases:['Muiderpoortstation','Muiderpoort Station']},
+    {label:'地鐵站',tone:'local',aliases:['Vijzelgracht','De Pijp']},
+    {label:'渡輪碼頭',tone:'ferry',aliases:['NDSM veer','IJzijde']}
+  ];
+  var types=Object.create(null);
+  stops.forEach(function(stop){
+    stop.aliases.forEach(function(alias){types[alias]=stop;});
+  });
+  var names=Object.keys(types).sort(function(a,b){return b.length-a.length;});
+  function escapeRegExp(value){return value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  var finder=new RegExp(names.map(escapeRegExp).join('|'),'gu');
+  var style=document.createElement('style');
+  style.textContent='.station-type{font-size:.8em;font-weight:800;color:#356a5c;letter-spacing:0;margin-left:.16em;white-space:normal}.station-type--hub{color:#2f6176}.station-type--local{color:#a45a2e}.station-type--airport{color:#8a6d1f}.station-type--ferry{color:#356f8a}@media(max-width:560px){.station-type{font-size:.76em}}';
+  document.head.appendChild(style);
+  var skipTags={SCRIPT:true,STYLE:true,SVG:true,TEXTAREA:true,OPTION:true,CODE:true,PRE:true};
+  var nodes=[];
+  var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+    acceptNode:function(node){
+      var parent=node.parentElement;
+      if(!parent||skipTags[parent.tagName]||parent.closest('[data-station-annotated]'))return NodeFilter.FILTER_REJECT;
+      finder.lastIndex=0;
+      return finder.test(node.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+    }
+  });
+  var node;
+  while((node=walker.nextNode()))nodes.push(node);
+  nodes.forEach(function(textNode){
+    var source=textNode.nodeValue;
+    var fragment=document.createDocumentFragment();
+    var last=0;
+    var previousStop=null;
+    var match;
+    finder.lastIndex=0;
+    while((match=finder.exec(source))){
+      fragment.appendChild(document.createTextNode(source.slice(last,match.index)));
+      var stop=types[match[0]];
+      var between=source.slice(last,match.index);
+      var isBilingualRepeat=previousStop&&previousStop.label===stop.label&&/^[\s（(／/·-]*$/.test(between);
+      if(isBilingualRepeat){
+        fragment.appendChild(document.createTextNode(match[0]));
+      }else{
+        var marked=document.createElement('span');
+        marked.dataset.stationAnnotated='true';
+        marked.appendChild(document.createTextNode(match[0]));
+        var label=document.createElement('span');
+        label.className='station-type station-type--'+stop.tone;
+        label.textContent='（'+stop.label+'）';
+        label.title='交通類型：'+stop.label;
+        marked.appendChild(label);
+        fragment.appendChild(marked);
+      }
+      previousStop=stop;
+      last=match.index+match[0].length;
+    }
+    fragment.appendChild(document.createTextNode(source.slice(last)));
+    textNode.parentNode.replaceChild(fragment,textNode);
+  });
+})();
 </script></body></html>
